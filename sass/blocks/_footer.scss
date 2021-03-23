@@ -1,0 +1,9 @@
+footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-links {
+    display: flex;
+    gap: calc(var(--base-gap) * 2);
+}
