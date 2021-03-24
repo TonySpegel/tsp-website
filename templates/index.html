@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html lang="de">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <meta
-            name="description"
-            content="{% block description %}{{ config.description }}{% endblock description %}"
-        />
-        <meta name="author" content="{{ config.extra.author }}">
-        <meta name="copyright" content="Copyright © 2021 {{ config.extra.author }}" />
-        
-        <link rel="stylesheet" href="{{ get_url(path="styles.css") }}"/>
-        <script type="text/javascript" src="{{ get_url(path="index.js") }}"></script>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <a href="#">Logo</a>
-                <ul>
-                    <li>Home</li>
-                    <li>Über mich</li>
-                    <li>Blog</li>
-                </ul>
-            </nav>
-        </header>
-        <h1>hi</h1>
-        <footer>
-            <ul class="footer-links">
-                <li>Kontakt</li>
-                <li>Datenschutz</li>
-                <li>Impressum</li>
-            </ul>
-        </footer>
-    </body>
-</html>
+{% extends "base.html" %} 
+
+{% block content %}
+    <h1 class="title">This is my blog made with Zola.</h1>
+{% endblock content %}
