@@ -1,0 +1,16 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: var(--double-gap);
+}
+
+nav {
+    ul {
+        display: flex;
+        gap: var(--base-gap);
+    }
+
+    a {
+        padding: var(--base-gap);
+    }
+}

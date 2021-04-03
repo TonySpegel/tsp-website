@@ -1,9 +1,12 @@
 footer {
     display: flex;
     justify-content: flex-end;
+    position: fixed;
+    bottom: var(--double-gap);
+    right: var(--double-gap);
 }
 
 .footer-links {
     display: flex;
-    gap: calc(var(--base-gap) * 2);
+    gap: var(--double-gap);
 }
