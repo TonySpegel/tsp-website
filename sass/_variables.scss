@@ -1,5 +1,18 @@
 :root {
-    --primary-color: #fbc;
+    --primary-color: #0077bf;
+
+    --bubble-1--color-1: #21d4fd;
+    --bubble-1--color-2: #b721ff;
+
+    --bubble-2--color-1: #d81b60;
+    --bubble-2--color-2: #03a9f4;
+
+    --glass-tint: rgba(234, 248, 255, 0.15);
+
+    @media (prefers-color-scheme: dark) {
+        --glass-tint: rgba(0, 0, 0, 0.72);
+    }
 
     --base-gap: 8px;
+    --double-gap: 16px;
 }
