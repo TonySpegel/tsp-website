@@ -1,17 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
     <head>
-        <meta charset="utf-8" />
-        <title>MyBlog</title>
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
-        />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Tony Spegel" />
+        <title>Tony Spegel</title>
+        <link rel="stylesheet" href="{{ config.base_url }}/styles.css" />
     </head>
-
     <body>
-        <section class="section">
-            <div class="container">{% block content %} {% endblock %}</div>
-        </section>
+        <div class="glass"></div>
+        <div class="bubble"></div>
+        <div class="bubble-2"></div>
+        <div class="content">
+            <header>
+                <span id="logo"></span>
+                <nav>
+                    <ul>
+                        <li><a title="Home" href="/">Home</a></li>
+                        <li><a title="Blog" href="/blog">Blog</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="section">
+                <div class="container">{% block content %}{% endblock %}</div>
+            </section>
+    
+            <footer>
+                <ul class="footer-links">
+                    <li><a href="/privacy-policy">Datenschutz</a></li>
+                    <li><a href="/imprint">Impressum</a></li>
+                </ul>
+            </footer>
+        </div>
     </body>
 </html>
