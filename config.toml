@@ -12,3 +12,7 @@ highlight_code = true
 
 [extra]
 author = "Tony Spegel"
+menu_links = [
+    { url = "$BASE_URL/", name = "Home" },
+    { url = "$BASE_URL/blog/", name = "Blog" },
+]
