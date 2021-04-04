@@ -3,55 +3,6 @@ body {
     max-width: 1024px;
 }
 
-.glass {
-    background-color: var(--glass-tint);
-    backdrop-filter: blur(40px);
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.bubble {
-    width: 350px;
-    aspect-ratio: 1;
-    border-radius: 65% 41% 48% 61% / 61% 47% 57% 43%;
-    background-color: var(--bubble-1--color-1);
-    background-image: linear-gradient(
-        19deg,
-        var(--bubble-1--color-1) 0%,
-        var(--bubble-1--color-2) 100%
-    );
-    grid-column: 1;
-    grid-row: 1;
-    z-index: -1;
-    position: fixed;
-    right: -35px;
-    top: -50px;
-}
-
-.bubble-2 {
-    width: 350px;
-    aspect-ratio: 1;
-    background-color: var(--bubble-2--color-1);
-    background-image: linear-gradient(
-        226deg,
-        var(--bubble-2--color-1) 0%,
-        var(--bubble-2--color-2) 100%
-    );
-    grid-column: 1;
-    grid-row: 1;
-    z-index: -1;
-    position: fixed;
-    bottom: -32px;
-    border-radius: 72% 80% 70% 63% / 83% 50% 100% 43%;
-    left: -45px;
-}
-
 [sgb] {
     background: linear-gradient(90deg, red, cyan);
 

@@ -1,0 +1,17 @@
+@keyframes move {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(-100px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.vibing {
+    animation-name: move;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+}
