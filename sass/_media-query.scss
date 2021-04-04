@@ -1,0 +1,11 @@
+@media (prefers-color-scheme: dark) {
+    a {
+        color: #fff;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+    }
+}
