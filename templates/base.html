@@ -7,11 +7,12 @@
         <meta name="description" content="Tony Spegel" />
         <title>Tony Spegel</title>
         <link rel="stylesheet" href="{{ config.base_url }}/styles.css" />
+        <!-- <meta name="theme-color" content="#d81b60"> -->
     </head>
     <body>
         <div class="glass"></div>
         <div class="bubble"></div>
-        <div class="bubble-2"></div>
+        <div class="bubble-2 vibing"></div>
         <div class="content">
             <header>
                 <span id="logo"></span>
@@ -19,6 +20,11 @@
                     <ul>
                         <li><a title="Home" href="/">Home</a></li>
                         <li><a title="Blog" href="/blog">Blog</a></li>
+
+                        <!-- {% for menu_link in config.extra.menu_links %}
+                        {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
+                        <a {% if current_url and current_url == link_url %}class="active"{% endif %} href="{{ link_url }}">{{menu_link.name}}</a>
+                        {% endfor %} -->
                     </ul>
                 </nav>
             </header>
