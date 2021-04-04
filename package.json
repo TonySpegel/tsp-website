@@ -2,7 +2,7 @@
     "name": "tsp-website",
     "version": "1.0.0",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "serve": "zola serve --interface 0.0.0.0 --port 2000 --base-url rhea.lan"
     },
     "husky": {
         "hooks": {
