@@ -1,6 +1,8 @@
 :root {
     --primary-color: #0077bf;
 
+    --text-color: #2c2c2c;
+
     --bubble-1--color-1: #21d4fd;
     --bubble-1--color-2: #b721ff;
 
@@ -9,10 +11,11 @@
 
     --glass-tint: rgba(234, 248, 255, 0.15);
 
-    @media (prefers-color-scheme: dark) {
-        --glass-tint: rgba(0, 0, 0, 0.72);
-    }
-
     --base-gap: 8px;
     --double-gap: 16px;
+    
+    @media (prefers-color-scheme: dark) {
+        --glass-tint: rgba(0, 0, 0, 0.72);
+        --text-color: #fff;
+    }
 }
