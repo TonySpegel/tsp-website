@@ -1,9 +1,7 @@
 footer {
     display: flex;
     justify-content: flex-end;
-    position: fixed;
-    bottom: var(--double-gap);
-    right: var(--double-gap);
+    padding: var(--double-gap);
 }
 
 .footer-links {
