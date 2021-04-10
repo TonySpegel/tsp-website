@@ -6,14 +6,23 @@
  */
 @import './blocks/_body.scss';
 @import './blocks/_header.scss';
+@import './blocks/_main.scss';
 @import './blocks/_footer.scss';
 
 @import './blocks/_bubble.scss';
 @import './blocks/_glass.scss';
 
+@import './blocks/_pre.scss';
+
 @import './animations';
 @import './_media-query';
 
-h1 {
-    color: var(--primary-color);
+h1,
+p,
+a {
+    color: var(--text-color);
+}
+
+img {
+    width: 100%;
 }
