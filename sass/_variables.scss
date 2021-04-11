@@ -1,7 +1,8 @@
 :root {
     --primary-color: #0077bf;
 
-    --text-color: #2c2c2c;
+    --text-color: 44, 44, 44;
+    --menu-item-color: var(--text-color);
 
     --bubble-1--color-1: #21d4fd;
     --bubble-1--color-2: #b721ff;
