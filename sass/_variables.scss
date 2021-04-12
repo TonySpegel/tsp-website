@@ -10,13 +10,24 @@
     --bubble-2--color-1: #d81b60;
     --bubble-2--color-2: #03a9f4;
 
+    --bubble-size: 350px;
+
     --glass-tint: rgba(234, 248, 255, 0.15);
 
     --base-gap: 8px;
     --double-gap: 16px;
+
+    --main-padding: 32px;
     
     @media (prefers-color-scheme: dark) {
         --glass-tint: rgba(0, 0, 0, 0.72);
         --text-color: #fff;
+    }
+
+    @media only screen and (max-width: 1280px) {
+        --main-padding: 32px;
+        img {
+            width: 100%;
+        }
     }
 }
