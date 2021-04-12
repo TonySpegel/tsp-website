@@ -1,27 +1,25 @@
 body {
     display: grid;
-    max-width: 1024px;
 }
 
-[sgb] {
-    background: linear-gradient(90deg, red, cyan);
+h1 {
+    height: 30px;
+    position: relative;
+    display: flex;
+    align-items: center;
 
     &:before {
-        -webkit-mask-image: linear-gradient(to bottom, transparent, black);
-        mask-image: linear-gradient(to bottom, transparent, black);
-        background: linear-gradient(90deg, hotpink, rebeccapurple);
         content: '';
+        width: 35px;
+        height: 35px;
+        display: block;
+        z-index: -1;
         position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        border-radius: 72% 80% 70% 63% / 83% 50% 100% 43%;
+        padding: 8px;
+        left: -15px;
+        border-radius: 65% 41% 48% 61% / 61% 47% 57% 43%;
+        background-color: rgba(170, 187, 204, 0.33);
+        backdrop-filter: blur(30px);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     }
-}
-
-.content {
-    grid-column: 1;
-    grid-row: 1;
-    z-index: 1;
 }
