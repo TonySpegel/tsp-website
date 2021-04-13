@@ -11,20 +11,19 @@
     </head>
     <body>
         <div class="glass"></div>
-        <div class="bubble vibing"></div>
-        <div class="bubble-2 vibing"></div>
+        <div class="bubble"></div>
+        <div class="bubble-2"></div>
         <div class="content">
             <header>
                 <span id="logo"></span>
                 <nav>
                     <ul>
-                        <li><a title="Home" href="/" class="active">Home</a></li>
-                        <li><a title="Blog" href="/blog">Blog</a></li>
-
-                        <!-- {% for menu_link in config.extra.menu_links %}
+                        {% for menu_link in config.extra.menu_links %}
                         {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
-                        <a {% if current_url and current_url == link_url %}class="active"{% endif %} href="{{ link_url }}">{{menu_link.name}}</a>
-                        {% endfor %} -->
+                            <li>
+                                <a {% if current_url and current_url == link_url %}class="active"{% endif %} href="{{ link_url }}">{{menu_link.name}}</a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </nav>
             </header>
