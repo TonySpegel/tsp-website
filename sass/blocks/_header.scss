@@ -14,7 +14,7 @@ nav {
     }
 
     li {
-        width: 80px;
+        width: var(--menu-item-width);
     }
 
     a {
@@ -28,13 +28,17 @@ nav {
         color: #fff;
         transition: background-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
+        &:after {
+            content: unset;
+        }
+
         &.active {
-            background-color: rgba(var(--menu-item-color), 1);
+            background-color: var(--menu-item-color);
         }
 
         &:focus,
         &:hover {
-            background-color: rgba(var(--menu-item-color), 1);
+            background-color: var(--menu-item-color);
         }
     }
 }

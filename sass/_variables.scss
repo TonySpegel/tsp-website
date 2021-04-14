@@ -1,31 +1,42 @@
 :root {
+
     --primary-color: #0077bf;
 
-    --text-color: 44, 44, 44;
-    --menu-item-color: var(--text-color);
+    --text-color: rgb(44, 44, 44);
+    --menu-item-color: rgb(44, 44, 44);
 
+    /**
+     * Bubble
+     */
     --bubble-1--color-1: #21d4fd;
     --bubble-1--color-2: #b721ff;
-
     --bubble-2--color-1: #d81b60;
     --bubble-2--color-2: #03a9f4;
 
     --bubble-size: 350px;
 
-    --glass-tint: rgba(234, 248, 255, 0.15);
-
+    /**
+     * Layout
+     */
     --base-gap: 8px;
     --double-gap: 16px;
+    --main-padding: calc(var(--base-gap) * 4);
 
-    --main-padding: 32px;
-    
+    --menu-item-width: 80px;
+
+    /**
+     * Misc
+     */
+
+    --glass-tint: rgba(234, 248, 255, 0.15);
+
     @media (prefers-color-scheme: dark) {
         --glass-tint: rgba(0, 0, 0, 0.72);
         --text-color: #fff;
+        --menu-item-color: rgba(0, 0, 0, 0.72);
     }
 
     @media only screen and (max-width: 1280px) {
-        --main-padding: 32px;
         img {
             width: 100%;
         }
