@@ -10,7 +10,7 @@ class Hvaldimir {
     weight: number;
 }
 ```
-<!-- 
+
 ```typescript
 import { LocationInterface, OrientiationInterface } from '../../interfaces/';
 import { DialogService, LocationService } from '../../services';
@@ -49,4 +49,3 @@ export class LocationsComponent implements OnInit {
         );
     }
 }
-``` -->
