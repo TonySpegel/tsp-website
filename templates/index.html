@@ -1,16 +1,57 @@
 {% extends "base.html" %} 
+{% import "macros/page.html" as page_macros %}
+
+
+{% block seo %}
+  {{ super() }}
+
+  {% if config.title %}
+    {% set title = config.title %}
+  {% else %}
+    {% set title = "" %}
+  {% endif %}
+  
+  {% if config.extra.title_addition and title %}
+    {% set title_addition = title_separator ~ config.extra.title_addition %}
+  {% elif config.extra.title_addition %}
+    {% set title_addition = config.extra.title_addition %}
+  {% else %}
+    {% set title_addition = "" %}
+  {% endif %}
+  
+  {% set description = config.description %}
+  
+  {{ macros_head::seo(title=title, title_addition=title_addition, description=description, is_home=true) }}
+{% endblock seo %}
 
 {% block content %}
 <div class="wrapper">
-    <h1 class="title">Hvaldimir</h1>
-    <img src="{{ config.base_url }}/img/hvaldimir.jpg" alt="Hvaldimir" />
+    <h1 class="title">Tony Spegel</h1>
     <p>
-        <b>Hvaldimir</b> is a male beluga whale that fishermen near Hammerfest 
-        in northern Norway noticed in April 2019 wearing a camera harness;
-        after being freed from the harness, the whale remained in the area
-        and appeared used to humans. Speculation that he had been trained 
-        by Russia as a spy whale led to his being dubbed Hvaldimir, a pun 
-        on the Norwegian hval (whale) and Vladimir Putin.
+        Hi, ich bin (Web)-Entwickler arbeite vor allem mit dem Web-Framework
+        <a href="https://angular.io/" target="_blank" rel="noopener noreferrer">Angular</a>
+        sowie TypeScript und der E-Commerce-Plattform
+        <a
+            href="https://www.shopify.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Shopify</a
+        >. Besonders spannend finde ich alles in Richtung
+        Cross-Plattform-Entwicklung mit Web-Apps und in ersten Gehversuchen auch
+        mit Flutter. In meinem Blog möchte ich zeigen, was moderne Web-Apps
+        können und einfach experementieren mit allem, was ich als spannend
+        ansehe. In meiner Selbstständigkeit unterstütze ich meine Kund:innen bei
+        der Umsetzung von Websites und Onlineshops. Schreibt mir doch einfach
+        eine Mail an
+        <a href="mailto:tony.spegel@gmail.com">tony.spegel@gmail.com</a>.
     </p>
+
+    {% for page in paginator.pages %}
+      <a href="{{page.permalink}}"  id="article_link" >{{page.title}}</a>
+    {% endfor %}
+
+
+
+    <!-- <img src="{{ config.base_url }}/img/hvaldimir.jpg" alt="Hvaldimir" /> -->
 </div>
 {% endblock content %}
