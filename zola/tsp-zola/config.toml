@@ -16,6 +16,10 @@ taxonomies = [
     { name = 'tags' },
 ]
 
+# If set to "true", the section will pass its pages on to the parent section. Defaults to `false`.
+# Useful when the section shouldn't split up the parent section, like
+# sections for each year under a posts section.
+transparent = false
 
 [markdown]
 # Whether to do syntax highlighting
@@ -26,7 +30,7 @@ highlight_code = true
 # Put all your custom variables here
 anpu_menu_links = [
     { url = '$BASE_URL/tags/', name = 'Tags' },
-    { url = '$BASE_URL/imprint/', name = 'Imprint' },
+    { url = '$BASE_URL/impressum/', name = 'Imprint' },
 ]
 
 anpu_date_format = '%e %B %Y'
