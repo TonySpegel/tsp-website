@@ -1,6 +1,6 @@
 +++
 title = "Impressum"
-path = "imprint"
+path = "impressum"
 template = "page.html"
 +++
 
