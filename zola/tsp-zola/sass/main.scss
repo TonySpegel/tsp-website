@@ -1,0 +1,25 @@
+:root {
+    --duration: 1500ms;
+    --timing: ease;
+
+    &[color-mode="light"] {
+        --surface-color: #ccc;
+        --text-color: #333;
+    }
+
+    &[color-mode="dark"] {
+        --surface-color: #333;
+        --text-color: #ccc;
+    }
+}
+
+
+body {
+    transition: 
+        color var(--duration) var(--timing), 
+        background-color var(--duration) var(--timing)
+    ;
+
+    background-color: var(--surface-color);
+    color: var(--text-color);
+}
