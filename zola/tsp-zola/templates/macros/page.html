@@ -66,13 +66,32 @@
     <div class="pagination">
         <div class="left pagination-item {% if not paginator.previous %}disabled{% endif %}">
             {% if paginator.previous %}
-            <a href="{{ paginator.previous }}">neuere posts</a>
+            <a href="{{ paginator.previous }}" class="paginator-link">neuere posts</a>
             {% endif %}
         </div>
         <div class="right pagination-item {% if not paginator.next %}disabled{% endif %}">
             {% if paginator.next %}
-            <a href="{{ paginator.next }}">ältere posts</a>
+            <a href="{{ paginator.next }}" class="paginator-link">ältere posts</a>
             {% endif %}
         </div>
     </div>
+    <script>
+        // Get all paginator links and make an array out of it
+        const paginatorLinks = [...document.querySelectorAll('.paginator-link')];
+        // Function to add a link to <head> which then gets prefetched
+        const addPrefetchLink = (event) => {
+            const link = document.createElement('link');
+            link.href = event.target.href;
+            link.rel = 'prefetch';
+
+            document.head.appendChild(link);
+        }
+        /**
+         * Add an event listener for each link on mouseover 
+         * but do it only once to avoid unnecessary network requests
+         */
+        paginatorLinks.map((paginatorLink) => {
+            paginatorLink.addEventListener('mouseover', addPrefetchLink, { once: true });
+        });
+    </script>
 {% endmacro page_pagination %}
