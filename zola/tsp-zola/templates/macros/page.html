@@ -1,0 +1,78 @@
+{% macro page_info(page) %}
+    <div class="article-info">
+        {% if page.date %}
+        <div class="article-date">{{ page.date | date(format=config.extra.anpu_date_format) }}</div>
+        {% endif %}
+        <div class="article-taxonomies">
+            {% if page.taxonomies.categories %}
+                <ul class="article-categories">
+                    {% for cat in page.taxonomies.categories %}
+                    <li><a href="{{ get_taxonomy_url(kind="categories", name=cat) | safe }}">{{ cat }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% if page.taxonomies.tags %}
+                <ul class="article-tags">
+                    {% for tag in page.taxonomies.tags %}
+                    <li><a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+{% endmacro page_info %}
+
+{% macro welcome() %}
+    <p>
+        Hi, ich bin (Web)-Entwickler und arbeite vor allem mit dem Web-Framework
+        <a href="https://angular.io/" target="_blank" rel="noopener noreferrer">Angular</a>
+        sowie TypeScript und der E-Commerce-Plattform
+        <a
+            href="https://www.shopify.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Shopify</a
+        >. Besonders spannend finde ich alles in Richtung
+        Cross-Plattform-Entwicklung mit Web-Apps und in ersten Gehversuchen auch
+        mit Flutter. In meinem Blog möchte ich zeigen, was moderne Web-Apps
+        können und einfach experementieren mit allem, was ich als spannend
+        ansehe. In meiner Selbstständigkeit unterstütze ich meine Kund:innen bei
+        der Umsetzung von Websites und Onlineshops. Schreibt mir doch einfach
+        eine Mail an
+        <a href="mailto:tony.spegel@gmail.com">tony.spegel@gmail.com</a>.
+    </p>
+{% endmacro welcome %}
+
+
+{% macro page_listing(page) %}
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="{{ page.permalink }}">{{ page.title }}</a>
+            </h1>
+        </header>
+
+        {% if page.summary %}
+        <div class="content post-summary">
+            {{ page.summary | markdown | safe }}
+        </div>
+        {% endif %}
+        
+        {{ self::page_info(page=page) }}
+    </article>
+{% endmacro page_listing %}
+
+{% macro page_pagination(paginator) %}
+    <div class="pagination">
+        <div class="left pagination-item {% if not paginator.previous %}disabled{% endif %}">
+            {% if paginator.previous %}
+            <a href="{{ paginator.previous }}">neuere posts</a>
+            {% endif %}
+        </div>
+        <div class="right pagination-item {% if not paginator.next %}disabled{% endif %}">
+            {% if paginator.next %}
+            <a href="{{ paginator.next }}">ältere posts</a>
+            {% endif %}
+        </div>
+    </div>
+{% endmacro page_pagination %}
