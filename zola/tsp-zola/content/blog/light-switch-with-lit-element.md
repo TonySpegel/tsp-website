@@ -6,12 +6,19 @@ date = 2021-08-05
 tags = ['web-components', 'lit 🔥', 'TypeScript']
 +++
 
-<script>
-    const body = document.querySelector('body');
+<button id="light-switch">Switch</button>
 
-    body.addEventListener('click', () => {
-        body.classList.toggle('dark');
-    })
+<script>
+    let lights = false;
+    const lightSwitch = document.querySelector('#light-switch');
+
+    lightSwitch.addEventListener('click', () => {
+        lights = !lights;
+        
+        lights ? 
+            document.documentElement.setAttribute('color-mode', 'dark') :
+            document.documentElement.setAttribute('color-mode', 'light'); 
+    });
 </script>
 
 # Was sind Web Components
