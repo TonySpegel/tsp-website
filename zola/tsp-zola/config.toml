@@ -30,10 +30,9 @@ highlight_code = true
 # Put all your custom variables here
 anpu_menu_links = [
     { url = '$BASE_URL/tags/', name = 'Tags' },
-    { url = '$BASE_URL/impressum/', name = 'Imprint' },
 ]
 
-anpu_date_format = '%e %B %Y'
+anpu_date_format = '%d.%m.%Y'
 
 title = 'Tony Spegel'
 title_separator = "|"  # set as |, -, _, etc
