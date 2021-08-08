@@ -6,6 +6,10 @@ date = 2021-08-05
 tags = ['web-components', 'lit 🔥', 'TypeScript']
 +++
 
+Der Klassiker unter den Web-Components
+
+<!-- more -->
+
 <button id="light-switch">Switch</button>
 
 <script>
