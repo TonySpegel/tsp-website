@@ -1,4 +1,8 @@
 a {
+    &:active {
+        color: var(--text-color-1);
+    }
+
     &.text-link {
         position: relative;
         text-decoration: none;
@@ -23,5 +27,15 @@ a {
                 height: 2px;
             }
         }
+    }
+
+    &.skip-to-main {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        z-index: -999;
     }
 }
