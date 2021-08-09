@@ -16,25 +16,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500&display=swap" rel="stylesheet">
 
+    <script src="/index.js" defer></script>
+
     {% block extra_head %}
     {% endblock extra_head %}
 </head>
 <body>
+    <a class="skip-to-main" href="#main">Zum Inhalt</a>
     <div class="glass"></div>
     <div class="bubble"></div>
     <div class="bubble-2"></div>
     <div class="container">
         <header> 
             <nav>
-                {% block sidebar_nav %}
-                <a class="article-tag" href="/">Home</a>
-                {% for menu_link in config.extra.anpu_menu_links %}
-                {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
-                <a class="article-tag" {% if current_url and current_url == link_url %}class="active"{% endif %} href="{{ link_url }}">
-                    {{menu_link.name}}
+                <a href="/" class="logo-link" title="Zur Startseite">
+                    <div class="logo">
+                        <div class="box-1"></div>
+                        <div class="box-2"></div>
+                        <div class="box-3"></div>
+                        <span>TS</span>
+                    </div>
+                    <h1>Tony Spegel</h1>
                 </a>
+                <div>
+                    {% for menu_link in config.extra.anpu_menu_links %}
+                    {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
+                    <a class="article-tag" {% if current_url and current_url == link_url %}class="active"{% endif %} href="{{ link_url }}">
+                        {{menu_link.name}}
+                    </a>
+                </div>
                 {% endfor %}
-                {% endblock sidebar_nav %}
             </nav>
         </header>
         <main id="main" tabindex="-1">
