@@ -1,0 +1,27 @@
+a {
+    &.text-link {
+        position: relative;
+        text-decoration: none;
+        display: inline-block;
+        color: var(--text-color-1);
+
+        &:after {
+            content: '';
+            height: 1px;
+            background-color: var(--text-color-1);
+            display: block;
+            margin: 2px auto 0;
+            width: 100%;
+            transition: height 0.2s ease-in-out;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &:hover,
+        &:focus {
+            &::after {
+                height: 2px;
+            }
+        }
+    }
+}
