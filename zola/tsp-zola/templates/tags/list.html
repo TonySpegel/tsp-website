@@ -6,10 +6,10 @@
 {% block content %}
 <h1>Tags</h1>
 
-<ul class="terms">
+<ul class="terms article-tags">
     {% for term in terms %}
     <li>
-        <a href="{{ term.permalink }}">
+        <a href="{{ term.permalink }}" class="article-tag">
         #{{ term.name }}
         </a>
     </li>
