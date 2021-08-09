@@ -1,5 +1,8 @@
 header {
     > nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         padding: var(--base-gap);
 
         a {
@@ -12,6 +15,6 @@ header {
 .content > header {
     display: flex;
     gap: var(--base-gap);
-    padding: var(--base-gap);
     justify-content: flex-end;
+    padding: var(--base-gap);
 }
