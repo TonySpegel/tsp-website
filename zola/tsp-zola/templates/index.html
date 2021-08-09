@@ -8,52 +8,63 @@
     <title>{% block title %}{{ config.extra.title }} {{ config.extra.title_separator }} {{ config.extra.title_addition }}{% endblock title %}</title>
     
     <meta name="description" content="{{ config.description }}">
+    <meta name="theme-color" content="#debfed">
 
     <link rel="stylesheet" href="{{ get_url(path="main.css", trailing_slash=false) }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500&display=swap" rel="stylesheet">
 
     {% block extra_head %}
     {% endblock extra_head %}
 </head>
 <body>
-    <a class="skip-main" href="#main">Skip to content</a>
+    <div class="glass"></div>
+    <div class="bubble"></div>
+    <div class="bubble-2"></div>
     <div class="container">
         <header> 
-            <h1 class="site-header">
-                <a href="{{ config.base_url }}">{{ config.title }}</a>
-            </h1>
             <nav>
                 {% block sidebar_nav %}
-                <a href="/">Home</a>
+                <a class="article-tag" href="/">Home</a>
                 {% for menu_link in config.extra.anpu_menu_links %}
                 {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
-                <a {% if current_url and current_url == link_url %}class="active"{% endif %} href="{{ link_url }}">{{menu_link.name}}</a>
+                <a class="article-tag" {% if current_url and current_url == link_url %}class="active"{% endif %} href="{{ link_url }}">
+                    {{menu_link.name}}
+                </a>
                 {% endfor %}
                 {% endblock sidebar_nav %}
             </nav>
         </header>
         <main id="main" tabindex="-1">
             {% block content %}
+                {{ page_macros::welcome() }}
                 {% if paginator.pages %}
-                {% for page in paginator.pages %}
-                    {{ page_macros::page_listing(page=page) }}
-                {% endfor %}
-                {{ page_macros::page_pagination(paginator=paginator) }}
+                    <div class="posts">
+                        {% for page in paginator.pages %}
+                            {{ page_macros::page_listing(page=page) }}
+                        {% endfor %}
+                    </div>
+                    {{ page_macros::page_pagination(paginator=paginator) }}
                 {% else %}
-                {% for page in section.pages %}
-                    {{ page_macros::page_listing(page=page) }}
-                {% endfor %}
+                    {% for page in section.pages %}
+                        {{ page_macros::page_listing(page=page) }}
+                    {% endfor %}
                 {% endif %}
             {% endblock content %}
         </main>
         <footer>
-            <p>
+            <!-- <p>
                 © {{ config.title }} {{ now() | date(format="%Y") }}<br>
                 Powered by <a target="_blank" href="https://getzola.org/">Zola</a>, Theme <a target="_blank" href="https://github.com/zbrox/anpu-zola-theme">Anpu</a>.
             </p>
             <p>
                 {% block footer %}
                 {% endblock footer %}
-            </p>
+            </p> -->
+            <a href="/impressum/">Impressum</a>
+            <a href="/datenschutzerklaerung/">Datenschutzerklärung</a>
         </footer>
     </div>
 </body>
