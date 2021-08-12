@@ -3,6 +3,11 @@ header {
         position: sticky;
         top: 0;
         z-index: 1;
+        transition: background-color var(--duration) var(--timing);
+
+        &.opaque {
+            background-color: #debfeda1;
+        }
     }
 
     > nav {
