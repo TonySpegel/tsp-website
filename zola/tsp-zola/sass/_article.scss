@@ -10,7 +10,6 @@
     flex: 1;
     flex-direction: column;
     padding: var(--base-gap);
-    // grid-template-rows: 120px 100px auto;
 
     border-radius: 8px;
 
@@ -48,6 +47,8 @@
 
     > li {
         display: inherit;
+        align-items: center;
+        height: 36px;
     }
 }
 
