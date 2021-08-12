@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500&display=swap" rel="stylesheet">
 
-    <script type="module" src="/index.js" defer></script>
+    <script src="/index.js" defer></script>
 
     {% block extra_head %}
     {% endblock extra_head %}
@@ -27,7 +27,6 @@
     <div class="bubble"></div>
     <div class="bubble-2"></div>
     <div class="container" data-scroller>
-        <div id="sentinel"></div>
         <header id="site-header" data-header> 
             <nav>
                 <a href="/" class="logo-link" title="Zur Startseite">
@@ -50,6 +49,7 @@
             </nav>
         </header>
         <main id="main" tabindex="-1">
+            <div id="sentinel-element"></div>
             {% block content %}
                 {{ page_macros::welcome() }}
                 {% if paginator.pages %}
