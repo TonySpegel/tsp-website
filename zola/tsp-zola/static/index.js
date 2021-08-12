@@ -9,39 +9,24 @@ const addPrefetchLink = (event) => {
 
 const scrollRoot = document.querySelector('[data-scroller]');
 const header = document.querySelector('[data-header]');
-const sections = [...document.querySelectorAll('[data-section]')];
+const sentinelElement = document.querySelector('#sentinel-element');
 
 const observerOptions = {
     root: scrollRoot,
-    rootMargin: '0px',
-    treshold: 1.0,
+    rootMargin: `-${header.getBoundingClientRect().height}px`,
+    treshold: 1,
 };
 
 const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-        const clientRect = entry.boundingClientRect;
-        const rootBounds = entry.rootBounds;
-
-        if (entries[0].isIntersecting) {
-            if (
-                clientRect.top < rootBounds.top &&
-                clientRect.bottom < rootBounds.bottom
-            ) {
-                header.classList.remove('sticky');
-            }
-    
-            if (
-                clientRect.bottom > rootBounds.top &&
-                entry.intersectionRatio === 1
-            ) {
-                header.classList.add('sticky');
-            }
-        }
-
+    if (!entries[0].isIntersecting) {
+        header.classList.add('opaque');
+        console.log('add');
+    } else {
+        header.classList.remove('opaque');
     }
 }, observerOptions);
 
-observer.observe(sections[0]);
+observer.observe(sentinelElement);
 
 // Get all page links and make an array out of it
 const pageLinks = [...document.querySelectorAll('a')];
