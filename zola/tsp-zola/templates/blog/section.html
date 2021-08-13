@@ -1,0 +1,17 @@
+{% import "macros/page.html" as page_macros %}
+{% extends "index.html" %}
+
+{% block content %} 
+<h1>test</h1>
+    {% if paginator.pages %}
+        <div class="posts">
+            {% for page in paginator.pages %} {{ page_macros::page_listing(page=page) }}
+            {% endfor %}
+        </div>
+        {{ page_macros::page_pagination(paginator=paginator) }} 
+    {% else %} 
+        {% for page in section.pages %} 
+            {{ page_macros::page_listing(page=page) }} 
+        {% endfor %} 
+    {% endif %} 
+{% endblock content %}
