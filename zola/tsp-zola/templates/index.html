@@ -38,27 +38,29 @@
                     </div>
                     <h1>Tony Spegel</h1>
                 </a>
-                <div>
+                <ul>
                     {% for menu_link in config.extra.anpu_menu_links %}
                     {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
-                    <a class="article-tag" {% if current_url and current_url == link_url %}class="active"{% endif %} href="{{ link_url }}">
-                        {{menu_link.name}}
-                    </a>
-                </div>
-                {% endfor %}
+                    <li>
+                        <a class="article-tag" {% if current_url and current_url == link_url %}class="active"{% endif %} href="{{ link_url }}">
+                            {{menu_link.name}}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
             </nav>
         </header>
         <main id="main" tabindex="-1">
             <div id="sentinel-element"></div>
             {% block content %}
                 {{ page_macros::welcome() }}
+                <h2>Neueste Blog posts</h2>
                 {% if paginator.pages %}
                     <div class="posts">
                         {% for page in paginator.pages %}
                             {{ page_macros::page_listing(page=page) }}
                         {% endfor %}
                     </div>
-                    {{ page_macros::page_pagination(paginator=paginator) }}
                 {% else %}
                     {% for page in section.pages %}
                         {{ page_macros::page_listing(page=page) }}
@@ -66,6 +68,11 @@
                 {% endif %}
             {% endblock content %}
         </main>
+{# 
+                    {{ page_macros::page_pagination(paginator=paginator) }}
+
+ #}
+
         <footer>
             <!-- <p>
                 © {{ config.title }} {{ now() | date(format="%Y") }}<br>
@@ -75,8 +82,8 @@
                 {% block footer %}
                 {% endblock footer %}
             </p> -->
-            <a href="/impressum/">Impressum</a>
-            <a href="/datenschutzerklaerung/">Datenschutzerklärung</a>
+            <a href="/impressum/" class="text-link">Impressum</a>
+            <a href="/datenschutzerklaerung/" class="text-link">Datenschutzerklärung</a>
         </footer>
     </div>
 </body>

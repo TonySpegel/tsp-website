@@ -16,6 +16,12 @@ header {
         justify-content: space-between;
         padding: var(--base-gap);
 
+        ul {
+            display: flex;
+            gap: var(--base-gap);
+            list-style: none;
+        }
+
         a {
             text-decoration: none;
         }
