@@ -10,3 +10,5 @@ Die Katzen (Felidae) sind eine Familie aus der Ordnung der Raubtiere (Carnivora)
 <!-- more -->
 
 # niedlich af
+
+<img src="/img/IMG_20200315_143337_2.jpg" alt="Hvaldimir" />
