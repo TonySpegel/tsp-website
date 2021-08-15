@@ -1,0 +1,10 @@
+pre[data-lang] {
+    padding: var(--base-gap);
+    max-width: 100%;
+    overflow: auto;
+    border-radius: 8px;
+}
+
+code {
+    font-family: monospace;
+}

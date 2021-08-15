@@ -1,0 +1,35 @@
+{% extends "section.html" %}
+
+{% block body %}
+  {% set page_class = "blog list" %}
+{% endblock body %}
+
+{% block header %}
+  {# This value is matched by the config.extra.menu.main->section #}
+  {% set current_section = "blog" %}
+  {{ macros_header::header(current_section=current_section)}}
+{% endblock header %}
+
+{% block content %}
+<h1 class="text-center">{{ section.title }}</h1>
+
+<div class="blog-list">
+    {% for page in paginator.pages %}
+    <article class="card">
+        <h2>
+            <a class="stretched-link text-body" href="{{ page.permalink }}">{{ page.title }}</a>
+          </h2>
+          <small>{{ page.date }}</small>
+          
+          {{ page_macros::page_info(page=page) }}
+
+        {% if page.description %}
+            <p>{{ page.description | safe }}</p>
+        {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+  {% if paginator.previous or paginator.next %}
+    {{ page_macros::navigation(paginator=paginator) }}
+  {% endif %}
+{% endblock content %}

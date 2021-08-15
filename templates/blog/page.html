@@ -1,0 +1,27 @@
+{# Default page template used for blog posts #}
+
+{% extends "page.html" %}
+
+{% block seo %}
+  {# This value is matched by the config.extra.menu.main->section #}
+  {% set_global current_section = 'blog' %}
+  {{ super() }}
+{% endblock seo %}
+
+{% block body %}
+  {% set page_class = "blog single" %}
+{% endblock body %}
+
+{% block header %}
+  {{ macros_header::header(current_section=current_section)}}
+{% endblock header %}
+
+{% block content %}
+<article>
+  <div class="blog-header">
+    <h1>{{ page.title }}</h1>
+  </div>
+  {% if page.extra.lead %}<p class="lead">{{ page.extra.lead | safe }}</p>{% endif %}
+  {{ page.content | safe }}
+</article>
+{% endblock content %}

@@ -1,0 +1,37 @@
+header {
+    &#site-header {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        transition: background-color var(--duration) var(--timing);
+
+        &.opaque {
+            background-color: #debfeda1;
+        }
+    }
+
+    > nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--base-gap);
+
+        ul {
+            display: flex;
+            gap: var(--base-gap);
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+}
+
+.content > header {
+    display: flex;
+    gap: var(--base-gap);
+    justify-content: flex-end;
+    padding: var(--base-gap);
+}

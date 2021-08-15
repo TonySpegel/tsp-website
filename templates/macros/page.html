@@ -1,0 +1,54 @@
+<!-- List tags -->
+{% macro page_info(page) %}
+<div class="article-info">
+    <div class="article-taxonomies">
+        <ul class="article-tags">
+            {% for tag in page.taxonomies.tags %}
+            <li>#{{ tag }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endmacro page_info %}
+
+{% macro page_listing(page) %}
+<article class="post-list">
+    <header> 
+        <h1>
+            <a href="{{ page.permalink }}">{{ page.title }}</a>
+        </h1>
+    </header>
+
+    {% if page.summary %}
+    <div class="content post-summary">
+        {{ page.summary | markdown | safe }}
+    </div>
+    {% endif %}
+    
+    {{ self::page_info(page=page) }}
+</article>
+{% endmacro page_listing %}
+
+<!-- Show older or newer posts -->
+{% macro navigation(paginator) %}
+<div class="blog-navigation d-flex justify-content-between">
+	{% if paginator.previous %}
+	<a href="{{ paginator.previous | safe }}">
+		<div class="card my-1">
+			<div class="card-body py-2">
+				← Newer
+			</div>
+		</div>
+	</a>
+	{% endif %}
+	{% if paginator.next %}
+	<a class="ms-auto" href="{{ paginator.next | safe }}">
+		<div class="card my-1">
+			<div class="card-body py-2">
+				Older →
+			</div>
+		</div>
+	</a>
+	{% endif %}
+</div>
+{% endmacro %}
