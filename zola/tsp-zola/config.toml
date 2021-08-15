@@ -29,7 +29,7 @@ highlight_code = true
 [extra]
 # Put all your custom variables here
 anpu_menu_links = [
-    { url = '$BASE_URL/tags/', name = 'Tags' },
+    { url = '$BASE_URL/blog/', name = 'Blog' },
 ]
 
 anpu_date_format = '%d.%m.%Y'
