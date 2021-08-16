@@ -29,7 +29,7 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(sentinelElement);
 
 // Get all page links and make an array out of it
-const pageLinks = [...document.querySelectorAll('a')];
+const pageLinks = [...document.querySelectorAll('a:not(.no-fetch)')];
 
 /**
  * Add an event listener for each link on mouseover
