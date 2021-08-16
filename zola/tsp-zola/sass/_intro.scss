@@ -1,0 +1,27 @@
+.intro {
+    line-height: 1.5;
+    max-width: 420px;
+    text-align: justify;
+
+    span {
+        display: block;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: calc(var(--base-gap) / 2);
+    }
+}
+
+.more {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: var(--base-gap);
+    flex-wrap: wrap;
+    max-width: 420px;
+}
+
+.more li {
+    padding: 8px 16px;
+    background-color: var(--surface-3);
+    border-radius: 36px;
+}

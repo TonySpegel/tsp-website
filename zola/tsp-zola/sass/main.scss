@@ -137,12 +137,6 @@ body {
     }
 }
 
-.intro {
-    line-height: 1.5;
-    max-width: 420px;
-    text-align: justify;
-}
-
 @import './_article';
 @import './_pagination';
 @import './_header';
@@ -150,3 +144,4 @@ body {
 @import './_code';
 @import './_link';
 @import './_logo';
+@import './_intro';
