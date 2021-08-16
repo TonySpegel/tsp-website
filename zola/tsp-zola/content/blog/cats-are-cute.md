@@ -9,6 +9,8 @@ tags = ['cats', 'cute']
 Die Katzen (Felidae) sind eine Familie aus der Ordnung der Raubtiere (Carnivora) innerhalb der Überfamilie der Katzenartigen (Feloidea).
 <!-- more -->
 
-# niedlich af
+# Katzen sind niedlich
+## Warum Katzen so niedlich sind
+### Beispiele von niedlichen Katzen
 
-<img src="/img/IMG_20200315_143337_2.jpg" alt="Hvaldimir" />
+<!-- <img src="/img/IMG_20200315_143337_2.jpg" alt="Hvaldimir" /> -->

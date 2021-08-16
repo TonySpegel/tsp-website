@@ -1,5 +1,5 @@
 +++
 sort_by = "date"
-paginate_by = 3
+paginate_by = 4
 paginate_path = "blog"
 +++
