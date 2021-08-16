@@ -1,11 +1,9 @@
 @media (prefers-reduced-motion: no-preference) {
-    a:active {
-        .logo {
-            transform: scale(0.95);
-        }
-
-        h1 {
-            color: var(--shade-400);
+    a {
+        &:active {
+            h1 {
+                color: var(--shade-400);
+            }
         }
     }
 }
@@ -18,9 +16,9 @@
     background: rgba(232, 232, 232, 0.1);
     border-radius: 15px;
     cursor: pointer;
-    height: 56px;
+    height: var(--logo-size);
     padding: 7px;
-    width: 56px;
+    width: var(--logo-size);
     transition: transform 0.1s ease-in-out;
 }
 

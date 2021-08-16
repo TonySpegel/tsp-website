@@ -21,7 +21,7 @@
     {% block extra_head %}
     {% endblock extra_head %}
 </head>
-<body>
+<body ontouchstart>
     <a class="skip-to-main" href="#main">Zum Inhalt</a>
     <div class="glass"></div>
     <div class="bubble"></div>
@@ -70,16 +70,10 @@
         </main>
 
         <footer>
-            <span>
-                © {{ config.extra.title }} {{ now() | date(format="%Y") }}
-            </span>
-            <!--
-            <p>
-                {% block footer %}
-                {% endblock footer %}
-            </p>
-            --> 
             <ul>
+                <li>
+                    © {{ config.extra.title }} {{ now() | date(format="%Y") }}
+                </li>
                 <li>
                     <a href="/impressum/" class="text-link">Impressum</a>
                 </li>

@@ -1,21 +1,40 @@
 a {
+    text-decoration: none;
+    display: flex;
+
+    &:not(.text-link) {
+        @media (prefers-reduced-motion: no-preference) {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+
+            &:active {
+                transform: scale(0.95);
+                box-shadow: none;
+            }
+        }
+    }
+
     &:active {
         color: var(--text-color-1);
     }
 
+    &:visited {
+        color: unset;
+    }
+
     &.text-link {
+        display: inline-block;
         position: relative;
         text-decoration: none;
-        display: inline-block;
         color: var(--text-color-1);
 
         &:after {
             content: '';
-            height: 1px;
-            background-color: var(--text-color-1);
             display: block;
             margin: 2px auto 0;
+            height: 1px;
             width: 100%;
+            background-color: var(--text-color-1);
             transition: height 0.2s ease-in-out;
             position: absolute;
             bottom: 0;
@@ -23,7 +42,7 @@ a {
 
         &:hover,
         &:focus {
-            &::after {
+            &:after {
                 height: 2px;
             }
         }
