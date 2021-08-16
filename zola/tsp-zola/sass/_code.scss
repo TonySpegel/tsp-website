@@ -6,9 +6,11 @@ pre {
 }
 
 code {
+    &:not([data-lang]) {
+        padding: calc(var(--base-gap) / 4);
+        background: var(--shade-100);
+    }
+
     border-radius: calc(var(--base-radius) / 2);
-    padding: calc(var(--base-gap) / 4);
-    
     font-family: monospace;
-    background: var(--shade-100);
 }
