@@ -7,9 +7,9 @@ template = "page.html"
 Ich möchte, dass diese Website von einem möglichst breiten Publikum genutzt werden kann, unabhängig von Gerät, Browser, Netzgeschwindigkeit oder Fähigkeiten.
 
 Daher bin ich bestrebt, das diese Website und deren Inhalte die in den 
-<a class="text-link" href="https://www.w3.org/TR/WCAG21/" title="Anrufen">Web Content Accessibility Guidelines (WCAG) 2.1</a> festgelegten Standards der Stufe AA mindestens erfüllt.
+<a class="text-link" href="https://www.w3.org/TR/WCAG21/" title="Web Content Accessibility Guidelines">(WCAG) 2.1</a> festgelegten Standards der Stufe AA mindestens erfüllt.
 
-Diese Seite soll den aktuellen Stand der Barrierefreiheit dieser Website zu zeigen.
+Diese Seite soll den aktuellen Stand der Barrierefreiheit dieser Website zeigen.
 
 ## Accessibility features
 
@@ -28,5 +28,5 @@ Diese Website wurde auf modernen Browsern und Endgeräten verschiedener Leistung
 
 ## Feedback
 Barrierefreiheit ist ein wichtiges Thema für mich und als nicht direkt Betroffener schwierig
-perfekt umzusetzen. Sollte es irgendwelche Probleme geben, schickt mir bitte eine E-Mail an
-E-Mail: <a class="text-link no-fetch" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>. Ich nehme Probleme mit der Barrierefreiheit sehr ernst und werde versuchen, diese so schnell wie möglich zu beheben. 
+perfekt umzusetzen. Sollte es irgendwelche Probleme geben, schickt mir bitte eine E-Mail an: 
+<a class="text-link no-fetch" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>. Ich nehme Probleme mit der Barrierefreiheit sehr ernst und werde versuchen, diese so schnell wie möglich zu beheben. 
