@@ -53,8 +53,8 @@
         <main id="main" tabindex="-1">
             <div id="sentinel-element"></div>
             {% block content %}
-                {{ page_macros::welcome() }}
-                <h2>Neueste Blog posts</h2>
+                {{ page_macros::intro() }}
+                <h2 class="heading">Neueste Blog posts</h2>
                 {% if paginator.pages %}
                     <div class="posts">
                         {% for page in paginator.pages %}
@@ -68,22 +68,28 @@
                 {% endif %}
             {% endblock content %}
         </main>
-{# 
-                    {{ page_macros::page_pagination(paginator=paginator) }}
-
- #}
 
         <footer>
-            <!-- <p>
-                © {{ config.title }} {{ now() | date(format="%Y") }}<br>
-                Powered by <a target="_blank" href="https://getzola.org/">Zola</a>, Theme <a target="_blank" href="https://github.com/zbrox/anpu-zola-theme">Anpu</a>.
-            </p>
+            <span>
+                © {{ config.extra.title }} {{ now() | date(format="%Y") }}
+            </span>
+            <!--
             <p>
                 {% block footer %}
                 {% endblock footer %}
-            </p> -->
-            <a href="/impressum/" class="text-link">Impressum</a>
-            <a href="/datenschutzerklaerung/" class="text-link">Datenschutzerklärung</a>
+            </p>
+            --> 
+            <ul>
+                <li>
+                    <a href="/impressum/" class="text-link">Impressum</a>
+                </li>
+                <li>
+                    <a href="/datenschutzerklaerung/" class="text-link">Datenschutzerklärung</a>
+                </li>
+                <li>
+                    <a href="/barrierefreiheit/" class="text-link">Barrierefreiheit</a>
+                </li>
+            </ul>
         </footer>
     </div>
 </body>
