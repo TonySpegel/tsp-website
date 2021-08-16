@@ -1,4 +1,4 @@
-pre[data-lang] {
+pre {
     padding: var(--base-gap);
     max-width: 100%;
     overflow: auto;
@@ -6,5 +6,9 @@ pre[data-lang] {
 }
 
 code {
+    border-radius: calc(var(--base-radius) / 2);
+    padding: calc(var(--base-gap) / 4);
+    
     font-family: monospace;
+    background: var(--shade-100);
 }
