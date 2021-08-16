@@ -13,8 +13,8 @@ Schloßgasse 1
 07743 Jena  
 Deutschland
 
-Tel.: <a class="text-link" href="tel:+4915125836017" title="Anrufen">+4915125836017</a>  
-E-Mail: <a class="text-link" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>  
+Tel.: <a class="text-link no-fetch" href="tel:+4915125836017" title="Anrufen">+4915125836017</a>  
+E-Mail: <a class="text-link no-fetch" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>  
 
 ## EU-Streitschlichtung
 Gemäß Verordnung über Online-Streitbeilegung in Verbraucherangelegenheiten (ODR-Verordnung) möchten wir Sie über die Online-Streitbeilegungsplattform (OS-Plattform) informieren.
