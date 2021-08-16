@@ -3,3 +3,23 @@
     justify-content: space-between;
     padding: var(--base-gap) 0;
 }
+
+.pagination-item {
+    &.disabled {
+        display: none;
+    }
+
+    &.left {
+        margin-right: auto;
+    }
+
+    &.right {
+        margin-left: auto;
+    }
+
+    border-radius: var(--base-radius);
+    padding: calc(var(--base-gap) / 2);
+    background-color: var(--surface-3);
+    color: var(--text-color-1);
+    text-decoration: none;
+}
