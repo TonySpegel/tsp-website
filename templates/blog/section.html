@@ -1,35 +1,24 @@
-{% extends "section.html" %}
+{% import "macros/page.html" as page_macros %}
+{% extends "index.html" %}
 
-{% block body %}
-  {% set page_class = "blog list" %}
-{% endblock body %}
-
-{% block header %}
-  {# This value is matched by the config.extra.menu.main->section #}
-  {% set current_section = "blog" %}
-  {{ macros_header::header(current_section=current_section)}}
-{% endblock header %}
-
-{% block content %}
-<h1 class="text-center">{{ section.title }}</h1>
-
-<div class="blog-list">
-    {% for page in paginator.pages %}
-    <article class="card">
-        <h2>
-            <a class="stretched-link text-body" href="{{ page.permalink }}">{{ page.title }}</a>
-          </h2>
-          <small>{{ page.date }}</small>
-          
-          {{ page_macros::page_info(page=page) }}
-
-        {% if page.description %}
-            <p>{{ page.description | safe }}</p>
-        {% endif %}
-    </article>
-    {% endfor %}
-  </div>
-  {% if paginator.previous or paginator.next %}
-    {{ page_macros::navigation(paginator=paginator) }}
-  {% endif %}
+{% block content %} 
+    <h2 class="heading">Über diesen Blog</h2>
+    <p>
+        In diesem Blog experimentiere ich mit neuen Technologien und möchte zeigen,
+        was im Web so möglich ist. Jeder Post ist so aufgebaut, dass dieser
+        einfach nachzuvollziehen und reproduzierbar ist. Sollte dennoch etwas nicht ganz
+        klar sein oder nicht mehr funktionieren, schreibt mir doch eine Mail an:
+        <a class="text-link no-fetch" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>
+    </p>
+    {% if paginator.pages %}
+        <div class="posts">
+            {% for page in paginator.pages %} {{ page_macros::page_listing(page=page) }}
+            {% endfor %}
+        </div>
+        {{ page_macros::page_pagination(paginator=paginator) }} 
+    {% else %} 
+        {% for page in section.pages %} 
+            {{ page_macros::page_listing(page=page) }} 
+        {% endfor %} 
+    {% endif %} 
 {% endblock content %}
