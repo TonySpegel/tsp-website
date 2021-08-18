@@ -1,0 +1,45 @@
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--base-gap);
+    padding: var(--base-gap);
+
+    span {
+        color: var(--text-color-1);
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        gap: var(--base-gap);
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+        li {
+            &:first-child {
+                margin-right: auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    footer {
+        flex-direction: column-reverse;
+        text-align: center;
+
+        ul {
+            flex-direction: column;
+
+            li {
+                &:first-child {
+                    margin: unset;
+                    order: 1;
+                }
+            }
+        }
+    }
+}
