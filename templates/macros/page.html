@@ -27,6 +27,18 @@
     </div>
 {% endmacro page_info %}
 
+{% macro post_date(page) %}
+    {% if page.date %}
+        <time
+            class="article-date" 
+            datetime="{{ page.date }}"
+            title="Erstellt am {{ page.date | date(format=config.extra.anpu_date_format) }}"
+        >
+            {{ page.date | date(format=config.extra.anpu_date_format) }}
+        </time>
+    {% endif %}
+{% endmacro page_info %}
+
 {% macro intro() %}
 <div class="intro-wrapper">
     <div class="intro">
@@ -83,9 +95,9 @@
             </h1>
         </header>
 
-        {% if page.summary %}
+        {% if page.description %}
         <div class="content post-summary">
-            {{ page.summary | markdown | safe }}
+            {{ page.description | markdown | safe }}
         </div>
         {% endif %}
         
