@@ -30,6 +30,7 @@
         --shade-900: #3d0059;
 
         --text-color-1: #5d0088;
+        --text-color-2: var(--shade-800);
 
         --bubble-1--color-1: #21d4fd;
         --bubble-1--color-2: #b721ff;
@@ -96,8 +97,11 @@ p {
 @import './_glass';
 @import './_header';
 @import './_headings';
+@import './_img';
 @import './_intro';
 @import './_link';
+@import './_lists';
 @import './_logo';
+@import './_post';
 @import './_pagination';
 @import './_social-links';
