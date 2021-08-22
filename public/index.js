@@ -1,11 +1,8 @@
-// Function to add a link to <head> which then gets prefetched
-const addPrefetchLink = (event) => {
-    const link = document.createElement('link');
-    link.href = event.target.href;
-    link.rel = 'prefetch';
+import { addPrefetchLink } from './js/addPrefetchLink.mjs';
 
-    document.head.appendChild(link);
-};
+/**
+ * Add a CSS class dynamically w/ IntersectionObserver
+ */
 
 const scrollRoot = document.querySelector('[data-scroller]');
 const header = document.querySelector('[data-header]');
@@ -20,13 +17,16 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     if (!entries[0].isIntersecting) {
         header.classList.add('opaque');
-        console.log('add');
     } else {
         header.classList.remove('opaque');
     }
 }, observerOptions);
 
 observer.observe(sentinelElement);
+
+/**
+ * Prefetch Links
+ */
 
 // Get all page links and make an array out of it
 const pageLinks = [...document.querySelectorAll('a:not(.no-fetch)')];
