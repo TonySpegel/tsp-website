@@ -1,14 +1,11 @@
 +++
 title = 'Dark mode toggle als Web Component mit Lit'
 date = 2021-08-05
+description = 'Der Klassiker unter den Web-Components'
 
 [taxonomies]
 tags = ['web-components', 'lit 🔥', 'TypeScript']
 +++
-
-Der Klassiker unter den Web-Components
-
-<!-- more -->
 
 <button id="light-switch">Switch</button>
 
