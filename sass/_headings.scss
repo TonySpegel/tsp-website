@@ -28,6 +28,7 @@ h2 {
 
 .content {
     --h2-height: 37px;
+    --h3-height: 33px;
 
     h1,
     h2,
@@ -42,5 +43,9 @@ h2 {
 
     h2 {
         height: var(--h2-height);
+    }
+    
+    h3 {
+        height: var(--h3-height);
     }
 }
