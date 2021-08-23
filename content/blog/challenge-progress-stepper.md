@@ -27,42 +27,209 @@ einem Lieferprozess oder im Checkout Prozess eines Onlineshops kennt. Die wichti
 - Die Lösung funktioniert sowohl mit wenigen als auch beliebig vielen Punkten
 - Lange wie kurze Texte sollen unterstützt werden
 
-Sperber sind typische Vertreter der überwiegend Wald bewohnenden Gattung Accipiter (Habichte und Sperber). Weibchen sind mit 35–41 cm Körperlänge und einer Flügelspannweite von 67 bis 80 cm[4] knapp größer als ein Turmfalke und reichen in der Größe an kleine Habicht-Männchen heran.[5] Sperber-Männchen sind mit 29–34 cm Körperlänge und einer Flügelspannweite von 58 bis 65 cm[4] deutlich kleiner. Die Flügel sind relativ kurz, breit und an ihren Spitzen gerundet, der Stoß ist verhältnismäßig lang. Diese Merkmale ermöglichen keine extremen Fluggeschwindigkeiten, jedoch eine hohe Wendigkeit auf engem Raum. Beine und Zehen zeigen deutliche Anpassungen an die Jagd auf kleine und schnelle Singvögel. Die Beine sind vergleichsweise lang und sehr dünn. Die Mittelzehe ist stark verlängert, alle Zehen haben ausgeprägte Haltebeeren, die beim Greifen ein lückenloses Schließen ermöglichen und so auch noch einzelne Federn festhalten können. Die Krallen sind lang und sehr spitz.
-
-
-Vordergrund: adultes Weibchen
-Dahinter: adultes Männchen
-Hinten rechts: Vogel im Jugendkleid
-Sperber zeigen einen sehr deutlichen Geschlechtsdimorphismus hinsichtlich der Färbung. Ausgefärbte (adulte) Sperbermännchen sind auf der Oberseite graublau. Die Unterseite ist weiß und fein quer gebändert („gesperbert“). Diese Bänderung ist am Rumpf zu einem individuell in Breite und Ausdehnung sehr stark variierenden Anteil orangerot. Manche Männchen sind auf der Rumpfunterseite fast einfarbig orange, bei anderen Vögeln ist die Querbänderung nur an den Flanken deutlich orange und am übrigen Rumpf braun. Der Hals zeigt eine feine senkrechte Strichelung, die ähnlich wie die Rumpfzeichnung variiert; im Extremfall ist der Hals ebenfalls einfarbig rotorange. Weibchen sind weniger farbenprächtig als die Männchen. Sie sind auf der Oberseite schiefergraubraun, die Unterseitenbänderung kann an den Flanken ebenfalls zu hohen Anteilen orange sein; diese Orangezeichnung ist jedoch nur in Ausnahmefällen so ausgedehnt wie bei Männchen.
-
-Jungvögel sind bis zur ersten Mauser oberseits bräunlich, alle Deckfedern sind hell braunbeige gerandet. Die Unterseite ist weiß mit einer Querbänderung, die breiter und oft tropfen- oder herzförmig ausgeprägt ist.
-
-Das Großgefieder weist in allen Kleidern eine deutliche Bänderung auf weißem bis beigebraunem, bei Jungvögeln auf gelblichem Grund auf. Die Beine sind gelb, ebenso die Wachshaut des Schnabels. Die Iris ist bei Jungvögeln hellgelb, bei adulten Weibchen dunkelgelb und bei Männchen meist orange. Der Schnabel ist schwarz, an der Basis blaugrau.
-
-Der Geschlechtsdimorphismus hinsichtlich der Körpergröße und des Körpergewichts ist bei dieser Art extrem. Der Unterschied ist so groß, dass es bezüglich der Körpermaße zwischen den Geschlechtern keinen Überschneidungsbereich gibt. Zum Beispiel hatten adulte Männchen der Nominatform A. nisus nisus aus Deutschland eine Flügellänge von 192 bis 209 mm, im Mittel 199 mm, Weibchen messen 223–247 mm, im Mittel 234 mm. Adulte Männchen wiegen 105–165 g, im Mittel 137 g, Weibchen 192–290 g, im Mittel 234 g. Männchen erreichen also nur etwa 60 % des Körpergewichts der Weibchen. Sperber gehören zu den kleinsten Vertretern der Gattung Accipiter, männliche Sperber gehören zu den kleinsten in Mitteleuropa brütenden Greifvögeln.
-
-Verwechslungsmöglichkeiten bestehen in Mitteleuropa in erster Linie mit dem Habicht. Bei sitzenden Vögeln ist die Unterscheidung meistens einfach, Habichte sind viel größer und kräftiger, dies fällt insbesondere bei Betrachtung der Beine und des Kopfes auf. Habichte zeigen nie Orange auf Brust und Bauch und haben einen deutlichen, weißlichen Überaugenstreif, der bei Sperbern nur angedeutet ist. Die Augen des Sperbers sind proportional wesentlich größer und damit auffälliger als beim Habicht.
-
-Schwieriger ist die Unterscheidung fliegender Vögel. Die Körperproportionen von Sperber und Habicht sind sehr ähnlich, auf größere Entfernung ist daher insbesondere eine Unterscheidung gleitender oder segelnder Vögel oft nicht möglich. Bei einigermaßen guten Sichtbedingungen sind jedoch auch im Flug der wesentlich massivere Körper und die proportional längeren Flügel des Habichts erkennbar. Bei aktiv fliegenden Individuen lässt auch die Flügelschlagfrequenz oft eine Artbestimmung zu: diese ist bei Sperbern etwa doppelt so hoch wie beim Habicht.
-
 ## Vorüberlegungen
 
-Sperber sind typische Vertreter der überwiegend Wald bewohnenden Gattung Accipiter (Habichte und Sperber). Weibchen sind mit 35–41 cm Körperlänge und einer Flügelspannweite von 67 bis 80 cm[4] knapp größer als ein Turmfalke und reichen in der Größe an kleine Habicht-Männchen heran.[5] Sperber-Männchen sind mit 29–34 cm Körperlänge und einer Flügelspannweite von 58 bis 65 cm[4] deutlich kleiner. Die Flügel sind relativ kurz, breit und an ihren Spitzen gerundet, der Stoß ist verhältnismäßig lang. Diese Merkmale ermöglichen keine extremen Fluggeschwindigkeiten, jedoch eine hohe Wendigkeit auf engem Raum. Beine und Zehen zeigen deutliche Anpassungen an die Jagd auf kleine und schnelle Singvögel. Die Beine sind vergleichsweise lang und sehr dünn. Die Mittelzehe ist stark verlängert, alle Zehen haben ausgeprägte Haltebeeren, die beim Greifen ein lückenloses Schließen ermöglichen und so auch noch einzelne Federn festhalten können. Die Krallen sind lang und sehr spitz.
+- Da eine zeitliche Abfolge dargestellt werden soll, bietet es sich an ein `<ol>`-Element zu nutzen - eine _ordered list_
+- verschiedene Zustände müssen dargestellt werden: _offen_, _in Bearbeitung_ und _abgeschlossen_
+- Auch Screenreader müssen den jeweiligen Status eines Schritts verarbeiten können so dass jede/r weiß was der aktuelle Stand ist
 
+## HTML
 
-Vordergrund: adultes Weibchen
-Dahinter: adultes Männchen
-Hinten rechts: Vogel im Jugendkleid
-Sperber zeigen einen sehr deutlichen Geschlechtsdimorphismus hinsichtlich der Färbung. Ausgefärbte (adulte) Sperbermännchen sind auf der Oberseite graublau. Die Unterseite ist weiß und fein quer gebändert („gesperbert“). Diese Bänderung ist am Rumpf zu einem individuell in Breite und Ausdehnung sehr stark variierenden Anteil orangerot. Manche Männchen sind auf der Rumpfunterseite fast einfarbig orange, bei anderen Vögeln ist die Querbänderung nur an den Flanken deutlich orange und am übrigen Rumpf braun. Der Hals zeigt eine feine senkrechte Strichelung, die ähnlich wie die Rumpfzeichnung variiert; im Extremfall ist der Hals ebenfalls einfarbig rotorange. Weibchen sind weniger farbenprächtig als die Männchen. Sie sind auf der Oberseite schiefergraubraun, die Unterseitenbänderung kann an den Flanken ebenfalls zu hohen Anteilen orange sein; diese Orangezeichnung ist jedoch nur in Ausnahmefällen so ausgedehnt wie bei Männchen.
+Für ein Layout dieser Form habe ich mich entschieden für jeden Schritt sowie der Liste als Ganzes `display: flex;` 
+und für den Fortschrittsindikator und den Verbindungsstücken `:before` bzw. `:after` zu nutzen. Die Anzeige des 
+jeweiligen Schritts und dessen Beschreibung wird jeweils mit einem `<div>` umschlossen. Über das `data-state="complete"`-Attribut
+wird ein abgeschlossener Zustand signalisiert und mit `aria-current="step"` für Screenreader der aktuelle Schritt gekennzeichnet
+(mehr zum `aria-tag` <a class="text-link" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/ariaCurrent">hier</a>).
 
-Jungvögel sind bis zur ersten Mauser oberseits bräunlich, alle Deckfedern sind hell braunbeige gerandet. Die Unterseite ist weiß mit einer Querbänderung, die breiter und oft tropfen- oder herzförmig ausgeprägt ist.
+```html
+<div class="progress-stepper">
+    <ol>
+        <li data-state="complete">
+            <div class="step">
+                <span>Schritt 1</span>
+                <strong>Warenkorb</strong>
+            </div>
+        </li>
+        <li data-state="complete">
+            <div class="step">
+                <span>Schritt 2</span>
+                <strong>Details</strong>
+            </div>
+        </li>
+        <li aria-current="step">
+            <div class="step">
+                <span>Schritt 3</span>
+                <strong>Zahlungsmittel</strong>
+            </div>
+        </li>
+        <li>
+            <div class="step">
+                <span>Schritt 4</span>
+                <strong>Zahlung abschließen<strong>
+            </div>
+        </li>
+    </ol>
+</div>
+```
 
-Das Großgefieder weist in allen Kleidern eine deutliche Bänderung auf weißem bis beigebraunem, bei Jungvögeln auf gelblichem Grund auf. Die Beine sind gelb, ebenso die Wachshaut des Schnabels. Die Iris ist bei Jungvögeln hellgelb, bei adulten Weibchen dunkelgelb und bei Männchen meist orange. Der Schnabel ist schwarz, an der Basis blaugrau.
+## CSS
 
-Der Geschlechtsdimorphismus hinsichtlich der Körpergröße und des Körpergewichts ist bei dieser Art extrem. Der Unterschied ist so groß, dass es bezüglich der Körpermaße zwischen den Geschlechtern keinen Überschneidungsbereich gibt. Zum Beispiel hatten adulte Männchen der Nominatform A. nisus nisus aus Deutschland eine Flügellänge von 192 bis 209 mm, im Mittel 199 mm, Weibchen messen 223–247 mm, im Mittel 234 mm. Adulte Männchen wiegen 105–165 g, im Mittel 137 g, Weibchen 192–290 g, im Mittel 234 g. Männchen erreichen also nur etwa 60 % des Körpergewichts der Weibchen. Sperber gehören zu den kleinsten Vertretern der Gattung Accipiter, männliche Sperber gehören zu den kleinsten in Mitteleuropa brütenden Greifvögeln.
+Um verschieden Lange und beliebig viele Schritte darzustellen nutze ich 
+CSS custom properties / CSS Variablen. Diese Variablen sind hier besonders praktisch, um die Länge der Verbindungsstücke zu berechnen. Der Rest ist vor allem viel Berechnung mit Hilfe von `calc()` und den Eingangs erwähnten Zuständen via `[data-state='complete']`.
 
-## Greifvögeln
+### Variablen & Reset
 
-Verwechslungsmöglichkeiten bestehen in Mitteleuropa in erster Linie mit dem Habicht. Bei sitzenden Vögeln ist die Unterscheidung meistens einfach, Habichte sind viel größer und kräftiger, dies fällt insbesondere bei Betrachtung der Beine und des Kopfes auf. Habichte zeigen nie Orange auf Brust und Bauch und haben einen deutlichen, weißlichen Überaugenstreif, der bei Sperbern nur angedeutet ist. Die Augen des Sperbers sind proportional wesentlich größer und damit auffälliger als beim Habicht.
+Die hier genutzten Variablen sind relativ überschaubar, ich lege vor allem
+ein paar Grundfarben sowie Abstände, die größe des Indikators, die Zeilenhöhe,
+den abstand zwischen den Schritten sowie die Breite des Verbindungsstücks fest.
+Die Farben sind hierbei selbst gewählt und weichen etwas von der Vorgabe ab; oft bietet es sich auch an neben _surface colors_ auch noch Schriftfarben zu definieren.
 
-Schwieriger ist die Unterscheidung fliegender Vögel. Die Körperproportionen von Sperber und Habicht sind sehr ähnlich, auf größere Entfernung ist daher insbesondere eine Unterscheidung gleitender oder segelnder Vögel oft nicht möglich. Bei einigermaßen guten Sichtbedingungen sind jedoch auch im Flug der wesentlich massivere Körper und die proportional längeren Flügel des Habichts erkennbar. Bei aktiv fliegenden Individuen lässt auch die Flügelschlagfrequenz oft eine Artbestimmung zu: diese ist bei Sperbern etwa doppelt so hoch wie beim Habicht.
+```css
+:root {
+    --surface-1: #cb99e1;
+    --surface-2: #debfed;
+    --surface-3: #f2e6f8;
+    --surface-4: #f8f2fb;
+
+    --base-gap: 16px;
+    --circle-size: 26px;
+
+    --line-height: var(--circle-size);
+    --step-margin: 16px;
+    --connection-width: 4px;
+}
+
+body {
+    font-family: sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/* Container element */
+.progress-stepper {
+    padding: var(--base-gap);
+}
+
+/* Wrapper for desciption */
+.step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    line-height: var(--line-height);
+}
+```
+
+### Die Liste
+
+Die Liste als solches ist schnell beschrieben: ein `flex`-Layout 
+in der Vertikalen sowie in der Horizontalen für jeden Schritt.
+Hierbei noch erwähnenswert ist die Property `gap` welche mittlerweile auch für `flex`-Container verfügbar ist und einen Abstand zwischen Elementen erzeugt.
+
+```css
+ol {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+    gap: var(--base-gap);
+    margin-bottom: var(--step-margin);
+
+    position: relative;
+    cursor: pointer;
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
+```
+
+### Fortschrittsindikator
+
+Der Fortschrittsindikator (der jeweilige Kreis in jedem Schritt)
+wiederum ist auch nur ein `flex`-Container und wird mittels `align-self: center` vertikal zentriert. Ist ein Schritt als abgeschlossen markiert, ändert sich dessen Farbe und ein Haken wird hinzugefügt. 
+
+```css
+/**
+ * Circle Element - default
+ */
+li:before {
+    content: '';
+    display: flex;
+    align-self: center;
+    place-content: center;
+
+    border: 1px solid var(--surface-1);
+    border-radius: var(--circle-size);
+    min-width: var(--circle-size);
+    min-height: var(--circle-size);
+
+    z-index: 1;
+    background-color: var(--surface-4);
+}
+
+/**
+ * Circle Element - complete
+ */
+li[data-state='complete']:before {
+    content: '✓';
+    background-color: var(--surface-1);
+}
+```
+
+### Verbindungselement
+
+Die eigentliche Herausforderung waren die Verbindungselemente zwischen den Kreisen. Diese mussten nahtlos ineinander übergehen und das möglichst bei verschieden langen Beschriftungen. Um nicht zu viel zusätzliches HTML zu schreiben, hat es sich als praktisch erwiesen, das Verbindungselement absolut zu positionieren. Die Länger der Verbindung ergibt sich dann aus Abstand, Höhe des Schritts sowie der Zeilenhöhe. Das Ganze ist auf jeden Fall nicht perfekt und funktioniert nicht mehr optimal bei Beschriftungen die sich über drei Zeilen erstrecken - was hoffentlich selten der Fall sein sollte. Falls jemand noch eine bessere Lösung hat - gern an mich schicken <a class="text-link no-fetch" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>  
+
+```css
+/* Connection - default */
+li:after {
+    content: '';
+    display: none;
+    width: var(--connection-width);
+    height: 50%;
+
+    position: absolute;
+    left: calc(
+        var(--circle-size) / 2 - var(--connection-width) / 2
+    );
+
+    z-index: 0;
+    background-color: var(--surface-2);
+}
+
+/* Finished step */
+li[data-state='complete']:after {
+    display: flex;
+    height: calc(100% + var(--step-margin) + var(--line-height));
+}
+
+/* First connection */
+li:first-child:after {
+    height: calc(100% + var(--step-margin));
+    transform: translateY(var(--line-height));
+}
+
+/* Last connection */
+li:last-child:after {
+    height: 50%;
+}
+```
+
+## Fazit
+
+Perfekt ist meine Lösung zwar nicht aber interessant war es alle Mal. Besonders geholfen haben hier dir CSS Variablen mit denen zwar viel mit festen Werten gerechnet wurde aber diese immerhin voneinander abhängig sind und somit kein großes Problem darstellen sollten.
+Den Code als Ganzes gibt es noch einmal hier auf meinem 
+<a class="text-link" href="https://codepen.io/TonySpegel/pen/XWgWRgm?editors=1100" title="Progress Stepper auf Codepen">Codepen</a>  
