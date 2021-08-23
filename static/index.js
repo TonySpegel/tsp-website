@@ -1,5 +1,5 @@
 import { addPrefetchLink } from './js/addPrefetchLink.mjs';
-
+import {} from './js/copyDirectLink.mjs'
 /**
  * Add a CSS class dynamically w/ IntersectionObserver
  */

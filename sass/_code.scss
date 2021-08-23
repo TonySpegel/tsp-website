@@ -1,8 +1,20 @@
 pre {
     padding: var(--base-gap);
     max-width: 100%;
-    overflow: auto;
     border-radius: 8px;
+
+    display: grid;
+    grid-template-areas: 
+        'copy'
+        'code'
+    ;
+    gap: var(--base-gap);
+
+    button {
+        display: inline-flex;
+        grid-area: copy;
+        justify-self: flex-end;
+    }
 }
 
 code {
@@ -10,6 +22,9 @@ code {
         padding: calc(var(--base-gap) / 4);
         background: var(--shade-100);
     }
+
+    overflow-x: auto;
+    grid-area: code;
 
     border-radius: calc(var(--base-radius) / 2);
     font-family: monospace;

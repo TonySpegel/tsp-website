@@ -58,3 +58,21 @@ a {
         z-index: -999;
     }
 }
+
+.direct-link {
+    color: var(--text-color-1);
+}
+
+.direct-link-message {
+    visibility: hidden;
+
+    border-radius: var(--base-radius);
+    padding: calc(var(--base-gap) / 2);
+
+    font-size: 0.75em;
+    background-color: var(--shade-100);
+
+    &.visible {
+        visibility: visible;
+    }
+}
