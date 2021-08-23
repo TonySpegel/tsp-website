@@ -1,6 +1,6 @@
 +++
 title = 'Challenge: Progress Stepper'
-date = 2021-08-21
+date = 2021-08-23
 description = 'Fortschritt anzeigen als (CSS) Challenge'
 
 [taxonomies]
