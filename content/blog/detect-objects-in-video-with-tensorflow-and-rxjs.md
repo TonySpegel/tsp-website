@@ -2,6 +2,7 @@
 title = 'Objekte in einem Video erkennen mit Tensorflow.js und RxJS'
 date = 2021-08-04
 description = 'Beliebige Objekte in einem Videostream erkennen'
+draft = true
 
 [taxonomies]
 tags = ['tensorflow', 'rxjs']

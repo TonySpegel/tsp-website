@@ -2,6 +2,7 @@
 title = "What is Zola"
 date = 2020-06-06
 description = 'Lorem ipsum dolor sit amet'
+draft = true
 
 [taxonomies]
 tags = ["rust", "other"]

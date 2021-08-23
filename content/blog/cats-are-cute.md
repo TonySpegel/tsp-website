@@ -2,6 +2,7 @@
 title = 'Katzen sind niedlich 🐱'
 date = 2021-09-02
 description = '🐱🐱🐱'
+draft = true
 
 [taxonomies]
 tags = ['cats', 'cute']
