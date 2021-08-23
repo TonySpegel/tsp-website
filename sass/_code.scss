@@ -21,10 +21,10 @@ code {
     &:not([data-lang]) {
         padding: calc(var(--base-gap) / 4);
         background: var(--shade-100);
+        grid-area: code;
     }
-
+    
     overflow-x: auto;
-    grid-area: code;
 
     border-radius: calc(var(--base-radius) / 2);
     font-family: monospace;
