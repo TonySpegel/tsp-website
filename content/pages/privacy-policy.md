@@ -13,8 +13,8 @@ Schloßgasse 1
 07743 Jena  
 Deutschland
 
-Tel.: <a class="text-link no-fetch" href="tel:+4915125836017" title="Anrufen">+4915125836017</a>  
-E-Mail: <a class="text-link no-fetch" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>  
+Tel.: <a class="text-link no-fetch" target="_blank" rel="noopener noreferrer" href="tel:+4915125836017" title="Anrufen">+4915125836017</a>  
+E-Mail: <a class="text-link no-fetch" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>  
 
 ## Auswertung des Besucherverhaltens & Cookies
 - Weder wird das Verhalten unserer Besucher:innen erfasst oder ausgewertet noch Cookies gesetzt
@@ -49,7 +49,7 @@ United States
 Dieser ist Empfänger Ihrer personenbezogenen Daten. Dies entspricht unserem berechtigten Interesse im Sinne des Art. 6 Abs. 1 S. 1 lit. f DSGVO, selbst keinen Server in unseren Räumlichkeiten vorhalten zu müssen. Serverstandort ist USA.
 
 Weitere Informationen zu Widerspruchs- und Beseitigungsmöglichkeiten gegenüber GitHub finden Sie unter: 
-<a class="text-link" href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages">GitHub privacy statement</a>
+<a class="text-link" target="_blank" rel="noopener noreferrer" href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages">GitHub privacy statement</a>
 
 Sie haben das Recht der Verarbeitung zu widersprechen. Ob der Widerspruch erfolgreich ist, ist im Rahmen einer Interessenabwägung zu ermitteln.
 
@@ -57,5 +57,5 @@ Die Daten werden gelöscht, sobald der Zweck der Verarbeitung entfällt.
 
 Die Verarbeitung der unter diesem Abschnitt angegebenen Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Die Funktionsfähigkeit der Website ist ohne die Verarbeitung nicht gewährleistet.
 
-GitHub hat Compliance-Maßnahmen für internationale Datenübermittlungen umgesetzt. Diese gelten für alle weltweiten Aktivitäten, bei denen GitHub personenbezogene Daten von natürlichen Personen in der EU verarbeitet. Diese Maßnahmen basieren auf den EU-Standardvertragsklauseln (SCCs). Weitere Informationen finden Sie <a class="text-link" href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors">hier</a>.
+GitHub hat Compliance-Maßnahmen für internationale Datenübermittlungen umgesetzt. Diese gelten für alle weltweiten Aktivitäten, bei denen GitHub personenbezogene Daten von natürlichen Personen in der EU verarbeitet. Diese Maßnahmen basieren auf den EU-Standardvertragsklauseln (SCCs). Weitere Informationen finden Sie <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors">hier</a>.
 
