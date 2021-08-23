@@ -16,12 +16,10 @@ Deutschland
 Tel.: <a class="text-link no-fetch" href="tel:+4915125836017" title="Anrufen">+4915125836017</a>  
 E-Mail: <a class="text-link no-fetch" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>  
 
-## EU-STREITSCHLICHTUNG
-Gemäß Verordnung über Online-Streitbeilegung in Verbraucherangelegenheiten (ODR-Verordnung) möchten wir Sie über die Online-Streitbeilegungsplattform (OS-Plattform) informieren.
-Verbraucher haben die Möglichkeit, Beschwerden an die Online Streitbeilegungsplattform der Europäischen Kommission unter <a class="text-link no-fetch" href="http://ec.europa.eu/odr?tid=121469674">http://ec.europa.eu/odr?tid=121469674</a> zu richten. Die dafür notwendigen Kontaktdaten finden Sie oberhalb in unserem Impressum. 
-
-Wir möchten Sie jedoch darauf hinweisen, dass wir nicht bereit oder verpflichtet sind, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-
+## Auswertung des Besucherverhaltens & Cookies
+- Weder wird das Verhalten unserer Besucher:innen erfasst oder ausgewertet noch Cookies gesetzt
+- Etwaiges speichern von Daten (auf ihrem Endgerät) dient lediglich zum speichern von Einstellungen - wie beispielsweise ihrem gewählten Standard-Theme auf dieser Seite
+- Cookies werden keine gesetzt. Sollten dennoch Cookies gesetzt werden, geschiet dies ausschließlich durch den Hoster GitHub Inc. und ist nicht umgehbar
 
 ## Hosting
 
@@ -51,7 +49,7 @@ United States
 Dieser ist Empfänger Ihrer personenbezogenen Daten. Dies entspricht unserem berechtigten Interesse im Sinne des Art. 6 Abs. 1 S. 1 lit. f DSGVO, selbst keinen Server in unseren Räumlichkeiten vorhalten zu müssen. Serverstandort ist USA.
 
 Weitere Informationen zu Widerspruchs- und Beseitigungsmöglichkeiten gegenüber GitHub finden Sie unter: 
-<a class="text-link" href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages">https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages</a>
+<a class="text-link" href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages">GitHub privacy statement</a>
 
 Sie haben das Recht der Verarbeitung zu widersprechen. Ob der Widerspruch erfolgreich ist, ist im Rahmen einer Interessenabwägung zu ermitteln.
 
@@ -59,5 +57,5 @@ Die Daten werden gelöscht, sobald der Zweck der Verarbeitung entfällt.
 
 Die Verarbeitung der unter diesem Abschnitt angegebenen Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Die Funktionsfähigkeit der Website ist ohne die Verarbeitung nicht gewährleistet.
 
-GitHub hat Compliance-Maßnahmen für internationale Datenübermittlungen umgesetzt. Diese gelten für alle weltweiten Aktivitäten, bei denen GitHub personenbezogene Daten von natürlichen Personen in der EU verarbeitet. Diese Maßnahmen basieren auf den EU-Standardvertragsklauseln (SCCs). Weitere Informationen finden Sie unter: <a class="text-link" href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors">https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors</a>
+GitHub hat Compliance-Maßnahmen für internationale Datenübermittlungen umgesetzt. Diese gelten für alle weltweiten Aktivitäten, bei denen GitHub personenbezogene Daten von natürlichen Personen in der EU verarbeitet. Diese Maßnahmen basieren auf den EU-Standardvertragsklauseln (SCCs). Weitere Informationen finden Sie <a class="text-link" href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors">hier</a>.
 
