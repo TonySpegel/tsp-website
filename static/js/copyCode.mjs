@@ -1,5 +1,5 @@
-const preTags = [...document.querySelectorAll('pre[data-lang]')];
-const codeTags = [...document.querySelectorAll('pre[data-lang] > code')];
+const preTags = [...document.querySelectorAll('pre')];
+const codeTags = [...document.querySelectorAll('pre > code')];
 
 if (preTags.length > 0 && codeTags.length > 0) {
     // Insert button into every pre tag to copy the content of every code tag individually
@@ -14,7 +14,7 @@ if (preTags.length > 0 && codeTags.length > 0) {
         codeTag.id = `code-tag-${index}`;
     });
 
-    const copyButtons = [...document.querySelectorAll('pre[data-lang] > .article-tag')];
+    const copyButtons = [...document.querySelectorAll('pre > .article-tag')];
 
     copyButtons.map((copyButton, index) => {
         copyButton.addEventListener('click', async (event) => {
