@@ -4,16 +4,26 @@ pre {
     border-radius: 8px;
 
     display: grid;
-    grid-template-areas: 
-        'copy'
-        'code'
-    ;
+    grid-template-areas: 'code';
     gap: var(--base-gap);
+
+    z-index: 0;
+
+    code[data-lang] {
+        grid-area: code;
+        z-index: 1;
+    }
 
     button {
         display: inline-flex;
-        grid-area: copy;
+        grid-area: code;
+        align-self: flex-start;
         justify-self: flex-end;
+
+        z-index: 2;
+        cursor: pointer;
+        min-width: 68px;
+        justify-content: center;
     }
 }
 
