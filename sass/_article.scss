@@ -65,6 +65,7 @@
 .article-tag {
     padding: calc(var(--base-gap) / 2);
     border-radius: var(--base-radius);
+    border: none;
 
     text-decoration: none;
     color: var(--shade-800) !important;
