@@ -26,6 +26,12 @@ wie beispielsweise einem sogenannten Dark-Mode.
 Jede Komponente dieser Website ist mit der Maus, der Tastatur oder durch Berührung zugänglich. Um sicherzustellen, dass die Website mit Tastaturen nutzbar ist, habe ich Bilder, Links, Formulare und andere fokussierbare Elemente mit Fokusstilen versehen. 
 Diese Website wurde auf modernen Browsern und Endgeräten verschiedener Leistungsstufen getestet.
 
+## Bekannte Probleme
+- Der Kontrast von verschiedenen Schlüsselwörtern von Code-Blöcken könnte besser sein
+- Es gibt bisher nur ein nicht adaptives Theme
+
+Daran wird derzeit gearbeitet
+
 ## Feedback
 Barrierefreiheit ist ein wichtiges Thema für mich und als nicht direkt Betroffener schwierig
 perfekt umzusetzen. Sollte es irgendwelche Probleme geben, schickt mir bitte eine E-Mail an: 
