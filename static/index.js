@@ -1,7 +1,7 @@
 import { addPrefetchLink } from './js/addPrefetchLink.mjs';
 import './js/copyDirectLink.mjs';
 import './js/copyCode.mjs';
-import './js/intersectionObserver.mjs'
+import './js/intersectionObserver.mjs';
 
 /**
  * Prefetch Links
@@ -19,3 +19,13 @@ pageLinks.map((pageLink) => {
         once: true,
     });
 });
+
+/**
+ * For iOS Safari there needs to be a touchstart listener in order to
+ * apply :active styles. This can be acheived by using <body ontouchstart>.
+ * But this itself would cause Chrome to throw an error that this listener
+ * isn't passive. To fix this the below code is needed.
+ */
+document
+    .querySelector('body')
+    .addEventListener('touchstart', () => {}, { passive: true });

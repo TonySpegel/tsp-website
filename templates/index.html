@@ -1,92 +1,105 @@
 {% import "macros/page.html" as page_macros %}
 <!DOCTYPE html>
 <html lang="{{ config.extra.lang }}" color-mode="light">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>{% block title %}{{ config.extra.title }} {{ config.extra.title_separator }} {{ config.extra.title_addition }}{% endblock title %}</title>
-    
-    <meta name="description" content="{{ config.description }}">
-    <meta name="theme-color" content="#debfed">
+        <title>
+            {% block title %}{{ config.extra.title }} {{
+            config.extra.title_separator }} {{ config.extra.title_addition }}{%
+            endblock title %}
+        </title>
 
-    <link rel="stylesheet" href="{{ get_url(path="main.css", trailing_slash=false) }}">
+        <meta name="description" content="{{ config.description }}" />
+        <meta name="theme-color" content="#debfed" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ get_url(path="main.css",
+        trailing_slash=false) }}">
 
-    <link rel="icon" href="/favicon.svg">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500&display=swap"
+            rel="stylesheet"
+        />
 
-    <script type="module" src="/index.js" defer></script>
+        <link rel="preload" href="/js/addPrefetchLink.mjs" as="script" crossOrigin="anonymous" />
+        <link rel="preload" href="/js/copyCode.mjs" as="script" crossOrigin="anonymous" />
+        <link rel="preload" href="/js/copyDirectLink.mjs" as="script" crossOrigin="anonymous" />
 
-    {% block extra_head %}
-    {% endblock extra_head %}
-</head>
-<body ontouchstart>
-    <a class="skip-to-main" href="#main">Zum Inhalt</a>
-    <div class="glass"></div>
-    <div class="bubble"></div>
-    <div class="bubble-2"></div>
-    <div class="container" data-scroller>
-        <header id="site-header" data-header> 
-            <nav>
-                <a href="/" class="logo-link" title="Zur Startseite">
-                    <div class="logo">
-                        <div class="box-1"></div>
-                        <div class="box-2"></div>
-                        <div class="box-3"></div>
-                        <span>TS</span>
-                    </div>
-                    <h1>Tony Spegel</h1>
-                </a>
+        <link rel="icon" href="/favicon.svg" />
+
+        <script type="module" src="/index.js" defer></script>
+
+        {% block extra_head %} {% endblock extra_head %}
+    </head>
+    <body>
+        <a class="skip-to-main" href="#main">Zum Inhalt</a>
+        <div class="glass"></div>
+        <div class="bubble"></div>
+        <div class="bubble-2"></div>
+        <div class="container" data-scroller>
+            <header id="site-header" data-header>
+                <nav>
+                    <a href="/" class="logo-link" title="Zur Startseite">
+                        <div class="logo">
+                            <div class="box-1"></div>
+                            <div class="box-2"></div>
+                            <div class="box-3"></div>
+                            <span>TS</span>
+                        </div>
+                        <h1>Tony Spegel</h1>
+                    </a>
+                    <ul>
+                        {% for menu_link in config.extra.anpu_menu_links %} 
+                        {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
+                        <li>
+                            <a class="article-tag" href="{{ link_url }}">
+                                {{menu_link.name}}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </header>
+            <main id="main" tabindex="-1">
+                <div id="sentinel-element"></div>
+                {% block content %} 
+                    {{ page_macros::intro() }}
+                    <h2 class="heading">Neueste Blog posts</h2>
+                    {% if paginator.pages %}
+                        <div class="posts">
+                            {% for page in paginator.pages %} 
+                                {{ page_macros::page_listing(page=page) }} 
+                            {% endfor %}
+                        </div>
+                    {% else %} 
+                        {% for page in section.pages %} {{
+                            page_macros::page_listing(page=page) }} 
+                        {% endfor %} 
+                    {% endif %}
+                {% endblock content %}
+            </main>
+
+            <footer>
                 <ul>
-                    {% for menu_link in config.extra.anpu_menu_links %}
-                    {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
+                    <li>© {{ config.extra.title }} {{ now() | date(format="%Y") }}</li>
                     <li>
-                        <a class="article-tag" href="{{ link_url }}">
-                            {{menu_link.name}}
+                        <a href="/impressum/" class="text-link">Impressum</a>
+                    </li>
+                    <li>
+                        <a href="/datenschutzerklaerung/" class="text-link">
+                            Datenschutzerklärung
                         </a>
                     </li>
-                    {% endfor %}
+                    <li>
+                        <a href="/barrierefreiheit/" class="text-link">
+                            Barrierefreiheit
+                        </a>
+                    </li>
                 </ul>
-            </nav>
-        </header>
-        <main id="main" tabindex="-1">
-            <div id="sentinel-element"></div>
-            {% block content %}
-                {{ page_macros::intro() }}
-                <h2 class="heading">Neueste Blog posts</h2>
-                {% if paginator.pages %}
-                    <div class="posts">
-                        {% for page in paginator.pages %}
-                            {{ page_macros::page_listing(page=page) }}
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {% for page in section.pages %}
-                        {{ page_macros::page_listing(page=page) }}
-                    {% endfor %}
-                {% endif %}
-            {% endblock content %}
-        </main>
-
-        <footer>
-            <ul>
-                <li>
-                    © {{ config.extra.title }} {{ now() | date(format="%Y") }}
-                </li>
-                <li>
-                    <a href="/impressum/" class="text-link">Impressum</a>
-                </li>
-                <li>
-                    <a href="/datenschutzerklaerung/" class="text-link">Datenschutzerklärung</a>
-                </li>
-                <li>
-                    <a href="/barrierefreiheit/" class="text-link">Barrierefreiheit</a>
-                </li>
-            </ul>
-        </footer>
-    </div>
-</body>
+            </footer>
+        </div>
+    </body>
 </html>
