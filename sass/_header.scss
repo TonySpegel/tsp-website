@@ -15,6 +15,7 @@ header {
         align-items: center;
         justify-content: space-between;
         padding: var(--base-gap);
+        height: var(--header-height);
 
         ul {
             display: flex;
@@ -26,7 +27,6 @@ header {
             text-decoration: none;
         }
     }
-
 }
 
 .content > header {

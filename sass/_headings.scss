@@ -40,12 +40,13 @@ h2 {
         display: flex;
         align-items: center;
         gap: var(--base-gap);
+        scroll-margin-top: calc(var(--header-height) + var(--base-gap));
     }
 
     h2 {
         height: var(--h2-height);
     }
-    
+
     h3 {
         height: var(--h3-height);
     }
