@@ -1,7 +1,7 @@
 import { addPrefetchLink } from './js/addPrefetchLink.mjs';
-import {} from './js/copyDirectLink.mjs';
-import {} from './js/copyCode.mjs';
-import {} from './js/intersectionObserver.mjs'
+import './js/copyDirectLink.mjs';
+import './js/copyCode.mjs';
+import './js/intersectionObserver.mjs'
 
 /**
  * Prefetch Links
