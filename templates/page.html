@@ -6,6 +6,7 @@
     {% set type = page.extra.type %}
 
     {{ macros_head::seo(description=description, type=type, no_bots_allowed=false) }}
+    <script type="module" src="/blog.js" defer></script>
 {% endblock seo %}
 
 {% block title %}
