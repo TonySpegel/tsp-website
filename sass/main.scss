@@ -4,6 +4,7 @@
     --base-radius: 8px;
     --logo-size: 56px;
     --header-height: 100px;
+    --page-width: 768px;
 
     // Animations
     --duration: 300ms;
@@ -70,7 +71,11 @@ main {
     margin: 0 auto;
     padding: var(--base-gap);
     width: 100%;
-    max-width: 768px;
+    max-width: var(--page-width);
+
+    &:focus-visible {
+        outline: none;
+    }
 }
 
 .container {
@@ -83,7 +88,7 @@ main {
     width: 100%;
     height: 100vh;
     max-height: -webkit-fill-available;
-    
+
     overflow-y: auto;
 }
 
@@ -103,6 +108,6 @@ p {
 @import './_link';
 @import './_lists';
 @import './_logo';
-@import './_post';
 @import './_pagination';
+@import './_post';
 @import './_social-links';
