@@ -6,6 +6,21 @@
     {% set type = page.extra.type %}
 
     {{ macros_head::seo(description=description, type=type, no_bots_allowed=false) }}
+    
+    <link
+        rel="preload"
+        href="/js/copyCode.mjs"
+        as="script"
+        crossorigin="anonymous"
+    />
+    
+    <link
+        rel="preload"
+        href="/js/copyDirectLink.mjs"
+        as="script"
+        crossorigin="anonymous"
+    />
+
     <script type="module" src="/blog.js" defer></script>
 {% endblock seo %}
 
