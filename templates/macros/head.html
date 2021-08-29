@@ -1,0 +1,31 @@
+{# type:          website or article, generally setting article for blog articles #}
+{# no_bots_allowed:        using for the 404.html template #}
+{% macro seo(
+    title="",
+    description="",
+    type="website",
+    no_bots_allowed=false
+  )
+%}
+
+{% if current_url %}
+	  {% set page_url = current_url %}
+{% else %}
+	  {% set page_url = get_url(path="404.html") %}
+{% endif %}
+
+<link rel="canonical" href="{{ page_url | safe }}">
+
+<meta name="description" content="{{ description }}">
+{% if no_bots_allowed %}
+    <meta name="robots" content="noindex, follow">
+{% else %}
+    <meta name="robots" content="index, follow">
+{% endif %}
+
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="{{ type }}">
+<meta property="og:url" content="{{ page_url | safe }}">
+
+{% endmacro %}
