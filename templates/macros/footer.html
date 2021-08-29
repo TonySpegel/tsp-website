@@ -1,0 +1,22 @@
+{% macro footer() %}
+<footer>
+    <ul>
+        <li>
+            © {{ config.extra.title }} {{ now() | date(format="%Y") }}
+        </li>
+        <li>
+            <a href="/impressum/" class="text-link">Impressum</a>
+        </li>
+        <li>
+            <a href="/datenschutzerklaerung/" class="text-link">
+                Datenschutzerklärung
+            </a>
+        </li>
+        <li>
+            <a href="/barrierefreiheit/" class="text-link">
+                Barrierefreiheit
+            </a>
+        </li>
+    </ul>
+</footer>
+{% endmacro %}
