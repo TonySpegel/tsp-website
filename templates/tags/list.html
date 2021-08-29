@@ -1,7 +1,15 @@
 {% import "macros/page.html" as page_macros %}
 {% extends "index.html" %}
 
-{% block title %}Tags  {{ config.extra.title_separator }} {{ config.extra.title }}{% endblock title%}
+{% block title %}
+Tags  {{ config.extra.title_separator }} {{ config.extra.title }}
+{% endblock title%}
+
+{% block seo %} 
+    {% set description = "Alle Tags zum Blog auf dieser Website" %}
+
+    {{ macros_head::seo(description=description) }}
+{% endblock seo %}
 
 {% block content %}
 <h1>Tags</h1>

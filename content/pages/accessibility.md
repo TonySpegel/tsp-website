@@ -2,6 +2,10 @@
 title = "Barrierefreiheit"
 path = "barrierefreiheit"
 template = "page.html"
+description = "Details zur Barrierefreiheit auf dieser Website"
+
+[extra]
+type = 'website'
 +++
 
 Ich möchte, dass diese Website von einem möglichst breiten Publikum genutzt werden kann, unabhängig von Gerät, Browser, Netzgeschwindigkeit oder Fähigkeiten.
@@ -27,7 +31,7 @@ Jede Komponente dieser Website ist mit der Maus, der Tastatur oder durch Berühr
 Diese Website wurde auf modernen Browsern und Endgeräten verschiedener Leistungsstufen getestet.
 
 ## Bekannte Probleme
-- Der Kontrast von verschiedenen Schlüsselwörtern von Code-Blöcken könnte besser sein
+- Der Kontrast von verschiedenen Schlüsselwörtern in Code-Blöcken könnte besser sein
 - Es gibt bisher nur ein nicht adaptives Theme
 
 Daran wird derzeit gearbeitet

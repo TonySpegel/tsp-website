@@ -5,6 +5,9 @@ description = 'Fortschritt anzeigen als (CSS) Challenge'
 
 [taxonomies]
 tags = ['challenge', 'css', 'FrontEndChallengesClub']
+
+[extra]
+type = 'article'
 +++
 
 <div class="img-box">

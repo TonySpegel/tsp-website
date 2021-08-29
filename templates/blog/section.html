@@ -1,6 +1,12 @@
 {% import "macros/page.html" as page_macros %}
 {% extends "index.html" %}
 
+{% block seo %} 
+    {% set description = "Ein Blog über alles was im Web so möglich ist" %}
+
+    {{ macros_head::seo(description=description, type="website") }}
+{% endblock seo %}
+
 {% block content %} 
     <h2 class="heading">Über diesen Blog</h2>
     <p>
@@ -8,7 +14,15 @@
         was im Web so möglich ist. Jeder Post ist so aufgebaut, dass dieser
         einfach nachzuvollziehen und reproduzierbar ist. Sollte dennoch etwas nicht ganz
         klar sein oder nicht mehr funktionieren, schreibt mir doch eine Mail an:
-        <a class="text-link no-fetch" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>
+        <a 
+            class="text-link no-fetch"
+            href="mailto:tony.spegel@gmail.com" 
+            rel="noopener noreferrer" 
+            target="_blank"
+            title="E-Mail schreiben"
+        >
+            tony.spegel@gmail.com
+        </a>
     </p>
     {% if paginator.pages %}
         <div class="posts">

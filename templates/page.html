@@ -1,7 +1,16 @@
 {% import "macros/page.html" as page_macros %}
 {% extends "index.html" %}
 
-{% block title %}{{ page.title }} {{ config.extra.title_separator }} {{ config.extra.title }}{% endblock %}
+{% block seo %} 
+    {% set description = page.description %}
+    {% set type = page.extra.type %}
+
+    {{ macros_head::seo(description=description, type=type, no_bots_allowed=false) }}
+{% endblock seo %}
+
+{% block title %}
+    {{ page.title }} {{ config.extra.title_separator }} {{ config.extra.title }}
+{% endblock %}
 
 {% block content %}
 
@@ -14,7 +23,6 @@
     <div class="content">
         {{ page.content | safe }}
     </div>
-
 </article>
 
 {% endblock content %}

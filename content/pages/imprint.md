@@ -2,6 +2,10 @@
 title = "Impressum"
 path = "impressum"
 template = "page.html"
+description = "Impressum | Tony Spegel: Frontend-Entwicklung für Websites, Shopify-Onlineshops, Web- und Cross Platform-Apps"
+
+[extra]
+type = 'website'
 +++
 
 Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch,  

@@ -2,6 +2,10 @@
 title = "Datenschutzerklärung"
 path = "datenschutzerklaerung"
 template = "page.html"
+description = "Datenschutzerklärung | Tony Spegel: Frontend-Entwicklung für Websites, Shopify-Onlineshops, Web- und Cross Platform-Apps"
+
+[extra]
+type = 'website'
 +++
 
 Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch,  

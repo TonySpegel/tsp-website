@@ -1,5 +1,12 @@
 {% extends "index.html" %}
 
+{% block seo %} 
+    {% set description = "Hier gibt es leider nichts zu sehen, diese Seite gibt es nicht." %}
+    {% set title = "404: Seite nicht gefunden" %}
+
+    {{ macros_head::seo(title=title, description=description, no_bots_allowed=true) }}
+{% endblock seo %}
+
 {% block content %}
 <article class="post">
     <header>
