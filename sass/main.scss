@@ -1,3 +1,5 @@
+@import './_theme';
+
 :root {
     // Layout
     --base-gap: 16px;
@@ -5,47 +7,12 @@
     --logo-size: 56px;
     --header-height: 100px;
     --page-width: 768px;
+    --bubble-size: 350px;
 
     // Animations
     --duration: 300ms;
     --timing: ease;
 
-    &[color-mode='light'] {
-        --surface-color: #ccc;
-        --text-color: #333;
-
-        --surface-1: #cb99e1;
-        --surface-2: #debfed;
-        --surface-3: #f2e6f8;
-        --surface-4: #f8f2fb;
-        --surface-5: #fbfbfb;
-
-        --shade-50: #f8f2fb;
-        --shade-100: #f2e6f8;
-        --shade-200: #debfed;
-        --shade-300: #cb99e1;
-        --shade-400: #a34dcb;
-        --shade-500: #7c00b5;
-        --shade-600: #7000a3;
-        --shade-700: #5d0088;
-        --shade-800: #4a006d;
-        --shade-900: #3d0059;
-
-        --text-color-1: #5d0088;
-        --text-color-2: var(--shade-800);
-
-        --bubble-1--color-1: #21d4fd;
-        --bubble-1--color-2: #b721ff;
-        --bubble-2--color-1: #d81b60;
-        --bubble-2--color-2: #03a9f4;
-        --bubble-size: 350px;
-        --glass-tint: rgba(234, 248, 255, 0.15);
-    }
-
-    &[color-mode='dark'] {
-        --surface-color: #333;
-        --text-color: #ccc;
-    }
 }
 
 * {
@@ -56,7 +23,7 @@ body {
     transition: color var(--duration) var(--timing),
         background-color var(--duration) var(--timing);
 
-    background-color: var(--surface-5);
+    background-color: var(--surface-3);
     color: var(--text-color);
 
     font-family: 'Inter', sans-serif;
@@ -107,6 +74,7 @@ p {
 @import './_intro';
 @import './_link';
 @import './_lists';
+@import './_menu';
 @import './_logo';
 @import './_pagination';
 @import './_post';

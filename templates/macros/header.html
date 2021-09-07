@@ -12,25 +12,7 @@
             <h1>Tony Spegel</h1>
         </a>
         <div class="menu">
-            <svg
-                style="display: none;"
-                width="30"
-                height="30"
-                viewBox="0 0 30 30"
-                aria-label="Theme Auswahl"
-                role="button"
-            >
-                <title>Theme Auswahl</title>
-                <defs>
-                    <linearGradient id="half" gradientTransform="rotate(45)">
-                        <stop offset="60%" stop-color="var(--shade-800)" />
-                        <stop offset="60%" stop-color="#a960c8" />
-                    </linearGradient>
-                </defs>
-                <g fill="none" fill-rule="evenodd">
-                    <circle cx="15" cy="15" r="14" fill="url('#half')" />
-                </g>
-            </svg>
+            <div id="circle"></div>
             <ul>
                 {% for menu_link in config.extra.anpu_menu_links %} {% set
                 link_url = menu_link.url | replace(from="$BASE_URL",

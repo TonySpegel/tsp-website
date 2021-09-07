@@ -6,10 +6,9 @@ import './js/intersectionObserver.mjs';
  * ==============
  */
 
-
 /**
  * Get all page links and make an array out of it.
- * Some links such as e-mail addresses and mobile numbers 
+ * Some links such as e-mail addresses and mobile numbers
  * should not be fetched - these are marked with `.no-fetch`.
  */
 const pageLinks = [...document.querySelectorAll('a:not(.no-fetch)')];
@@ -28,7 +27,6 @@ pageLinks.map((pageLink) => {
  * ==============
  */
 
-
 /**
  * For iOS Safari there needs to be a touchstart listener in order to
  * apply :active styles. This can be achieved by using <body ontouchstart>.
@@ -38,3 +36,16 @@ pageLinks.map((pageLink) => {
 document
     .querySelector('body')
     .addEventListener('touchstart', () => {}, { passive: true });
+
+/**
+ * Switch
+ */
+let lights = false;
+const themeSwitchCircle = document.querySelector('#circle');
+themeSwitchCircle.addEventListener('click', () => {
+    lights = !lights;
+
+    lights
+        ? document.documentElement.setAttribute('color-mode', 'dark')
+        : document.documentElement.setAttribute('color-mode', 'light');
+});

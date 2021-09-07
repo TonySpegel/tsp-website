@@ -30,7 +30,7 @@ pre {
 code {
     &:not([data-lang]) {
         padding: calc(var(--base-gap) / 4);
-        background: var(--shade-100);
+        background: var(--surface-3);
         grid-area: code;
     }
     
