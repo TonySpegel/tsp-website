@@ -15,7 +15,7 @@ a {
     }
 
     &:active {
-        color: var(--text-color-1);
+        color: var(--text-1);
     }
 
     &:visited {
@@ -26,7 +26,7 @@ a {
         display: inline-block;
         position: relative;
         text-decoration: none;
-        color: var(--text-color-1);
+        color: var(--text-1);
 
         &:after {
             content: '';
@@ -34,7 +34,7 @@ a {
             margin: 2px auto 0;
             height: 1px;
             width: 100%;
-            background-color: var(--text-color-1);
+            background-color: var(--text-1);
             transition: height 0.2s ease-in-out;
             position: absolute;
             bottom: 0;
@@ -60,7 +60,7 @@ a {
 }
 
 .direct-link {
-    color: var(--text-color-1);
+    color: var(--text-1);
 }
 
 .direct-link-message {
@@ -70,7 +70,8 @@ a {
     padding: calc(var(--base-gap) / 2);
 
     font-size: 0.75em;
-    background-color: var(--shade-100);
+    background-color: var(--surface-3);
+    color: var(--text-1);
 
     &.visible {
         visibility: visible;
