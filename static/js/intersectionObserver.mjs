@@ -2,7 +2,7 @@
  * Add a CSS class dynamically w/ IntersectionObserver
  */
 const scrollRoot = document.querySelector('[data-scroller]');
-const header = document.querySelector('[data-header]');
+const header = document.querySelector('#site-header');
 const sentinelElement = document.querySelector('#sentinel-element');
 
 const observerOptions = {
