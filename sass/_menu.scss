@@ -2,18 +2,4 @@
     display: flex;
     align-items: center;
     gap: var(--base-gap);
-
-    svg {
-        cursor: pointer;
-    }
-
-    #circle {
-        cursor: pointer;
-        border-radius: 50%;
-        border: 1px solid var(--surface-3);
-        background-color: var(--surface-4);
-
-        width: 25px;
-        height: 25px;
-    }
 }
