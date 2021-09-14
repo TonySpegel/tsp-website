@@ -3,9 +3,11 @@
 
 {% block seo %} 
     {% set description = page.description %}
+    {% set title = page.title %}
+
     {% set type = page.extra.type %}
 
-    {{ macros_head::seo(description=description, type=type, no_bots_allowed=false) }}
+    {{ macros_head::seo(title=title, description=description, type=type, no_bots_allowed=false) }}
     
     <link
         rel="preload"
