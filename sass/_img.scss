@@ -5,8 +5,13 @@
     gap: var(--base-gap);
     border-radius: var(--base-radius);
     padding: var(--base-gap);
+    max-width: 100%;
 
     span {
         color: var(--text-2);
+    }
+
+    img {
+        max-width: 100%;
     }
 }
