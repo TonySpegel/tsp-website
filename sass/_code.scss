@@ -30,12 +30,19 @@ pre {
 code {
     &:not([data-lang]) {
         padding: calc(var(--base-gap) / 4);
-        background: var(--surface-3);
-        grid-area: code;
+        background-color: var(--surface-3);
     }
-    
+
     overflow-x: auto;
 
     border-radius: calc(var(--base-radius) / 2);
     font-family: monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+    @include dark-code-tag();
+}
+
+[color-mode='dark'] {
+    @include dark-code-tag();
 }
