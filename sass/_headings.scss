@@ -4,7 +4,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--text-color-1);
+    color: var(--text-1);
     word-break: break-word;
 }
 
@@ -15,13 +15,6 @@ h2 {
         border-radius: 20px 10px 20px 10px;
         padding: var(--base-gap);
         background-color: var(--surface-2);
-    }
-
-    &.heading {
-        display: inline-flex;
-        border-radius: 20px 10px 20px 10px;
-        padding: var(--base-gap);
-        background-color: var(--surface-3);
     }
 }
 
