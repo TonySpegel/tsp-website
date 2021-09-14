@@ -1,5 +1,5 @@
 .glass {
-    background-color: var(--glass-tint);
+    background-color: var(--glass-tint) !important;
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
     z-index: 0;
