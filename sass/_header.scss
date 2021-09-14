@@ -1,15 +1,4 @@
 header {
-    &#site-header {
-        position: sticky;
-        top: 0;
-        z-index: 2;
-        transition: background-color var(--duration) var(--timing);
-
-        &.opaque {
-            background-color: #debfedf1;
-        }
-    }
-
     > nav {
         display: flex;
         align-items: center;
@@ -34,4 +23,27 @@ header {
     gap: var(--base-gap);
     justify-content: flex-end;
     padding: var(--base-gap);
+}
+
+#site-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    transition: background-color var(--duration) var(--timing);
+
+    &.opaque {
+        background-color: hsla(280, 56%, 84%, 0.945);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    #site-header.opaque {
+        background-color: var(--glass-tint-2);
+    }
+}
+
+[color-mode='dark'] {
+    #site-header.opaque {
+        background-color: var(--glass-tint-2);
+    }
 }
