@@ -32,7 +32,7 @@ Diese Website wurde auf modernen Browsern und Endgeräten verschiedener Leistung
 
 ## Bekannte Probleme
 - Der Kontrast von verschiedenen Schlüsselwörtern in Code-Blöcken könnte besser sein
-- Es gibt bisher nur ein nicht adaptives Theme
+- Das Theme der Website richtet sich bisher nur automatisch nach der Einstellung im Betriebssystem und lässt sich noch nicht manuell setzen (es gibt einen Debug-Mode aber das behalten wir für uns 🤫)
 
 Daran wird derzeit gearbeitet
 
