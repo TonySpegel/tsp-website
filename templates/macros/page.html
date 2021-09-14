@@ -15,7 +15,7 @@
                         <a 
                             href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}" 
                             title="Posts zum Tag: {{ tag }}"
-                            class="article-tag"
+                            class="article-tag surface-tag"
                         >
                             #{{ tag }}
                         </a>
@@ -45,7 +45,7 @@
         <h1 class="title">Hi, ich bin Tony.</h1>
         <p>
             Ich bin (Frontend)-Entwickler und arbeite vor allem mit JavaScript, TypeScript, Sass,
-            Angular sowie und der E-Commerce-Plattform Shopify
+            Angular und der E-Commerce-Plattform Shopify
         </p>
     </div>
     <ul class="social-links">
@@ -56,7 +56,7 @@
                 target="_blank" 
                 title="GitHub Profil: Tony Spegel"
             >
-                <img src="/img/GitHub-Mark-120px-plus.png" alt="GitHub Logo" />
+                <img src="/img/GitHub-Mark-120px-plus.png" alt="GitHub Logo" width="48px" height="48px" />
             </a>
         </li>
     </ul>
@@ -65,7 +65,7 @@
 
 
 {% macro page_listing(page) %}
-    <article class="post-list" data-section>
+    <article class="post-list">
         <header> 
             {% if page.date %}
             <time 
