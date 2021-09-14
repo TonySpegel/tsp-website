@@ -1,21 +1,39 @@
 .social-links {
-    --github-social-size: 48px;
-    list-style: none;
+    --github-social-size: 64px;
+
     display: flex;
     flex-wrap: wrap;
     gap: var(--base-gap);
     padding: 0;
 
+    list-style: none;
+
     li {
         width: var(--github-social-size);
-        
+        height: var(--github-social-size);
+        padding: calc(var(--base-gap) / 2);
+
+        border-radius: 50%;
+        background-color: var(--surface-3);
+
         a {
             display: flex;
 
             img {
                 width: 100%;
-                height: var(--github-social-size);
             }
         }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .social-links li {
+        background-color: #fff;
+    }
+}
+
+[color-mode='dark'] {
+    .social-links li {
+        background-color: #fff;
     }
 }
