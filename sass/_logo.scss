@@ -9,23 +9,27 @@
 }
 
 .logo {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    backdrop-filter: blur(15px);
     background: rgba(232, 232, 232, 0.1);
     border-radius: 15px;
     cursor: pointer;
     height: var(--logo-size);
-    padding: 7px;
+    padding: var(--logo-padding);
     width: var(--logo-size);
     transition: transform 0.1s ease-in-out;
+    aspect-ratio: 1/1;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
 }
 
 .logo-link {
     display: flex;
     gap: var(--base-gap);
     align-items: center;
+
+    color: var(--text-1);
 
     h1 {
         font-size: 1.8rem;
