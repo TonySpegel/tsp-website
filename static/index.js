@@ -17,8 +17,10 @@ const pageLinks = [...document.querySelectorAll('a:not(.no-fetch)')];
  * but do it only once to avoid unnecessary network requests
  */
 pageLinks.map((pageLink) => {
-    pageLink.addEventListener('mouseover', addPrefetchLink, {
-        once: true,
+    ['mouseover', 'focus'].map((event) => {
+        pageLink.addEventListener(event, addPrefetchLink, {
+            once: true,
+        });
     });
 });
 
@@ -31,7 +33,7 @@ pageLinks.map((pageLink) => {
  * For iOS Safari there needs to be a touchstart listener in order to
  * apply :active styles. This can be achieved by using <body ontouchstart>.
  * But this itself would cause Chrome to throw an error that this listener
- * isn't passive. To fix this the below code is needed.
+ * isn't passive. The code below fixes this issue
  */
 document
     .querySelector('body')
@@ -40,12 +42,33 @@ document
 /**
  * Switch
  */
-let lights = false;
-const themeSwitchCircle = document.querySelector('#circle');
-themeSwitchCircle.addEventListener('click', () => {
-    lights = !lights;
+const body = document.querySelector('body');
+const copyright = document.querySelector('#copyright');
 
-    lights
-        ? document.documentElement.setAttribute('color-mode', 'dark')
-        : document.documentElement.setAttribute('color-mode', 'light');
+const readPreference = () => {
+    return localStorage.getItem('color-mode');
+};
+
+const savePreference = (theme) => {
+    document.documentElement.setAttribute('color-mode', theme);
+    localStorage.setItem('color-mode', theme);
+};
+
+const deletePreference = () => {
+    document.documentElement.removeAttribute('color-mode');
+    localStorage.removeItem('color-mode');
+};
+
+body.addEventListener('dblclick', () => {
+    const mode = readPreference();
+
+    if (mode === 'light') {
+        savePreference('dark');
+    } else {
+        savePreference('light');
+    }
+});
+
+copyright.addEventListener('click', () => {
+    deletePreference();
 });
