@@ -53,7 +53,10 @@
         display: inherit;
         align-items: center;
         height: 36px;
-        line-height: 1;
+
+        a {
+            height: 100%;
+        }
     }
 }
 
