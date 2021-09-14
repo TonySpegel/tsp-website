@@ -1,0 +1,27 @@
+@mixin surface-tag {
+    background-color: var(--surface-3);
+
+    &:hover,
+    &:focus {
+        background-color: var(--surface-2);
+    }
+}
+
+@mixin dark-code-tag {
+    code {
+        &:not([data-lang]) {
+            background-color: var(--surface-4);
+            border: 1px solid var(--border-color);
+        }
+    }
+}
+
+@mixin light-surface-3 {
+    background-color: var(--surface-3);
+    color: var(--text-1);
+}
+
+@mixin dark-surface-2 {
+    background-color: var(--surface-2);
+    border: 1px solid var(--border-color);
+}
