@@ -17,7 +17,11 @@ Tags  {{ config.extra.title_separator }} {{ config.extra.title }}
 <ul class="terms article-tags">
     {% for term in terms %}
     <li>
-        <a href="{{ term.permalink }}" class="article-tag">
+        <a 
+            href="{{ term.permalink }}" 
+            class="article-tag surface-tag"
+            title="Posts zum Tag: {{ term.name }}"
+        >
         #{{ term.name }}
         </a>
     </li>
