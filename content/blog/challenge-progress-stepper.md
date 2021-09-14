@@ -10,7 +10,7 @@ tags = ['challenge', 'css', 'FrontEndChallengesClub']
 type = 'article'
 +++
 
-<div class="img-box">
+<div class="img-box surface">
     <img 
         src="/img/fecc-challenge-008.png" 
         alt="Challenge #008 (Front-End Challenges Club)" 
