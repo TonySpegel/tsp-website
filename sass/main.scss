@@ -5,14 +5,20 @@
     --base-gap: 16px;
     --base-radius: 8px;
     --logo-size: 56px;
+    --logo-padding: 2px;
     --header-height: 100px;
     --page-width: 768px;
+    --circle-size: 30px;
+    
     --bubble-size: 350px;
+    --bubble-1--color-1: hsl(191, 98%, 56%);
+    --bubble-1--color-2: hsl(281, 100%, 56%);
+    --bubble-2--color-1: hsl(338, 78%, 48%);
+    --bubble-2--color-2: hsl(199, 98%, 48%);
 
     // Animations
     --duration: 300ms;
     --timing: ease;
-
 }
 
 * {
@@ -23,7 +29,7 @@ body {
     transition: color var(--duration) var(--timing),
         background-color var(--duration) var(--timing);
 
-    background-color: var(--surface-3);
+    background-color: var(--surface-5);
     color: var(--text-color);
 
     font-family: 'Inter', sans-serif;
@@ -60,7 +66,7 @@ main {
 }
 
 p {
-    line-height: 1.5;
+    line-height: 1.9;
 }
 
 @import './_article';
