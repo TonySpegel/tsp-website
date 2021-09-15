@@ -1,8 +1,8 @@
 +++
 title = 'Themeauswahl als Web Component mit Lit 🔥'
-date = 2021-09-10
+date = 2021-09-23
 description = 'Wie man ein Theme planen und mit einer eigenen Komponente wechseln kann.'
-draft = false
+draft = true
 
 [taxonomies]
 tags = ['web-components', 'buildWithLit', 'TypeScript', 'a11y']
