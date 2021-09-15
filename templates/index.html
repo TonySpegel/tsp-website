@@ -4,7 +4,7 @@
 {% import "macros/footer.html" as macros_footer %}
 
 <!DOCTYPE html>
-<html lang="{{ config.extra.lang }}" color-mode="dark">
+<html lang="{{ config.extra.lang }}" color-mode>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,6 +22,17 @@
         {% endblock seo %}
 
         <meta name="theme-color" content="#debfed" />
+
+        <script>
+            // Reade theme preference from localStorage
+            const themePreference = localStorage.getItem('color-mode');
+            // Set theme if one is present in localStorage
+            if (themePreference !== null) {
+                document
+                    .querySelector('html')
+                    .setAttribute('color-mode', themePreference);
+            }
+        </script>
 
         <link rel="stylesheet" href="{{ get_url(path="main.css", trailing_slash=false) }}">
 
@@ -87,7 +98,7 @@
             <main id="main" tabindex="-1">
                 <div id="sentinel-element"></div>
                 {% block content %} {{ page_macros::intro() }}
-                <h2 class="heading">Neueste Blog posts</h2>
+                <h2>Neueste Blog posts</h2>
                 {% if paginator.pages %}
                 <div class="posts">
                     {% for page in paginator.pages %} {{
