@@ -6,7 +6,7 @@ if (preTags.length > 0 && codeTags.length > 0) {
     preTags.map((preTag) => {
         preTag.insertAdjacentHTML(
             'beforeEnd',
-            '<button aria-live="polite" aria-label="Code kopieren" role="status" class="article-tag surface-tag">kopieren</button>',
+            '<button aria-live="polite" aria-label="Code kopieren" role="status" class="article-tag surface">kopieren</button>',
         );
     });
     // Insert an ID for every code tag so that it can be easily referenced
