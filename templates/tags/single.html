@@ -14,7 +14,13 @@ Tag: {{ term.name }} {{ config.extra.title_separator }} {{ config.extra.title }}
 {% block content %}
 <h1>Tag: #{{ term.name }}</h1>
 
-<a href="{{ get_url(path="/tags") }}" class="article-tag single-tag">Alle Tags ›</a>
+<a 
+    href="{{ get_url(path="/tags") }}" 
+    class="article-tag surface-tag single-tag"
+    title="Alle Tags anzeigen"
+>
+    Alle Tags ›
+</a>
 
 <div class="posts">
     {% for page in term.pages %}
