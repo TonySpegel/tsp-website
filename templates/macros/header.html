@@ -1,25 +1,24 @@
 {% macro header() %}
-
-<header id="site-header" data-header>
+<header id="site-header">
     <nav>
         <a href="/" class="logo-link no-fetch" title="Zur Startseite">
-            <div class="logo">
-                <div class="box-1"></div>
-                <div class="box-2"></div>
-                <div class="box-3"></div>
-                <span>TS</span>
+            <div class="logo surface">
+                <img src="/tsp_icon.svg" alt="SVG mit img Tag laden" />
             </div>
             <h1>Tony Spegel</h1>
         </a>
         <div class="menu">
-            <div id="circle"></div>
+            <div class="circle-wrapper">
+                <div class="outer-circle"></div>
+                <div class="circle"></div>
+            </div>
             <ul>
                 {% for menu_link in config.extra.anpu_menu_links %} {% set
                 link_url = menu_link.url | replace(from="$BASE_URL",
                 to=config.base_url) %}
                 <li>
-                    <a class="article-tag" href="{{ link_url }}">
-                        {{menu_link.name}}
+                    <a class="article-tag surface" href="{{ link_url }}" title="{{ menu_link.title }}">
+                        {{ menu_link.name }}
                     </a>
                 </li>
                 {% endfor %}
