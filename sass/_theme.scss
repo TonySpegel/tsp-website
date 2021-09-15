@@ -28,8 +28,8 @@
     --surface-4-light: var(--shade-50);
     --surface-5-light: hsla(281, 40%, 80%, 1);
 
-    --glass-tint: var(--glass-tint-light-2);
-    --glass-tint-2: var(--shade-50-glass);
+    --glass-tint-light: hsla(200, 100%, 96%, 0.15);
+    --glass-tint-light-2: var(--shade-50-glass);
 
     --border-light: var(--shade-200);
     /**
@@ -51,7 +51,7 @@
 }
 
 :root {
-    @include light;
+    @include light();
     /**
      * Surfaces
      */
