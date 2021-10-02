@@ -2,17 +2,28 @@
     "name": "tsp-website",
     "version": "1.0.0",
     "scripts": {
-        "serve": "zola serve --interface 0.0.0.0 --port 2000 --base-url rhea.lan"
+        "build-local": "zola --config config.local.toml build",
+        "build-rollup": "rollup --config",
+        "serve": "zola serve --interface 0.0.0.0 --port 2000 --base-url rhea.lan",
+        "wds": "wds",
+        "z": "npm run build-local && zola --config config.local.toml serve",
+        "prepare": "husky install"
     },
     "husky": {
         "hooks": {
             "pre-commit": "pretty-quick --staged"
         }
     },
+    "dependencies": {
+        "add-prefetch-link": "^1.0.2"
+    },
     "devDependencies": {
-        "husky": "^6.0.0",
+        "@rollup/plugin-node-resolve": "^11.2.1",
+        "@web/dev-server": "^0.1.24",
         "prettier": "^2.2.1",
-        "pretty-quick": "^3.1.0"
+        "pretty-quick": "^3.1.0",
+        "rollup": "^2.58.0",
+        "rollup-plugin-terser": "^7.0.2"
     },
     "repository": {
         "type": "git",
