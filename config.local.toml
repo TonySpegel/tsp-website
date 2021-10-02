@@ -1,0 +1,45 @@
+# The URL the site will be built for
+base_url = '/dev'
+description = "Frontend-Entwicklung für Websites, Shopify-Onlineshops, Web- und Cross Platform-Apps"
+output_dir = 'dev'
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+minify_html = false
+
+# Which theme to use (located in /themes/)
+theme = 'anpu-zola-theme'
+
+taxonomies = [
+    { name = 'categories' },
+    { name = 'tags' },
+]
+
+# If set to "true", the section will pass its pages on to the parent section. Defaults to `false`.
+# Useful when the section shouldn't split up the parent section, like
+# sections for each year under a posts section.
+transparent = false
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+highlight_theme = 'charcoal'
+
+
+[extra]
+# Put all your custom variables here
+anpu_menu_links = [
+    { url = '$BASE_URL/blog/', name = 'Blog', title = 'Zum Blog' },
+]
+
+anpu_date_format = '%d.%m.%Y'
+
+title = 'Tony Spegel'
+title_separator = "|"  # set as |, -, _, etc
+title_addition = "Frontend, Shopify, Web-Apps"
+lang = 'de'
