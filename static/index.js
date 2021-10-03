@@ -10,19 +10,13 @@ import './js/intersectionObserver.mjs';
  * Get all page links and make an array out of it.
  * Some links such as e-mail addresses and mobile numbers
  * should not be fetched - these are marked with `.no-fetch`.
+ *
+ * Add an event listener for each link but do it only once to
+ * avoid unnecessary network requests
  */
-const pageLinks = [...document.querySelectorAll('a:not(.no-fetch)')];
-/**
- * Add an event listener for each link on mouseover
- * but do it only once to avoid unnecessary network requests
- */
-pageLinks.map((pageLink) => {
-    ['mouseover', 'focus'].map((event) => {
-        pageLink.addEventListener(event, addPrefetchLink, {
-            once: true,
-        });
-    });
-});
+document
+    .querySelectorAll('a:not(.no-fetch)')
+    .forEach((link) => addPrefetchLink(link));
 
 /**
  * Misc.
