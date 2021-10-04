@@ -1,4 +1,4 @@
-import { addPrefetchLink } from './js/addPrefetchLink.mjs';
+import { addPrefetchLink } from './js/addPrefetchLink.js';
 import './js/intersectionObserver.mjs';
 
 /**
@@ -9,13 +9,13 @@ import './js/intersectionObserver.mjs';
 /**
  * Get all page links and make an array out of it.
  * Some links such as e-mail addresses and mobile numbers
- * should not be fetched - these are marked with `.no-fetch`.
+ * should not be fetched.
  *
  * Add an event listener for each link but do it only once to
  * avoid unnecessary network requests
  */
 document
-    .querySelectorAll('a:not(.no-fetch)')
+    .querySelectorAll('a:not([href^="mailto:"]):not([href^="tel:"])')
     .forEach((link) => addPrefetchLink(link));
 
 /**
