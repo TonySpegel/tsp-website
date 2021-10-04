@@ -1,7 +1,24 @@
 /**
  * Add a link to <head> which then gets prefetched
  */
- const addToHead = (event) => {
+const addToHead = (event) => {
+    if (navigator.connection) {
+        const connection = navigator.connection;
+        /**
+         * Check if a data saver is running
+         */
+        if (connection.saveData) {
+            return new Error('Prefetch is not available when using Data Saver');
+        }
+        /**
+         * Check for slow connections, don't prefetch on 2g or slower.
+         * effectiveType can be: slow-2g, 2g, 3g, or 4g
+         */
+        if (connection.effectiveType.includes('2g')) {
+            return new Error('Prefetch is not available on slow connection');
+        }
+    }
+    
     if (event.target !== null) {
         const link = document.createElement('link');
         link.href = event.target.href;
@@ -29,7 +46,10 @@
  *     addPrefetchLink(link);
  * });
  */
-export const addPrefetchLink = (link, userEvents = ['mouseover', 'focus']) => {
+export const addPrefetchLink = (
+    link,
+    userEvents = ['mouseover', 'focus', 'touchstart'],
+) => {
     const handler = (event) => {
         // Remove listeners
         userEvents.forEach((event) => link.removeEventListener(event, handler));
