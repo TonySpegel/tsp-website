@@ -195,7 +195,7 @@ li[data-state='complete']:before {
 
 ### Verbindungselement
 
-Die eigentliche Herausforderung waren die Verbindungselemente zwischen den Kreisen. Diese mussten nahtlos ineinander übergehen und das möglichst bei verschieden langen Beschriftungen. Um nicht zu viel zusätzliches HTML zu schreiben, hat es sich als praktisch erwiesen, das Verbindungselement absolut zu positionieren. Die Länge der Verbindung ergibt sich dann aus Abstand, Höhe des Schritts sowie der Zeilenhöhe. Das Ganze ist auf jeden Fall nicht perfekt und funktioniert nicht mehr optimal bei Beschriftungen die sich über drei Zeilen erstrecken - was hoffentlich selten der Fall sein sollte. Falls jemand noch eine bessere Lösung hat - gern an mich schicken <a class="text-link no-fetch" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>  
+Die eigentliche Herausforderung waren die Verbindungselemente zwischen den Kreisen. Diese mussten nahtlos ineinander übergehen und das möglichst bei verschieden langen Beschriftungen. Um nicht zu viel zusätzliches HTML zu schreiben, hat es sich als praktisch erwiesen, das Verbindungselement absolut zu positionieren. Die Länge der Verbindung ergibt sich dann aus Abstand, Höhe des Schritts sowie der Zeilenhöhe. Das Ganze ist auf jeden Fall nicht perfekt und funktioniert nicht mehr optimal bei Beschriftungen die sich über drei Zeilen erstrecken - was hoffentlich selten der Fall sein sollte. Falls jemand noch eine bessere Lösung hat - gern an mich schicken <a class="text-link" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>  
 
 ```css
 /* Connection - default */

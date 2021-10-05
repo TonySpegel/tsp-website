@@ -17,8 +17,8 @@ Schloßgasse 1
 07743 Jena  
 Deutschland
 
-Tel.: <a class="text-link no-fetch" target="_blank" rel="noopener noreferrer" href="tel:+4915125836017" title="Anrufen">+4915125836017</a>  
-E-Mail: <a class="text-link no-fetch" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>  
+Tel.: <a class="text-link" target="_blank" rel="noopener noreferrer" href="tel:+4915125836017" title="Anrufen">+4915125836017</a>  
+E-Mail: <a class="text-link" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>  
 
 ## Auswertung des Besucherverhaltens & Cookies
 - Weder wird das Verhalten unserer Besucher:innen erfasst oder ausgewertet noch Cookies gesetzt

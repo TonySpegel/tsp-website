@@ -39,4 +39,4 @@ Daran wird derzeit gearbeitet
 ## Feedback
 Barrierefreiheit ist ein wichtiges Thema für mich und als nicht direkt Betroffener schwierig
 perfekt umzusetzen. Sollte es irgendwelche Probleme geben, schickt mir bitte eine E-Mail an: 
-<a class="text-link no-fetch" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>. Ich nehme Probleme mit der Barrierefreiheit sehr ernst und werde versuchen, diese so schnell wie möglich zu beheben. 
+<a class="text-link" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>. Ich nehme Probleme mit der Barrierefreiheit sehr ernst und werde versuchen, diese so schnell wie möglich zu beheben. 
