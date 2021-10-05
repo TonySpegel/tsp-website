@@ -15,7 +15,7 @@ import './js/intersectionObserver.mjs';
  * avoid unnecessary network requests
  */
 document
-    .querySelectorAll('a:not([href^="mailto:"]):not([href^="tel:"])')
+    .querySelectorAll('a:not([href^="mailto:"]):not([href^="tel:"]):not([class*="no-fetch"])')
     .forEach((link) => addPrefetchLink(link));
 
 /**
