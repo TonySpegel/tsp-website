@@ -18,7 +18,6 @@ const addToHead = (event) => {
             return new Error('Prefetch is not available on slow connection');
         }
     }
-    
     if (event.target !== null) {
         const link = document.createElement('link');
         link.href = event.target.href;
@@ -38,23 +37,21 @@ const addToHead = (event) => {
  * Because of this any other event is not needed anymore and the one event left
  * gets removed.
  *
- *
  * Usage can look like this:
- * const links = document.querySelectorAll('a');
- *
- * links.forEach((link) => {
- *     addPrefetchLink(link);
- * });
+ * document
+ *  .querySelectorAll('a:not([href^="mailto:"]):not([href^="tel:"])')
+ *  .forEach((link) => addPrefetchLink(link));
  */
-export const addPrefetchLink = (
-    link,
-    userEvents = ['mouseover', 'focus', 'touchstart'],
-) => {
+export const addPrefetchLink = (link, userEvents = ['mouseover', 'focus']) => {
     const handler = (event) => {
         // Remove listeners
-        userEvents.forEach((event) => link.removeEventListener(event, handler));
+        userEvents.forEach((userEvent) =>
+            link.removeEventListener(userEvent, handler),
+        );
         addToHead(event);
     };
     // Register listeners
-    userEvents.forEach((event) => link.addEventListener(event, handler));
+    userEvents.forEach((userEvent) =>
+        link.addEventListener(userEvent, handler),
+    );
 };
