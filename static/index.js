@@ -53,7 +53,7 @@ const deletePreference = () => {
     localStorage.removeItem('color-mode');
 };
 
-body.addEventListener('dblclick', () => {
+copyright.addEventListener('dblclick', () => {
     const mode = readPreference();
 
     if (mode === 'light') {
@@ -63,6 +63,6 @@ body.addEventListener('dblclick', () => {
     }
 });
 
-copyright.addEventListener('click', () => {
+copyright.addEventListener('contextmenu', () => {
     deletePreference();
 });
