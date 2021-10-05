@@ -26,7 +26,7 @@ und nicht durch eine Interaktion.
 Links zu meiner Implementation:
 - <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/package/add-prefetch-link">NPM</a>
 - <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://github.com/TonySpegel/addPrefetchLink">GitHub</a>
-- <a class="text-link" target="_blank" rel="noopener noreferrer" href="#">Demo (Codepen)</a>
+- <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://codepen.io/TonySpegel/full/PojrqZb">Demo (Codepen)</a>
 
 ## Anforderungen
 
