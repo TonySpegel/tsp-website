@@ -1,6 +1,6 @@
 {
     "name": "tsp-website",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "scripts": {
         "serve": "zola serve --interface 0.0.0.0 --port 2000 --base-url rhea.lan",
         "prepare": "husky install"
