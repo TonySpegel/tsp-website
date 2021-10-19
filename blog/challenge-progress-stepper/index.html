@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="de" color-mode>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>
+        
+    Challenge: Progress Stepper | Tony Spegel
+
+        </title>
+
+         
+    
+    
+
+    
+
+    
+
+
+	  
+
+
+<link rel="canonical" href="https://tony-spegel.com/blog/challenge-progress-stepper/">
+
+<meta name="description" content="Fortschritt anzeigen als (CSS) Challenge">
+
+    <meta name="robots" content="index, follow">
+
+
+<meta property="og:title" content="Challenge: Progress Stepper">
+<meta property="og:description" content="Fortschritt anzeigen als (CSS) Challenge">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tony-spegel.com/blog/challenge-progress-stepper/">
+
+
+    
+    <link
+        rel="preload"
+        href="/js/copyCode.mjs"
+        as="script"
+        crossorigin="anonymous"
+    />
+    
+    <link
+        rel="preload"
+        href="/js/copyDirectLink.mjs"
+        as="script"
+        crossorigin="anonymous"
+    />
+
+    <script type="module" src="/blog.js" defer></script>
+
+
+        <meta name="theme-color" content="#debfed" />
+
+        <script>
+            // Reade theme preference from localStorage
+            const themePreference = localStorage.getItem('color-mode');
+            // Set theme if one is present in localStorage
+            if (themePreference !== null) {
+                document
+                    .querySelector('html')
+                    .setAttribute('color-mode', themePreference);
+            }
+        </script>
+
+        <link rel="stylesheet" href="https://tony-spegel.com/main.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <style>
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2)
+                    format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+                    U+FEFF, U+FFFD;
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 500;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2)
+                    format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+                    U+FEFF, U+FFFD;
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 700;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2)
+                    format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+                    U+FEFF, U+FFFD;
+            }
+        </style>
+
+        <link
+            rel="preload"
+            href="/js/addPrefetchLink.js"
+            as="script"
+            crossorigin="anonymous"
+        />
+
+        <link rel="icon" href="/favicon.svg" />
+
+        <script type="module" src="/index.js"></script>
+    </head>
+    <body>
+        <a class="skip-to-main" href="#main">Zum Inhalt</a>
+        <div class="glass"></div>
+        <div class="bubble"></div>
+        <div class="bubble-2"></div>
+        <div class="container" data-scroller>
+            
+                
+<header id="site-header">
+    <nav>
+        <a href="/" class="logo-link no-fetch" title="Zur Startseite">
+            <div class="logo surface">
+                <img src="/tsp_icon.svg" alt="SVG mit img Tag laden" />
+            </div>
+            <h1>Tony Spegel</h1>
+        </a>
+        <div class="menu">
+            <div class="circle-wrapper">
+                <div class="outer-circle"></div>
+                <div class="circle"></div>
+            </div>
+            <ul>
+                 
+                <li>
+                    <a class="article-tag surface" href="https:&#x2F;&#x2F;tony-spegel.com&#x2F;blog&#x2F;" title="Zum Blog">
+                        Blog
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+</header>
+
+            
+
+            <main id="main" tabindex="-1">
+                <div id="sentinel-element"></div>
+                
+
+<article class="post">
+    <header>
+        
+    
+        <time
+            class="article-date" 
+            datetime="2021-08-23"
+            title="Erstellt am 23.08.2021"
+        >
+            23.08.2021
+        </time>
+    
+
+        <h1>Challenge: Progress Stepper</h1>
+        
+    <div class="article-info">
+        <div class="article-taxonomies">
+            
+            
+                <ul class="article-tags">
+                    
+                    <li>
+                        <a 
+                            href="https://tony-spegel.com/tags/challenge/" 
+                            title="Posts zum Tag: challenge"
+                            class="article-tag surface-tag"
+                        >
+                            #challenge
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a 
+                            href="https://tony-spegel.com/tags/css/" 
+                            title="Posts zum Tag: css"
+                            class="article-tag surface-tag"
+                        >
+                            #css
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a 
+                            href="https://tony-spegel.com/tags/frontendchallengesclub/" 
+                            title="Posts zum Tag: FrontEndChallengesClub"
+                            class="article-tag surface-tag"
+                        >
+                            #FrontEndChallengesClub
+                        </a>
+                    </li>
+                    
+                </ul>
+            
+        </div>
+    </div>
+
+    </header>
+    <div class="content">
+        <div class="img-box surface">
+    <img 
+        src="/img/fecc-challenge-008.png" 
+        alt="Challenge #008 (Front-End Challenges Club)" 
+        loading="lazy"
+        width="320"
+        height="303"
+    />
+    <span>Abbildung von © Andy Bell</span>
+</div>
+<p>Vor einer Weile habe ich auf Twitter diese <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://mobile.twitter.com/piccalilli_/status/1316309289854799874">Challenge</a> entdeckt, gespeichert und schließlich für längere Zeit vergessen (kennt man ja).</p>
+<p>In dieser Challenge geht es darum, einen so genanten Progress Stepper umzusetzen - also etwas das man beispielsweise aus
+einem Lieferprozess oder im Checkout eines Onlineshops kennt. Die wichtigsten Punkte welche dieser erfüllen soll sind:</p>
+<ul>
+<li>Die Lösung nutzt semantisches HTML</li>
+<li>Die Lösung funktioniert sowohl mit wenigen als auch beliebig vielen Punkten</li>
+<li>Lange wie kurze Texte sollen unterstützt werden</li>
+</ul>
+<h2 id="voruberlegungen">Vorüberlegungen<a
+    aria-label="Direktlink zu voruberlegungen"
+    class="direct-link no-fetch"
+    href="#voruberlegungen"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-voruberlegungen"
+    class="direct-link-message"
+></span>
+</h2>
+<ul>
+<li>Da eine zeitliche Abfolge dargestellt werden soll, bietet es sich an ein <code>&lt;ol&gt;</code>-Element zu nutzen - eine <em>ordered list</em></li>
+<li>verschiedene Zustände müssen dargestellt werden: <em>offen</em>, <em>in Bearbeitung</em> und <em>abgeschlossen</em></li>
+<li>Auch Screenreader müssen den jeweiligen Status eines Schritts verarbeiten können so dass jede/r weiß was der aktuelle Stand ist</li>
+</ul>
+<h2 id="html">HTML<a
+    aria-label="Direktlink zu html"
+    class="direct-link no-fetch"
+    href="#html"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-html"
+    class="direct-link-message"
+></span>
+</h2>
+<p>Für ein Layout dieser Form habe ich mich entschieden für jeden Schritt sowie der Liste als Ganzes <code>display: flex;</code> 
+und für den Fortschrittsindikator und den Verbindungsstücken <code>:before</code> bzw. <code>:after</code> zu nutzen. Die Anzeige des 
+jeweiligen Schritts und dessen Beschreibung wird jeweils mit einem <code>&lt;div&gt;</code> umschlossen. Über das <code>data-state=&quot;complete&quot;</code>-Attribut
+wird ein abgeschlossener Zustand signalisiert und mit <code>aria-current=&quot;step&quot;</code> für Screenreader der aktuelle Schritt gekennzeichnet
+(mehr zum <code>aria-tag</code> <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/ariaCurrent">hier</a>).</p>
+<pre data-lang="html" style="background-color:#2b2c2f;color:#cccece;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">div </span><span style="color:#bb80b3;">class</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">progress-stepper</span><span style="color:#5fb3b3;">&quot;&gt;
+</span><span>    </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">ol</span><span style="color:#5fb3b3;">&gt;
+</span><span>        </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">li </span><span style="color:#bb80b3;">data-state</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">complete</span><span style="color:#5fb3b3;">&quot;&gt;
+</span><span>            </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">div </span><span style="color:#bb80b3;">class</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">step</span><span style="color:#5fb3b3;">&quot;&gt;
+</span><span>                </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;</span><span>Schritt 1</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;
+</span><span>                </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">strong</span><span style="color:#5fb3b3;">&gt;</span><span>Warenkorb</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">strong</span><span style="color:#5fb3b3;">&gt;
+</span><span>            </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">div</span><span style="color:#5fb3b3;">&gt;
+</span><span>        </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">&gt;
+</span><span>        </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">li </span><span style="color:#bb80b3;">data-state</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">complete</span><span style="color:#5fb3b3;">&quot;&gt;
+</span><span>            </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">div </span><span style="color:#bb80b3;">class</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">step</span><span style="color:#5fb3b3;">&quot;&gt;
+</span><span>                </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;</span><span>Schritt 2</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;
+</span><span>                </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">strong</span><span style="color:#5fb3b3;">&gt;</span><span>Details</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">strong</span><span style="color:#5fb3b3;">&gt;
+</span><span>            </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">div</span><span style="color:#5fb3b3;">&gt;
+</span><span>        </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">&gt;
+</span><span>        </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">li </span><span style="color:#bb80b3;">aria-current</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">step</span><span style="color:#5fb3b3;">&quot;&gt;
+</span><span>            </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">div </span><span style="color:#bb80b3;">class</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">step</span><span style="color:#5fb3b3;">&quot;&gt;
+</span><span>                </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;</span><span>Schritt 3</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;
+</span><span>                </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">strong</span><span style="color:#5fb3b3;">&gt;</span><span>Zahlungsmittel</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">strong</span><span style="color:#5fb3b3;">&gt;
+</span><span>            </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">div</span><span style="color:#5fb3b3;">&gt;
+</span><span>        </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">&gt;
+</span><span>        </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">&gt;
+</span><span>            </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">div </span><span style="color:#bb80b3;">class</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">step</span><span style="color:#5fb3b3;">&quot;&gt;
+</span><span>                </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;</span><span>Schritt 4</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;
+</span><span>                </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">strong</span><span style="color:#5fb3b3;">&gt;</span><span>Zahlung abschließen</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">strong</span><span style="color:#5fb3b3;">&gt;
+</span><span>            </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">div</span><span style="color:#5fb3b3;">&gt;
+</span><span>        </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">&gt;
+</span><span>    </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">ol</span><span style="color:#5fb3b3;">&gt;
+</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">div</span><span style="color:#5fb3b3;">&gt;
+</span></code></pre>
+<h2 id="css">CSS<a
+    aria-label="Direktlink zu css"
+    class="direct-link no-fetch"
+    href="#css"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-css"
+    class="direct-link-message"
+></span>
+</h2>
+<p>Um verschieden Lange und beliebig viele Schritte darzustellen nutze ich 
+CSS custom properties / CSS Variablen. Diese Variablen sind hier besonders praktisch, um die Länge der Verbindungsstücke zu berechnen. Der Rest ist vor allem viel Berechnung mit Hilfe von <code>calc()</code> und den Eingangs erwähnten Zuständen via <code>[data-state='complete']</code>.</p>
+<h3 id="variablen-reset">Variablen &amp; Reset<a
+    aria-label="Direktlink zu variablen-reset"
+    class="direct-link no-fetch"
+    href="#variablen-reset"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-variablen-reset"
+    class="direct-link-message"
+></span>
+</h3>
+<p>Die hier genutzten Variablen sind relativ überschaubar: ich lege vor allem
+ein paar Grundfarben sowie Abstände, die Größe des Indikators, die Zeilenhöhe,
+den Abstand zwischen den Schritten sowie die Breite des Verbindungsstücks fest.
+Die Farben sind hierbei selbst gewählt und weichen etwas von der Vorgabe ab; 
+oft bietet es sich an, neben <em>surface colors</em> auch Schriftfarben zu definieren.</p>
+<pre data-lang="css" style="background-color:#2b2c2f;color:#cccece;" class="language-css "><code class="language-css" data-lang="css"><span style="color:#5fb3b3;">:</span><span>root </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#5fb3b3;">--</span><span style="color:#fac863;">surface-1</span><span style="color:#5fb3b3;">: #cb99e1;
+</span><span>    </span><span style="color:#5fb3b3;">--</span><span style="color:#fac863;">surface-2</span><span style="color:#5fb3b3;">: #debfed;
+</span><span>    </span><span style="color:#5fb3b3;">--</span><span style="color:#fac863;">surface-3</span><span style="color:#5fb3b3;">: #f2e6f8;
+</span><span>    </span><span style="color:#5fb3b3;">--</span><span style="color:#fac863;">surface-4</span><span style="color:#5fb3b3;">: #f8f2fb;
+</span><span>
+</span><span>    </span><span style="color:#5fb3b3;">--</span><span style="color:#fac863;">base-gap</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">16px</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#5fb3b3;">--</span><span style="color:#fac863;">circle-size</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">26px</span><span style="color:#5fb3b3;">;
+</span><span>
+</span><span>    </span><span style="color:#5fb3b3;">--</span><span style="color:#fac863;">line-height</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">circle-size</span><span style="color:#5fb3b3;">);
+</span><span>    </span><span style="color:#5fb3b3;">--</span><span style="color:#fac863;">step-margin</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">16px</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#5fb3b3;">--</span><span style="color:#fac863;">connection-width</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">4px</span><span style="color:#5fb3b3;">;
+</span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span style="color:#eb606b;">body </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">font-family</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">sans-serif</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">box-sizing</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">border-box</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">margin</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">;
+</span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span style="color:#eb606b;">*</span><span style="color:#5fb3b3;">,
+</span><span style="color:#eb606b;">*</span><span style="color:#5fb3b3;">:</span><span>before</span><span style="color:#5fb3b3;">,
+</span><span style="color:#eb606b;">*</span><span style="color:#5fb3b3;">:</span><span>after </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">box-sizing</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">border-box</span><span style="color:#5fb3b3;">;
+</span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span style="color:#5f6364;">/* Container element */
+</span><span style="color:#5fb3b3;">.</span><span style="color:#bb80b3;">progress-stepper </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">padding</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">base-gap</span><span style="color:#5fb3b3;">);
+</span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span style="color:#5f6364;">/* Wrapper for description */
+</span><span style="color:#5fb3b3;">.</span><span style="color:#bb80b3;">step </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">display</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">flex</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">flex-direction</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">column</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">justify-content</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">center</span><span style="color:#5fb3b3;">;
+</span><span>
+</span><span>    </span><span style="color:#fac863;">line-height</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">line-height</span><span style="color:#5fb3b3;">);
+</span><span style="color:#5fb3b3;">}
+</span></code></pre>
+<h3 id="die-liste">Die Liste<a
+    aria-label="Direktlink zu die-liste"
+    class="direct-link no-fetch"
+    href="#die-liste"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-die-liste"
+    class="direct-link-message"
+></span>
+</h3>
+<p>Die Liste als solches ist schnell beschrieben: ein <code>flex</code>-Layout 
+in der Vertikalen sowie in der Horizontalen für jeden Schritt.
+Hierbei noch erwähnenswert ist die Property <code>gap</code> welche mittlerweile auch für <code>flex</code>-Container verfügbar ist und einen Abstand zwischen Elementen erzeugt.</p>
+<pre data-lang="css" style="background-color:#2b2c2f;color:#cccece;" class="language-css "><code class="language-css" data-lang="css"><span style="color:#eb606b;">ol </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">display</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">flex</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">flex-direction</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">column</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">margin</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">padding</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">;
+</span><span>
+</span><span>    </span><span style="color:#fac863;">list-style-type</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">none</span><span style="color:#5fb3b3;">;
+</span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span style="color:#eb606b;">li </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">display</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">flex</span><span style="color:#5fb3b3;">;
+</span><span>    gap</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">base-gap</span><span style="color:#5fb3b3;">);
+</span><span>    </span><span style="color:#fac863;">margin-bottom</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">step-margin</span><span style="color:#5fb3b3;">);
+</span><span>
+</span><span>    </span><span style="color:#fac863;">position</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">relative</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">cursor</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">pointer</span><span style="color:#5fb3b3;">;
+</span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">:</span><span>last-child </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">margin-bottom</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">;
+</span><span style="color:#5fb3b3;">}
+</span></code></pre>
+<h3 id="fortschrittsindikator">Fortschrittsindikator<a
+    aria-label="Direktlink zu fortschrittsindikator"
+    class="direct-link no-fetch"
+    href="#fortschrittsindikator"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-fortschrittsindikator"
+    class="direct-link-message"
+></span>
+</h3>
+<p>Der Fortschrittsindikator (der jeweilige Kreis in jedem Schritt)
+wiederum ist auch nur ein <code>flex</code>-Container und wird mittels <code>align-self: center</code> vertikal zentriert. Ist ein Schritt als abgeschlossen markiert, ändert sich dessen Farbe und ein Haken wird hinzugefügt. </p>
+<pre data-lang="css" style="background-color:#2b2c2f;color:#cccece;" class="language-css "><code class="language-css" data-lang="css"><span style="color:#5f6364;">/**
+</span><span style="color:#5f6364;"> * Circle Element - default
+</span><span style="color:#5f6364;"> */
+</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">:</span><span>before </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">content</span><span style="color:#5fb3b3;">: &#39;&#39;;
+</span><span>    </span><span style="color:#fac863;">display</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">flex</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">align-self</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">center</span><span style="color:#5fb3b3;">;
+</span><span>    place-</span><span style="color:#fac863;">content</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">center</span><span style="color:#5fb3b3;">;
+</span><span>
+</span><span>    </span><span style="color:#fac863;">border</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">1px solid </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">surface-1</span><span style="color:#5fb3b3;">);
+</span><span>    </span><span style="color:#fac863;">border-radius</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">circle-size</span><span style="color:#5fb3b3;">);
+</span><span>    </span><span style="color:#fac863;">min-width</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">circle-size</span><span style="color:#5fb3b3;">);
+</span><span>    </span><span style="color:#fac863;">min-height</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">circle-size</span><span style="color:#5fb3b3;">);
+</span><span>
+</span><span>    </span><span style="color:#fac863;">z-index</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">1</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">background-color</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">surface-4</span><span style="color:#5fb3b3;">);
+</span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span style="color:#5f6364;">/**
+</span><span style="color:#5f6364;"> * Circle Element - complete
+</span><span style="color:#5f6364;"> */
+</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">[</span><span style="color:#bb80b3;">data-state</span><span style="color:#5fb3b3;">=&#39;</span><span style="color:#99c794;">complete</span><span style="color:#5fb3b3;">&#39;]:</span><span>before </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">content</span><span style="color:#5fb3b3;">: &#39;</span><span style="color:#99c794;">✓</span><span style="color:#5fb3b3;">&#39;;
+</span><span>    </span><span style="color:#fac863;">background-color</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">surface-1</span><span style="color:#5fb3b3;">);
+</span><span style="color:#5fb3b3;">}
+</span></code></pre>
+<h3 id="verbindungselement">Verbindungselement<a
+    aria-label="Direktlink zu verbindungselement"
+    class="direct-link no-fetch"
+    href="#verbindungselement"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-verbindungselement"
+    class="direct-link-message"
+></span>
+</h3>
+<p>Die eigentliche Herausforderung waren die Verbindungselemente zwischen den Kreisen. Diese mussten nahtlos ineinander übergehen und das möglichst bei verschieden langen Beschriftungen. Um nicht zu viel zusätzliches HTML zu schreiben, hat es sich als praktisch erwiesen, das Verbindungselement absolut zu positionieren. Die Länge der Verbindung ergibt sich dann aus Abstand, Höhe des Schritts sowie der Zeilenhöhe. Das Ganze ist auf jeden Fall nicht perfekt und funktioniert nicht mehr optimal bei Beschriftungen die sich über drei Zeilen erstrecken - was hoffentlich selten der Fall sein sollte. Falls jemand noch eine bessere Lösung hat - gern an mich schicken <a class="text-link" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a></p>
+<pre data-lang="css" style="background-color:#2b2c2f;color:#cccece;" class="language-css "><code class="language-css" data-lang="css"><span style="color:#5f6364;">/* Connection - default */
+</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">:</span><span>after </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">content</span><span style="color:#5fb3b3;">: &#39;&#39;;
+</span><span>    </span><span style="color:#fac863;">display</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">none</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">width</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">connection-width</span><span style="color:#5fb3b3;">);
+</span><span>    </span><span style="color:#fac863;">height</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">50%</span><span style="color:#5fb3b3;">;
+</span><span>
+</span><span>    </span><span style="color:#fac863;">position</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">absolute</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">left</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">calc</span><span style="color:#5fb3b3;">(
+</span><span style="color:#6699cc;">        var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">circle-size</span><span style="color:#5fb3b3;">) / </span><span style="color:#f99157;">2 </span><span style="color:#5fb3b3;">- </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">connection-width</span><span style="color:#5fb3b3;">) / </span><span style="color:#f99157;">2
+</span><span style="color:#6699cc;">    </span><span style="color:#5fb3b3;">);
+</span><span>
+</span><span>    </span><span style="color:#fac863;">z-index</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">background-color</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">surface-2</span><span style="color:#5fb3b3;">);
+</span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span style="color:#5f6364;">/* Finished step */
+</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">[</span><span style="color:#bb80b3;">data-state</span><span style="color:#5fb3b3;">=&#39;</span><span style="color:#99c794;">complete</span><span style="color:#5fb3b3;">&#39;]:</span><span>after </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">display</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">flex</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#fac863;">height</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">calc</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">100% </span><span style="color:#5fb3b3;">+ </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">step-margin</span><span style="color:#5fb3b3;">) + </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">line-height</span><span style="color:#5fb3b3;">));
+</span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span style="color:#5f6364;">/* First connection */
+</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">:</span><span>first-child</span><span style="color:#5fb3b3;">:</span><span>after </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">height</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">calc</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">100% </span><span style="color:#5fb3b3;">+ </span><span style="color:#6699cc;">var</span><span style="color:#5fb3b3;">(--</span><span style="color:#fac863;">step-margin</span><span style="color:#5fb3b3;">));
+</span><span>    </span><span style="color:#fac863;">transform</span><span style="color:#5fb3b3;">: </span><span style="color:#6699cc;">translateY</span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">var(--line-height</span><span style="color:#5fb3b3;">)</span><span>);
+</span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span style="color:#5f6364;">/* Last connection */
+</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">:</span><span>last-child</span><span style="color:#5fb3b3;">:</span><span>after </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#fac863;">height</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">50%</span><span style="color:#5fb3b3;">;
+</span><span style="color:#5fb3b3;">}
+</span></code></pre>
+<h2 id="fazit">Fazit<a
+    aria-label="Direktlink zu fazit"
+    class="direct-link no-fetch"
+    href="#fazit"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-fazit"
+    class="direct-link-message"
+></span>
+</h2>
+<p>Perfekt ist meine Lösung zwar nicht aber interessant war es alle Mal. Besonders geholfen haben hier die CSS Variablen mit denen zwar viel mit festen Werten gerechnet wurde aber diese immerhin voneinander abhängig sind und somit kein großes Problem darstellen sollten. In der Realität müsste es noch einen Prozess geben, welcher den jeweiligen Stand einer Bestellung etc. im HTML widerspiegelt - ob statisch oder dynamisch wäre hierbei egal. Lediglich das für Screenreader wichtige <code>aria-current=&quot;step&quot;</code> sollte im aktuellen Schritt gesetzt sein.
+Den Code als Ganzes gibt es noch einmal hier auf meinem 
+<a class="text-link" target="_blank" rel="noopener noreferrer" href="https://codepen.io/TonySpegel/pen/XWgWRgm?editors=1100" title="Progress Stepper auf Codepen">Codepen</a></p>
+
+    </div>
+</article>
+
+
+            </main>
+
+            
+                
+<footer>
+    <ul>
+        <li id="copyright">
+            © Tony Spegel 2021
+        </li>
+        <li>
+            <a href="/impressum/" class="text-link">Impressum</a>
+        </li>
+        <li>
+            <a href="/datenschutzerklaerung/" class="text-link">
+                Datenschutzerklärung
+            </a>
+        </li>
+        <li>
+            <a href="/barrierefreiheit/" class="text-link">
+                Barrierefreiheit
+            </a>
+        </li>
+    </ul>
+</footer>
+
+            
+        </div>
+    </body>
+</html>
