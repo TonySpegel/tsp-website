@@ -6,13 +6,7 @@
         "build-rollup": "rollup --config",
         "serve": "zola serve --interface 0.0.0.0 --port 2000 --base-url rhea.lan",
         "wds": "wds",
-        "z": "npm run build-local && zola --config config.local.toml serve",
-        "prepare": "husky install"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "pretty-quick --staged"
-        }
+        "z": "npm run build-local && zola --config config.local.toml serve"
     },
     "dependencies": {
         "add-prefetch-link": "^1.0.2"
