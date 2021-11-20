@@ -1,0 +1,4 @@
+services:
+  build-zola:
+    build: ./01_build_zola
+    container_name: build-zola

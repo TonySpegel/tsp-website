@@ -1,0 +1,9 @@
+name: 'Zola Builder'
+description: 'Build a Zola site'
+author: 'Tony Spegel'
+runs: 
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'tool'
+  color: 'blue'
