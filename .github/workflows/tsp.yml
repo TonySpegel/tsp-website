@@ -20,9 +20,7 @@ jobs:
   bundle:
     runs-on: ubuntu-latest
     steps:
-      - name: Install NPM dependencies
+      - name: Install NPM dependencies & bundle w/ Rollup
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - name: RollUp
-    
