@@ -1,14 +1,11 @@
 on: push
-name: Build, Bundle & Deployment for tony-spegel.com
+name: Build, Bundle & Deployment
 jobs:
-  checkout:
+  build-bundle-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-  zola-build:
-    runs-on: ubuntu-latest
-    steps:
       - name: Zola Build 
         uses: shalzz/zola-deploy-action@master
         env:
@@ -17,10 +14,9 @@ jobs:
           # Provide personal access token
           TOKEN: ${{ secrets.GH_PAGES }}
           BUILD_ONLY: true
-  bundle:
-    runs-on: ubuntu-latest
-    steps:
       - name: Install NPM dependencies & bundle w/ Rollup
         uses: actions/setup-node@v2
         with:
           node-version: '16'
+      - run: npm install
+      - run: npm run live-builder
