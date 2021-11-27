@@ -8,6 +8,7 @@
         "local-dev": "npm run build-zola-local && npm run serve-zola-local & npm run wds",
         "build-zola-live": "zola --config config.live.toml build",
         "build-rollup-live": "rollup --config rollup.config.live.js",
+        "build-rollup-zola-live": "rollup --config rollup.config.zola-live.js",
         "build-live": "npm run build-zola-live && npm run build-rollup-live",
         "live-test": "wds dist/index.html --open --config web-dev-server.config.live.mjs",
         "?serve": "zola serve --interface 0.0.0.0 --port 2000 --base-url rhea.lan"

@@ -19,4 +19,14 @@ jobs:
         with:
           node-version: '16'
       - run: npm install
-      - run: sudo npm run build-rollup-live
+      - run: sudo npm run build-rollup-zola-live
+      - run: |
+          cd dist
+          git init
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions-bot@users.noreply.${GITHUB_HOSTNAME}"
+          git add .
+          git commit -m "Deploy ${TARGET_REPOSITORY} to ${TARGET_REPOSITORY}:$remote_branch"
+          git push --force "${remote_repo}" master:${remote_branch}
+
+          echo "Deploy complete"
