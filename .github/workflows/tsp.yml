@@ -6,7 +6,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - run: mkdir dist
       - name: Zola Build 
         uses: shalzz/zola-deploy-action@master
         env:
@@ -14,6 +13,7 @@ jobs:
           PAGES_BRANCH: gh-pages
           # Provide personal access token
           TOKEN: ${{ secrets.GH_PAGES }}
+          BUILD_FLAGS: "--config config.live.toml"
       - run: ls
       - name: Install NPM dependencies & bundle w/ Rollup
         uses: actions/setup-node@v2
