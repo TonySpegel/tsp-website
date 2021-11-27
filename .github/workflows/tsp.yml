@@ -15,7 +15,6 @@ jobs:
           # Provide personal access token
           BUILD_DIR: dist
           BUILD_ONLY: true
-          BUILD_FLAGS: config config.live.toml
           TOKEN: ${{ secrets.GH_PAGES }}
       - name: Install NPM dependencies & bundle w/ Rollup
         uses: actions/setup-node@v2
