@@ -12,14 +12,15 @@ jobs:
           # Target branch
           PAGES_BRANCH: gh-pages
           # Provide personal access token
-          TOKEN: ${{ secrets.GH_PAGES }}
+          BUILD_FLAGS: --config config.live.toml
           BUILD_ONLY: true
+          TOKEN: ${{ secrets.GH_PAGES }}
       - name: Install NPM dependencies & bundle w/ Rollup
         uses: actions/setup-node@v2
         with:
           node-version: '16'
       - run: npm install
-      - run: sudo npm run build-rollup-zola-live
+      - run: sudo npm run build-rollup-live
       - run: |
           cd dist
           git init
