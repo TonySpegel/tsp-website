@@ -2,24 +2,29 @@
     "name": "tsp-website",
     "version": "1.0.0",
     "scripts": {
-        "wds": "wds",
         "build-zola-local": "zola --config config.local.toml build",
-        "build-zola-live": "zola --config config.toml build",
-        "build-rollup": "rollup --config",
-        "serve": "zola serve --interface 0.0.0.0 --port 2000 --base-url rhea.lan",
-        "local-dev": "npm run build-zola-local && zola --config config.local.toml serve && npm run wds",
-        "live-builder": "npm run build-zola-live && npm run build-rollup"
+        "serve-zola-local": "zola --config config.local.toml serve",
+        "wds": "wds",
+        "local-dev": "npm run build-zola-local && npm run serve-zola-local & npm run wds",
+        "build-zola-live": "zola --config config.live.toml build",
+        "build-rollup-live": "rollup --config rollup.config.live.js",
+        "build-live": "npm run build-zola-live && npm run build-rollup-live",
+        "live-test": "wds dist/index.html --open --config web-dev-server.config.live.mjs",
+        "?serve": "zola serve --interface 0.0.0.0 --port 2000 --base-url rhea.lan"
     },
     "dependencies": {
-        "add-prefetch-link": "^1.0.2"
+        "add-prefetch-link": "^1.0.4"
     },
     "devDependencies": {
+        "@open-wc/rollup-plugin-html": "^1.2.5",
         "@rollup/plugin-node-resolve": "^11.2.1",
+        "@rollup/plugin-replace": "^3.0.0",
         "@web/dev-server": "^0.1.24",
+        "@web/rollup-plugin-html": "^1.10.1",
         "prettier": "^2.2.1",
         "pretty-quick": "^3.1.0",
         "rollup": "^2.58.0",
-        "rollup-plugin-terser": "^7.0.2"
+        "rollup-plugin-copy": "^3.4.0"
     },
     "repository": {
         "type": "git",
