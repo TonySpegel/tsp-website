@@ -14,6 +14,7 @@ jobs:
           PAGES_BRANCH: gh-pages
           # Provide personal access token
           TOKEN: ${{ secrets.GH_PAGES }}
+        run: ls
       - name: Install NPM dependencies & bundle w/ Rollup
         uses: actions/setup-node@v2
         with:
