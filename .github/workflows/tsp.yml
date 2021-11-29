@@ -15,6 +15,7 @@ jobs:
           TOKEN: ${{ secrets.GH_PAGES }}
           CONFIG_FILE: "config.live.toml"
       - run: ls
+      - run: ls dist
       - name: Install NPM dependencies & bundle w/ Rollup
         uses: actions/setup-node@v2
         with:
