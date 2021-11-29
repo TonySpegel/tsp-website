@@ -23,6 +23,7 @@ jobs:
       - run: npm install
       - run: sudo npm run build-rollup-live
       - run: ls -al --full-time dist
+      - run: chmod +x dist
       - run: |
           cd dist
           git init
