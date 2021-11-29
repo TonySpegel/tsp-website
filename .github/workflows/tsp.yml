@@ -7,13 +7,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Zola Build 
-        uses: shalzz/zola-deploy-action@master
+        uses: TonySpegel/zola-build-rollup-bundle-deploy-action
         env:
           # Target branch
           PAGES_BRANCH: gh-pages
           # Provide personal access token
           TOKEN: ${{ secrets.GH_PAGES }}
-          BUILD_FLAGS: "--config config.live.toml"
+          CONFIG_FILE: "config.live.toml"
       - run: ls
       - name: Install NPM dependencies & bundle w/ Rollup
         uses: actions/setup-node@v2
