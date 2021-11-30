@@ -4,22 +4,26 @@ jobs:
   build-bundle-deploy:
     runs-on: ubuntu-latest
     steps:
+      # Check-out repository under $GITHUB_WORKSPACE
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Zola Build 
-        uses: TonySpegel/zola-build-rollup-bundle-deploy-action@v1
+      # Build static pages w/ Zola
+      - name: Build 🏗️
+        uses: TonySpegel/zola-build-action@v1
         env:
           # Target branch
           PAGES_BRANCH: gh-pages
           # Provide personal access token
           TOKEN: ${{ secrets.GH_PAGES }}
           CONFIG_FILE: "config.live.toml"
-      - name: Install NPM dependencies & bundle w/ Rollup
+      # Install NPM dependencies & bundle w/ Rollup
+      - name: Bundle 🧶
         uses: actions/setup-node@v2
         with:
           node-version: '16'
       - run: npm install
       - run: sudo npm run build-rollup-live
+      # Deploy to GitHub Pages
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
