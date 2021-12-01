@@ -1,7 +1,7 @@
 # The URL the site will be built for
-base_url = 'https://tony-spegel.com'
-output_dir = 'dist'
+base_url = '/dev'
 description = "Frontend-Entwicklung für Websites, Shopify-Onlineshops, Web- und Cross Platform-Apps"
+output_dir = 'dev'
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
