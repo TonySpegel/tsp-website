@@ -42,17 +42,18 @@ const addToHead = (event) => {
  *  .querySelectorAll('a:not([href^="mailto:"]):not([href^="tel:"])')
  *  .forEach((link) => addPrefetchLink(link));
  */
-const addPrefetchLink = (link, userEvents = [
-    'mouseover',
-    'focus',
-]) => {
+const addPrefetchLink = (link, userEvents = ['mouseover', 'focus']) => {
     const handler = (event) => {
         // Remove listeners
-        userEvents.forEach((userEvent) => link.removeEventListener(userEvent, handler));
+        userEvents.forEach((userEvent) =>
+            link.removeEventListener(userEvent, handler),
+        );
         addToHead(event);
     };
     // Register listeners
-    userEvents.forEach((userEvent) => link.addEventListener(userEvent, handler));
+    userEvents.forEach((userEvent) =>
+        link.addEventListener(userEvent, handler),
+    );
 };
 
 /**
@@ -86,13 +87,13 @@ observer.observe(sentinelElement);
 /**
  * Get all page links and make an array out of it.
  * Some links such as e-mail addresses and mobile numbers
- * should not be fetched - these are marked with `.no-fetch`.
+ * should not be fetched.
  *
  * Add an event listener for each link but do it only once to
  * avoid unnecessary network requests
  */
 document
-    .querySelectorAll('a:not(.no-fetch)')
+    .querySelectorAll('a:not([href^="mailto:"]):not([href^="tel:"]):not([class*="no-fetch"])')
     .forEach((link) => addPrefetchLink(link));
 
 /**
@@ -113,7 +114,7 @@ document
 /**
  * Switch
  */
-const body = document.querySelector('body');
+document.querySelector('body');
 const copyright = document.querySelector('#copyright');
 
 const readPreference = () => {
@@ -130,7 +131,7 @@ const deletePreference = () => {
     localStorage.removeItem('color-mode');
 };
 
-body.addEventListener('dblclick', () => {
+copyright.addEventListener('dblclick', () => {
     const mode = readPreference();
 
     if (mode === 'light') {
@@ -140,6 +141,6 @@ body.addEventListener('dblclick', () => {
     }
 });
 
-copyright.addEventListener('click', () => {
+copyright.addEventListener('contextmenu', () => {
     deletePreference();
 });

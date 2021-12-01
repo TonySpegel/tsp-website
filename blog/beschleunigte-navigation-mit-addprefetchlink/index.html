@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="de" color-mode>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>
+        
+    Beschleunigte Navigation mit Link prefetching | Tony Spegel
+
+        </title>
+
+         
+    
+    
+
+    
+
+    
+
+
+	  
+
+
+<link rel="canonical" href="https://tony-spegel.com/blog/beschleunigte-navigation-mit-addprefetchlink/">
+
+<meta name="description" content="Wie man rel=&quot;prefetch&quot; durch Interaktionen wie bspw. mouseover oder focus optimieren kann">
+
+    <meta name="robots" content="index, follow">
+
+
+<meta property="og:title" content="Beschleunigte Navigation mit Link prefetching">
+<meta property="og:description" content="Wie man rel=&quot;prefetch&quot; durch Interaktionen wie bspw. mouseover oder focus optimieren kann">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tony-spegel.com/blog/beschleunigte-navigation-mit-addprefetchlink/">
+
+
+    
+    <link
+        rel="preload"
+        href="/js/copyCode.mjs"
+        as="script"
+        crossorigin="anonymous"
+    />
+    
+    <link
+        rel="preload"
+        href="/js/copyDirectLink.mjs"
+        as="script"
+        crossorigin="anonymous"
+    />
+
+    <script type="module" src="/blog.js" defer></script>
+
+
+        <meta name="theme-color" content="#debfed" />
+
+        <script>
+            // Reade theme preference from localStorage
+            const themePreference = localStorage.getItem('color-mode');
+            // Set theme if one is present in localStorage
+            if (themePreference !== null) {
+                document
+                    .querySelector('html')
+                    .setAttribute('color-mode', themePreference);
+            }
+        </script>
+
+        <link rel="stylesheet" href="https://tony-spegel.com/main.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <style>
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2)
+                    format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+                    U+FEFF, U+FFFD;
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 500;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2)
+                    format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+                    U+FEFF, U+FFFD;
+            }
+            @font-face {
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 700;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2)
+                    format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+                    U+FEFF, U+FFFD;
+            }
+        </style>
+
+        <link
+            rel="preload"
+            href="/js/addPrefetchLink.js"
+            as="script"
+            crossorigin="anonymous"
+        />
+
+        <link rel="icon" href="/favicon.svg" />
+
+        <script type="module" src="/index.js"></script>
+    </head>
+    <body>
+        <a class="skip-to-main" href="#main">Zum Inhalt</a>
+        <div class="glass"></div>
+        <div class="bubble"></div>
+        <div class="bubble-2"></div>
+        <div class="container" data-scroller>
+            
+                
+<header id="site-header">
+    <nav>
+        <a href="/" class="logo-link no-fetch" title="Zur Startseite">
+            <div class="logo surface">
+                <img src="/tsp_icon.svg" alt="SVG mit img Tag laden" />
+            </div>
+            <h1>Tony Spegel</h1>
+        </a>
+        <div class="menu">
+            <div class="circle-wrapper">
+                <div class="outer-circle"></div>
+                <div class="circle"></div>
+            </div>
+            <ul>
+                 
+                <li>
+                    <a class="article-tag surface" href="https:&#x2F;&#x2F;tony-spegel.com&#x2F;blog&#x2F;" title="Zum Blog">
+                        Blog
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+</header>
+
+            
+
+            <main id="main" tabindex="-1">
+                <div id="sentinel-element"></div>
+                
+
+<article class="post">
+    <header>
+        
+    
+        <time
+            class="article-date" 
+            datetime="2021-10-04"
+            title="Erstellt am 04.10.2021"
+        >
+            04.10.2021
+        </time>
+    
+
+        <h1>Beschleunigte Navigation mit Link prefetching</h1>
+        
+    <div class="article-info">
+        <div class="article-taxonomies">
+            
+            
+                <ul class="article-tags">
+                    
+                    <li>
+                        <a 
+                            href="https://tony-spegel.com/tags/javascript/" 
+                            title="Posts zum Tag: JavaScript"
+                            class="article-tag surface-tag"
+                        >
+                            #JavaScript
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a 
+                            href="https://tony-spegel.com/tags/typescript/" 
+                            title="Posts zum Tag: TypeScript"
+                            class="article-tag surface-tag"
+                        >
+                            #TypeScript
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a 
+                            href="https://tony-spegel.com/tags/performance/" 
+                            title="Posts zum Tag: Performance"
+                            class="article-tag surface-tag"
+                        >
+                            #Performance
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a 
+                            href="https://tony-spegel.com/tags/npm/" 
+                            title="Posts zum Tag: NPM"
+                            class="article-tag surface-tag"
+                        >
+                            #NPM
+                        </a>
+                    </li>
+                    
+                </ul>
+            
+        </div>
+    </div>
+
+    </header>
+    <div class="content">
+        <p>Prefetching beschreibt einen Prozess, welcher eventuell benötigte Inhalte vorlädt,
+um diese schneller aufrufen zu können. Das kann beispielsweise so aussehen:
+<code>&lt;link rel=&quot;prefetch&quot; href=&quot;/img/catsarecute.jpg&quot; /&gt;</code>. 
+Browser werden diese Ressource dann herunterladen und zwischenspeichern 
+(allerdings nur im <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#how_is_browser_idle_time_determined">Idle</a>).</p>
+<p>Alle Links einer Seite für das Prefetching hinzuzufügen ist natürlich wenig sinnvoll.
+Um das zu optimieren ist mein Ansatz, Links nur auf eine Interaktion hin zu prefetchen - also beispielsweise 
+das Zeigen mit der Maus oder das Fokussieren mit einer Tastatur. Inspiration habe ich mir hierbei 
+durch das von Google entwickelte <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://getquick.link/">Quicklink</a> geholt. Der entscheidende Unterschied zu meiner Lösung ist, dass Quicklink alle Links im sichtbaren Bereichen vorlädt (wenn der Browser im Idle ist) und nicht durch eine Interaktion.</p>
+<p>Links zu meiner Lösung <em>addPrefetchLink</em>:</p>
+<ul>
+<li><a class="text-link" target="_blank" rel="noopener noreferrer" href="https://codepen.io/TonySpegel/full/PojrqZb">Demo (Codepen)</a></li>
+<li><a class="text-link" target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/package/add-prefetch-link">NPM</a></li>
+<li><a class="text-link" target="_blank" rel="noopener noreferrer" href="https://github.com/TonySpegel/addPrefetchLink">GitHub</a></li>
+</ul>
+<h2 id="anforderungen">Anforderungen<a
+    aria-label="Direktlink zu anforderungen"
+    class="direct-link no-fetch"
+    href="#anforderungen"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-anforderungen"
+    class="direct-link-message"
+></span>
+</h2>
+<ul>
+<li>Links welche ein <code>mailto:</code> oder <code>tel:</code> enthalten, sollen nicht prefetched werden</li>
+<li>Ist ein Datensparmodus aktiv oder ist die Verbindung zu langsam, sollen keine Links prefetched werden</li>
+<li>Pro Link darf nur eine Interaktion das Prefetching auslösen</li>
+</ul>
+<h2 id="die-richtigen-links-selektieren">Die richtigen Links selektieren<a
+    aria-label="Direktlink zu die-richtigen-links-selektieren"
+    class="direct-link no-fetch"
+    href="#die-richtigen-links-selektieren"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-die-richtigen-links-selektieren"
+    class="direct-link-message"
+></span>
+</h2>
+<p>Da es bei E-Mail Links oder Telefonnummern keinen Sinn ergibt, diese zu prefetchen, sollten diese ignoriert werden.
+Ich nutze dazu einfach einen CSS Selektor welche alle Links selektiert, 
+deren href-Attribut nicht mit dem entsprechenden Prefix beginnt:</p>
+<pre data-lang="javascript" style="background-color:#2b2c2f;color:#cccece;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span>document
+</span><span>    </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">querySelectorAll</span><span>(</span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">a:not([href^=&quot;mailto:&quot;]):not([href^=&quot;tel:&quot;])</span><span style="color:#5fb3b3;">&#39;</span><span>)
+</span><span>    </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">forEach</span><span>(</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">link</span><span style="color:#5fb3b3;">) </span><span style="color:#c594c5;">=&gt; </span><span style="color:#5f6364;">/* prefetch links */</span><span>)</span><span style="color:#5fb3b3;">;
+</span></code></pre>
+<p>Man könnte natürlich auch ein Array erstellen und dieses entsprechend filtern.</p>
+<h2 id="links-prefetchen">Links prefetchen<a
+    aria-label="Direktlink zu links-prefetchen"
+    class="direct-link no-fetch"
+    href="#links-prefetchen"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-links-prefetchen"
+    class="direct-link-message"
+></span>
+</h2>
+<p>Als erstes definiere ich eine Funktion welche Links zum <code>&lt;head&gt;</code> hinzufügen soll, als einzigen Parameter ein 
+Event erwartet und als Rückgabetyp zunächst <code>void</code> definiert:</p>
+<pre data-lang="typescript" style="background-color:#2b2c2f;color:#cccece;" class="language-typescript "><code class="language-typescript" data-lang="typescript"><span style="color:#c594c5;">const </span><span style="color:#6699cc;">addToHead </span><span style="color:#5fb3b3;">= (</span><span style="color:#f99157;">event</span><span style="color:#5fb3b3;">: </span><span>Event</span><span style="color:#5fb3b3;">): </span><span style="color:#fac863;">void </span><span style="color:#c594c5;">=&gt; </span><span style="color:#5fb3b3;">{ </span><span style="color:#5f6364;">/* Code */ </span><span style="color:#5fb3b3;">}
+</span></code></pre>
+<p><code>event</code> nutzt schließlich dessen Property <code>target</code> als Referenz auf das Objekt (hier ein Link) welches das Event ausgelöst hat.</p>
+<h3 id="datensparmodus-und-langsame-verbindungen-berucksichtigen">Datensparmodus und langsame Verbindungen berücksichtigen<a
+    aria-label="Direktlink zu datensparmodus-und-langsame-verbindungen-berucksichtigen"
+    class="direct-link no-fetch"
+    href="#datensparmodus-und-langsame-verbindungen-berucksichtigen"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-datensparmodus-und-langsame-verbindungen-berucksichtigen"
+    class="direct-link-message"
+></span>
+</h3>
+<p>Um zu prüfen, ob entweder ein Datensparmodus aktiv oder die Verbindung zu langsam ist reichen diese beiden Bedingungen:</p>
+<pre data-lang="typescript" style="background-color:#2b2c2f;color:#cccece;" class="language-typescript "><code class="language-typescript" data-lang="typescript"><span style="color:#c594c5;">const </span><span style="color:#6699cc;">addToHead </span><span style="color:#5fb3b3;">= (</span><span style="color:#f99157;">event</span><span style="color:#5fb3b3;">: </span><span>Event</span><span style="color:#5fb3b3;">): </span><span style="color:#fac863;">void </span><span style="color:#5fb3b3;">| </span><span>Error </span><span style="color:#c594c5;">=&gt; </span><span style="color:#5fb3b3;">{ 
+</span><span>    </span><span style="color:#c594c5;">if </span><span>(navigator</span><span style="color:#5fb3b3;">.</span><span>connection) </span><span style="color:#5fb3b3;">{
+</span><span>        </span><span style="color:#c594c5;">const </span><span>connection </span><span style="color:#5fb3b3;">= </span><span>navigator</span><span style="color:#5fb3b3;">.</span><span>connection</span><span style="color:#5fb3b3;">;
+</span><span>        </span><span style="color:#5f6364;">/**
+</span><span style="color:#5f6364;">         * Check if a data saver is running
+</span><span style="color:#5f6364;">         */
+</span><span>        </span><span style="color:#c594c5;">if </span><span>(connection</span><span style="color:#5fb3b3;">.</span><span>saveData) </span><span style="color:#5fb3b3;">{
+</span><span>            </span><span style="color:#c594c5;">return </span><span style="color:#5fb3b3;">new </span><span>Error(</span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">Prefetch is not available when using Data Saver</span><span style="color:#5fb3b3;">&#39;</span><span>)</span><span style="color:#5fb3b3;">;
+</span><span>        </span><span style="color:#5fb3b3;">}
+</span><span>        </span><span style="color:#5f6364;">/**
+</span><span style="color:#5f6364;">         * Check for slow connections, don&#39;t prefetch on 2g or slower.
+</span><span style="color:#5f6364;">         * effectiveType can be: slow-2g, 2g, 3g, or 4g
+</span><span style="color:#5f6364;">         */
+</span><span>        </span><span style="color:#c594c5;">if </span><span>(connection</span><span style="color:#5fb3b3;">.</span><span>effectiveType</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">includes</span><span>(</span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">2g</span><span style="color:#5fb3b3;">&#39;</span><span>)) </span><span style="color:#5fb3b3;">{
+</span><span>            </span><span style="color:#c594c5;">return </span><span style="color:#5fb3b3;">new </span><span>Error(</span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">Prefetch is not available on slow connection</span><span style="color:#5fb3b3;">&#39;</span><span>)</span><span style="color:#5fb3b3;">;
+</span><span>        </span><span style="color:#5fb3b3;">}
+</span><span>    </span><span style="color:#5fb3b3;">}
+</span><span style="color:#5fb3b3;">}
+</span></code></pre>
+<p>Allerdings besitzt nicht jeder Browser Informationen über dessen Verbindungstyp so dass hier zuerst über <code>navigator.connection</code> 
+auf das Vorhandensein hin geprüft wird. Die hier geworfenen Fehler werden nicht verwendet oder angezeigt
+um nicht unnötig zu stören - es soll vor allem einfach nicht prefetched werden.</p>
+<p>TypeScript wirft hier zunächst einen Fehler, da es die beiden Properties <code>saveData</code> und <code>effectiveType</code> nicht kennt.
+Um das zu beheben, habe ich das entsprechende Interface <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://github.com/TonySpegel/addPrefetchLink/blob/main/src/%40types/networkInformation.d.ts">erweitert</a>:</p>
+<pre data-lang="typescript" style="background-color:#2b2c2f;color:#cccece;" class="language-typescript "><code class="language-typescript" data-lang="typescript"><span style="color:#c594c5;">export </span><span style="color:#5fb3b3;">{};
+</span><span>
+</span><span style="color:#c594c5;">declare </span><span>global </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#c594c5;">interface </span><span>NetworkInformation </span><span style="color:#5fb3b3;">{
+</span><span>        saveData</span><span style="color:#5fb3b3;">: </span><span style="color:#fac863;">boolean</span><span style="color:#5fb3b3;">;
+</span><span>        effectiveType</span><span style="color:#5fb3b3;">: &#39;</span><span style="color:#99c794;">slow-2g</span><span style="color:#5fb3b3;">&#39; | &#39;</span><span style="color:#99c794;">2g</span><span style="color:#5fb3b3;">&#39; | &#39;</span><span style="color:#99c794;">3g</span><span style="color:#5fb3b3;">&#39; | &#39;</span><span style="color:#99c794;">4g</span><span style="color:#5fb3b3;">&#39;;
+</span><span>    </span><span style="color:#5fb3b3;">}
+</span><span style="color:#5fb3b3;">}
+</span></code></pre>
+<p>und in meiner <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://github.com/TonySpegel/addPrefetchLink/blob/main/src/%40types/networkInformation.d.ts">tsconfig.json</a> referenziert.</p>
+<h3 id="links-zum-head-hinzufugen">Links zum &lt;head&gt; hinzufügen<a
+    aria-label="Direktlink zu links-zum-head-hinzufugen"
+    class="direct-link no-fetch"
+    href="#links-zum-head-hinzufugen"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-links-zum-head-hinzufugen"
+    class="direct-link-message"
+></span>
+</h3>
+<p>Das eigentliche Prefetching ist unspektakulär. Es wird ein Link-Element erzeugt, dessen <code>href</code>- auf einen Link 
+und das <code>rel</code>-Attribut auf <code>prefetch</code> gesetzt und schließlich zum <code>&lt;head&gt;</code> hinzugefügt:</p>
+<pre data-lang="typescript" style="background-color:#2b2c2f;color:#cccece;" class="language-typescript "><code class="language-typescript" data-lang="typescript"><span style="color:#c594c5;">const </span><span style="color:#6699cc;">addToHead </span><span style="color:#5fb3b3;">= (</span><span style="color:#f99157;">event</span><span style="color:#5fb3b3;">: </span><span>Event</span><span style="color:#5fb3b3;">): </span><span style="color:#fac863;">void </span><span style="color:#5fb3b3;">| </span><span>Error </span><span style="color:#c594c5;">=&gt; </span><span style="color:#5fb3b3;">{ 
+</span><span style="color:#5fb3b3;">    </span><span style="color:#5f6364;">// (...) previous code
+</span><span>
+</span><span>    </span><span style="color:#c594c5;">if </span><span>(event</span><span style="color:#5fb3b3;">.</span><span>target </span><span style="color:#5fb3b3;">!== </span><span style="color:#f99157;">null</span><span>) </span><span style="color:#5fb3b3;">{
+</span><span>        </span><span style="color:#c594c5;">const </span><span>link </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">document</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">createElement</span><span>(</span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">link</span><span style="color:#5fb3b3;">&#39;</span><span>)</span><span style="color:#5fb3b3;">;
+</span><span>
+</span><span>        link</span><span style="color:#5fb3b3;">.</span><span>href </span><span style="color:#5fb3b3;">= </span><span>(&lt;HTMLAnchorElement&gt;event</span><span style="color:#5fb3b3;">.</span><span>target)</span><span style="color:#5fb3b3;">.</span><span>href</span><span style="color:#5fb3b3;">;
+</span><span>        link</span><span style="color:#5fb3b3;">.</span><span>rel </span><span style="color:#5fb3b3;">= &#39;</span><span style="color:#99c794;">prefetch</span><span style="color:#5fb3b3;">&#39;;
+</span><span>
+</span><span>        </span><span style="color:#6699cc;">document</span><span style="color:#5fb3b3;">.</span><span>head</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">appendChild</span><span>(link)</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#5fb3b3;">}
+</span><span style="color:#5fb3b3;">}
+</span></code></pre>
+<h2 id="eine-interaktion-pro-link">Eine Interaktion pro Link<a
+    aria-label="Direktlink zu eine-interaktion-pro-link"
+    class="direct-link no-fetch"
+    href="#eine-interaktion-pro-link"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-eine-interaktion-pro-link"
+    class="direct-link-message"
+></span>
+</h2>
+<p>Um unnötige Netzwerkanfragen zu vermeiden, soll nur eine Interaktion pro Link das Prefetching auslösen.
+Wurde ein Link beispielsweise mit der Tastatur fokussiert, soll ein Hovern mit der Maus keinen weiteren Vorgang auslösen.
+Ein Event an sich nur ein einziges Mal auslösen ist einfach:</p>
+<pre data-lang="javascript" style="background-color:#2b2c2f;color:#cccece;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span>element</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">addEventListener</span><span>(</span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">click</span><span style="color:#5fb3b3;">&#39;, () </span><span style="color:#c594c5;">=&gt; </span><span style="color:#5fb3b3;">{ </span><span style="color:#5f6364;">/* Code */ </span><span style="color:#5fb3b3;">}, { </span><span>once</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">true </span><span style="color:#5fb3b3;">}</span><span>)</span><span style="color:#5fb3b3;">;
+</span></code></pre>
+<p>Pro Element nur ein einziges Event auszulösen ist etwas komplizierter. 
+Vorbereitend wird wieder eine leere Funktion erstellt. Diese erwartet einen Link und ein Array an Events, 
+hier vorbelegt mit <code>mouseover</code> und <code>focus</code>.</p>
+<pre data-lang="typescript" style="background-color:#2b2c2f;color:#cccece;" class="language-typescript "><code class="language-typescript" data-lang="typescript"><span style="color:#c594c5;">export const </span><span style="color:#6699cc;">addPrefetchLink </span><span style="color:#5fb3b3;">= </span><span>(
+</span><span>    </span><span style="color:#f99157;">link</span><span style="color:#5fb3b3;">: </span><span>HTMLAnchorElement</span><span style="color:#5fb3b3;">,
+</span><span>    </span><span style="color:#f99157;">userEvents</span><span style="color:#5fb3b3;">: </span><span>ReadonlyArray</span><span style="color:#5fb3b3;">&lt;keyof </span><span>HTMLElementEventMap</span><span style="color:#5fb3b3;">&gt; = </span><span>[
+</span><span>        </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">mouseover</span><span style="color:#5fb3b3;">&#39;,
+</span><span>        </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">focus</span><span style="color:#5fb3b3;">&#39;,
+</span><span>    ]</span><span style="color:#5fb3b3;">,
+</span><span>) </span><span style="color:#c594c5;">=&gt; </span><span style="color:#5fb3b3;">{ </span><span style="color:#5f6364;">/* Code */ </span><span style="color:#5fb3b3;">}
+</span></code></pre>
+<p>Der Rest des Codes wird in zwei Teile unterteilt, einen der EventListener entfernt und das hinzufügen zum
+<code>&lt;head&gt;</code> übernimmt und einen welcher EventListener hinzufügt. </p>
+<pre data-lang="typescript" style="background-color:#2b2c2f;color:#cccece;" class="language-typescript "><code class="language-typescript" data-lang="typescript"><span style="color:#c594c5;">export const </span><span style="color:#6699cc;">addPrefetchLink </span><span style="color:#5fb3b3;">= </span><span>(
+</span><span>    </span><span style="color:#f99157;">link</span><span style="color:#5fb3b3;">: </span><span>HTMLAnchorElement</span><span style="color:#5fb3b3;">,
+</span><span>    </span><span style="color:#f99157;">userEvents</span><span style="color:#5fb3b3;">: </span><span>ReadonlyArray</span><span style="color:#5fb3b3;">&lt;keyof </span><span>HTMLElementEventMap</span><span style="color:#5fb3b3;">&gt; = </span><span>[
+</span><span>        </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">mouseover</span><span style="color:#5fb3b3;">&#39;,
+</span><span>        </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">focus</span><span style="color:#5fb3b3;">&#39;,
+</span><span>    ]</span><span style="color:#5fb3b3;">,
+</span><span>) </span><span style="color:#c594c5;">=&gt; </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#c594c5;">const </span><span style="color:#6699cc;">handler </span><span style="color:#5fb3b3;">= (</span><span style="color:#f99157;">event</span><span style="color:#5fb3b3;">: </span><span>Event</span><span style="color:#5fb3b3;">) </span><span style="color:#c594c5;">=&gt; </span><span style="color:#5fb3b3;">{
+</span><span style="color:#5fb3b3;">        </span><span style="color:#5f6364;">// Remove listeners
+</span><span>        userEvents</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">forEach</span><span>(</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">userEvent</span><span style="color:#5fb3b3;">) </span><span style="color:#c594c5;">=&gt; </span><span>link</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">removeEventListener</span><span>(userEvent</span><span style="color:#5fb3b3;">, </span><span>handler))</span><span style="color:#5fb3b3;">;
+</span><span>        </span><span style="color:#6699cc;">addToHead</span><span>(event)</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#5fb3b3;">};
+</span><span>
+</span><span style="color:#5fb3b3;">    </span><span style="color:#5f6364;">// Register listeners
+</span><span>    userEvents</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">forEach</span><span>(</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">userEvent</span><span style="color:#5fb3b3;">) </span><span style="color:#c594c5;">=&gt; </span><span>link</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">addEventListener</span><span>(userEvent</span><span style="color:#5fb3b3;">, </span><span>handler))</span><span style="color:#5fb3b3;">;
+</span><span style="color:#5fb3b3;">};
+</span></code></pre>
+<p>Die hier als <code>handler</code> benannte Funktion entfernt zunächst alle auf einen Link gebundenen Events und fügt dann
+den Link via <code>addToHead</code> hinzu. Fertig! Wobei da eine Sache noch bleibt: sollte ein Link öfters vorhanden sein,
+wird dieser dennoch ein weiteres mal hinzugefügt. Lösen könnte man das wohl mit einem <code>Set</code> - das kommt (vielleicht)
+in einem Update. </p>
+<h2 id="fazit">Fazit<a
+    aria-label="Direktlink zu fazit"
+    class="direct-link no-fetch"
+    href="#fazit"
+    title="Direktlink zur Überschrift kopieren"
+>
+    #
+</a>
+
+<span
+    aria-live="polite"
+    role="status"
+    id="direct-link-message-fazit"
+    class="direct-link-message"
+></span>
+</h2>
+<p>Neben der kleinen Herausforderung keine unnötigen Netzwerkanfragen auszulösen, war das Ganze
+auch ein erster erfolgreicher Versuch ein NPM-Modul zu schreiben und zu 
+<a class="text-link" target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/package/add-prefetch-link">veröffentlichen</a>.
+Weitere Details dazu auf <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://github.com/TonySpegel/addPrefetchLink/#readme">GitHub</a> (wichtig sind aber vor allem die Felder <code>main</code>, <code>type</code> sowie <code>files</code> in der <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://github.com/TonySpegel/addPrefetchLink/blob/main/package.json">package.json</a>). 
+Da es mein erstes NPM-Modul ist, freue ich mich natürlich besonders über Feedback <a class="text-link" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a></p>
+
+    </div>
+</article>
+
+
+            </main>
+
+            
+                
+<footer>
+    <ul>
+        <li id="copyright">
+            © Tony Spegel 2021
+        </li>
+        <li>
+            <a href="/impressum/" class="text-link">Impressum</a>
+        </li>
+        <li>
+            <a href="/datenschutzerklaerung/" class="text-link">
+                Datenschutzerklärung
+            </a>
+        </li>
+        <li>
+            <a href="/barrierefreiheit/" class="text-link">
+                Barrierefreiheit
+            </a>
+        </li>
+    </ul>
+</footer>
+
+            
+        </div>
+    </body>
+</html>
