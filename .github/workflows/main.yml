@@ -15,6 +15,7 @@ jobs:
         uses: TonySpegel/zola-build-action@v1.0.1
         env:
           CONFIG_FILE: "config.live.toml"
+      - run: ls -la dist
       # Install NPM dependencies & bundle w/ Rollup
       - name: Bundle 🧶
         uses: actions/setup-node@v2
