@@ -23,7 +23,7 @@ jobs:
       - run: ls -la dist
       - run: sudo chmod a+w dist
       - run: ls -la dist
-      - run: npm install
+      - run: sudo npm install
       - run: sudo npm run build-rollup-live
       # Deploy to GitHub Pages
       - name: Deploy 🚀
