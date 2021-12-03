@@ -20,6 +20,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
+      - run: sudo chown -R $(whoami) ~/.npm
+      - run: sudo chown -R $(whoami) ~/.config
       - run: npm install
       - run: npm run build-rollup-live
       # Deploy to GitHub Pages
