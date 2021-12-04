@@ -14,17 +14,12 @@ jobs:
       - name: Build 🏗️
         uses: TonySpegel/zola-build-action@v1
         env:
-          # Target branch
-          PAGES_BRANCH: gh-pages
-          # Provide personal access token
-          TOKEN: ${{ secrets.GH_PAGES }}
           CONFIG_FILE: "config.live.toml"
       # Install NPM dependencies & bundle w/ Rollup
       - name: Bundle 🧶
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - run: sudo npm install --unsafe-perm=true --allow-root
       - run: sudo npm run build-rollup-live
       # Deploy to GitHub Pages
       - name: Deploy 🚀
