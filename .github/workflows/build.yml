@@ -21,7 +21,7 @@ jobs:
           CONFIG_FILE: "config.live.toml"
       # Install NPM dependencies & bundle w/ Rollup
       - name: Bundle 🧶
-        uses: actions/setup-node@v2.5.0
+        uses: actions/setup-node@v2.4.1
         with:
           node-version: '16'
       - run: npm install
