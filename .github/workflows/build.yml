@@ -21,7 +21,7 @@ jobs:
           CONFIG_FILE: "config.live.toml"
       # Install NPM dependencies & bundle w/ Rollup
       - name: Bundle 🧶
-        uses: actions/setup-node@v2.4.1
+        uses: actions/setup-node@v2
         with:
           node-version: '16'
       - run: npm install
@@ -31,4 +31,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: dist # The folder the action should deploy.          
+          folder: dist # The folder the action should deploy.
