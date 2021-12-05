@@ -14,10 +14,6 @@ jobs:
       - name: Build 🏗️
         uses: TonySpegel/zola-build-action@v1.0.3
         env:
-          # Target branch
-          PAGES_BRANCH: gh-pages
-          # Provide personal access token
-          TOKEN: ${{ secrets.GH_PAGES }}
           CONFIG_FILE: "config.live.toml"
       # Install NPM dependencies & bundle w/ Rollup
       - name: Bundle 🧶
