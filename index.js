@@ -42,18 +42,17 @@ const addToHead = (event) => {
  *  .querySelectorAll('a:not([href^="mailto:"]):not([href^="tel:"])')
  *  .forEach((link) => addPrefetchLink(link));
  */
-const addPrefetchLink = (link, userEvents = ['mouseover', 'focus']) => {
+const addPrefetchLink = (link, userEvents = [
+    'mouseover',
+    'focus',
+]) => {
     const handler = (event) => {
         // Remove listeners
-        userEvents.forEach((userEvent) =>
-            link.removeEventListener(userEvent, handler),
-        );
+        userEvents.forEach((userEvent) => link.removeEventListener(userEvent, handler));
         addToHead(event);
     };
     // Register listeners
-    userEvents.forEach((userEvent) =>
-        link.addEventListener(userEvent, handler),
-    );
+    userEvents.forEach((userEvent) => link.addEventListener(userEvent, handler));
 };
 
 /**
