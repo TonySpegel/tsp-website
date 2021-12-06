@@ -1,6 +1,6 @@
 {
     "name": "tsp-website",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "scripts": {
         "build-zola-local": "zola --config config.local.toml build",
         "serve-zola-local": "zola --config config.local.toml serve",

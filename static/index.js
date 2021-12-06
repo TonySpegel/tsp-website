@@ -1,4 +1,4 @@
-import { addPrefetchLink } from './js/addPrefetchLink.js';
+import { addPrefetchLink } from 'add-prefetch-link';
 import './js/intersectionObserver.mjs';
 
 /**
