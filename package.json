@@ -14,6 +14,7 @@
         "build-rollup-zola-live": "rollup --config rollup.config.zola-live.js"
     },
     "dependencies": {
+        "@vaadin/vaadin": "^21.0.8",
         "add-prefetch-link": "^1.0.4"
     },
     "devDependencies": {
