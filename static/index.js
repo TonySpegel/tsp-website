@@ -1,6 +1,6 @@
-import { addPrefetchLink } from './js/addPrefetchLink.js';
+import { addPrefetchLink } from 'add-prefetch-link';
+import { OwcWebcomponent } from 'owc-webcomponent';
 import './js/intersectionObserver.mjs';
-
 /**
  * Prefetch Links
  * ==============
@@ -15,7 +15,9 @@ import './js/intersectionObserver.mjs';
  * avoid unnecessary network requests
  */
 document
-    .querySelectorAll('a:not([href^="mailto:"]):not([href^="tel:"]):not([class*="no-fetch"])')
+    .querySelectorAll(
+        'a:not([href^="mailto:"]):not([href^="tel:"]):not([class*="no-fetch"])',
+    )
     .forEach((link) => addPrefetchLink(link));
 
 /**
@@ -66,3 +68,6 @@ copyright.addEventListener('dblclick', () => {
 copyright.addEventListener('contextmenu', () => {
     deletePreference();
 });
+
+
+customElements.define('owc-webcomponent', OwcWebcomponent);
