@@ -86,7 +86,7 @@ theme-switch {
     }
 }
 
-:root[color-mode='light'] {
+:root[theme-preference='light'] {
     @include light;
 
     .surface {
@@ -108,7 +108,7 @@ theme-switch {
     }
 }
 
-:root[color-mode='dark'] {
+:root[theme-preference='dark'] {
     @include dark;
 
     .logo {

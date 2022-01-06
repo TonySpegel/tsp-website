@@ -21,8 +21,8 @@ type = 'article'
         lights = !lights;
         
         lights ? 
-            document.documentElement.setAttribute('color-mode', 'dark') :
-            document.documentElement.setAttribute('color-mode', 'light'); 
+            document.documentElement.setAttribute('theme-preference', 'dark') :
+            document.documentElement.setAttribute('theme-preference', 'light'); 
     });
 </script>
 

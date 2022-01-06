@@ -46,6 +46,6 @@ code {
     @include dark-code-tag();
 }
 
-[color-mode='dark'] {
+[theme-preference='dark'] {
     @include dark-code-tag();
 }
