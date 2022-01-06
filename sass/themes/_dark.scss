@@ -1,17 +1,23 @@
 @mixin dark {
     color-scheme: dark;
 
-    --text-1: var(--text-1-dark);
-    --text-2: var(--text-2-dark);
-
     --surface-1: var(--surface-1-dark);
     --surface-2: var(--surface-2-dark);
     --surface-3: var(--surface-3-dark);
     --surface-4: var(--surface-4-dark);
     --surface-5: var(--surface-5-dark);
 
+    --text-1: #fff;
+    --text-2: #fff;
+
+    --circle-bg: var(--circle-bg-dark);
+    --circle-border: #eedcf530;
+    --circle-checked: var(--surface-3-dark);
+    --circle-wave: var(--circle-wave-dark);
+
     --glass-tint: var(--glass-tint-dark);
     --glass-tint-2: var(--glass-tint-dark-2);
 
     --border-color: var(--border-dark);
+    --logo-bg: var(--surface-2);
 }

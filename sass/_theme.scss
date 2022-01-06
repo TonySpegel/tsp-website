@@ -2,6 +2,14 @@
 @import './themes/light';
 
 * {
+    --hue-light: 281;
+    --sat-light: 55%;
+    --lum-light: 55%;
+
+    --hue-dark: 281;
+    --sat-dark: calc(var(--sat-light) / 2);
+    --lum-dark: calc(var(--lum-light) / 1.5);
+
     /**
      * Shades
      */
@@ -26,10 +34,15 @@
     --surface-2-light: var(--shade-200);
     --surface-3-light: var(--shade-100);
     --surface-4-light: var(--shade-50);
-    --surface-5-light: hsla(281, 40%, 80%, 1);
+    --surface-5-light: var(--surface-4-light);
+
+    --circle-bg-light: var(--surface-4-light);
+    --circle-wave-light: #000;
 
     --glass-tint-light: hsla(200, 100%, 96%, 0.15);
     --glass-tint-light-2: var(--shade-50-glass);
+
+    --logo-bg-light: var(--shade-100);
 
     --border-light: var(--shade-200);
     /**
@@ -38,11 +51,14 @@
     --text-1-dark: hsl(0, 0%, 90%);
     --text-2-dark: hsl(0, 0%, 95%);
 
-    --surface-1-dark: hsl(281, 60%, 10%);
-    --surface-2-dark: hsl(281, 60%, 15%);
-    --surface-3-dark: hsl(281, 60%, 20%);
-    --surface-4-dark: hsl(281, 60%, 25%);
-    --surface-5-dark: hsl(281, 83%, 21%);
+    --surface-1-dark: hsl(var(--hue-light), 56%, 10%);
+    --surface-2-dark: hsl(var(--hue-light), 60%, 15%);
+    --surface-3-dark: hsl(var(--hue-light), 60%, 20%);
+    --surface-4-dark: hsl(var(--hue-light), 60%, 25%);
+    --surface-5-dark: hsl(262, 86%, 8%);
+
+    --circle-wave-dark: #fff;
+    --circle-bg-dark: #2a1d5445;
 
     --glass-tint-dark: hsla(286, 86%, 6%, 0.657);
     --glass-tint-dark-2: hsla(290, 93%, 5%, 0.7);
@@ -50,8 +66,13 @@
     --border-dark: var(--shade-800);
 }
 
+theme-switch {
+    --base-gap: 16px;
+}
+
 :root {
-    @include light();
+    @include light;
+
     /**
      * Surfaces
      */
@@ -62,6 +83,14 @@
 
     .surface-tag {
         @include surface-tag();
+    }
+}
+
+:root[color-mode='light'] {
+    @include light;
+
+    .surface {
+        @include light-surface-3();
     }
 }
 
@@ -79,16 +108,12 @@
     }
 }
 
-[color-mode='light'] {
-    @include light;
-
-    .surface {
-        @include light-surface-3();
-    }
-}
-
-[color-mode='dark'] {
+:root[color-mode='dark'] {
     @include dark;
+
+    .logo {
+        border: 1px solid var(--border-color);
+    }
 
     .surface {
         @include dark-surface-2();
