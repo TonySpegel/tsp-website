@@ -14,7 +14,8 @@
         "build-rollup-zola-live": "rollup --config rollup.config.zola-live.js"
     },
     "dependencies": {
-        "add-prefetch-link": "^1.0.4"
+        "add-prefetch-link": "^1.0.4",
+        "theme-switch-component": "^0.0.1-k"
     },
     "devDependencies": {
         "@open-wc/rollup-plugin-html": "1.2.5",
