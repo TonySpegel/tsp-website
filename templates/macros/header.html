@@ -2,22 +2,28 @@
 <header id="site-header">
     <nav>
         <a href="/" class="logo-link no-fetch" title="Zur Startseite">
-            <div class="logo surface">
+            <div class="logo">
                 <img src="/tsp_icon.svg" alt="SVG mit img Tag laden" />
             </div>
             <h1>Tony Spegel</h1>
         </a>
         <div class="menu">
-            <div class="circle-wrapper">
-                <div class="outer-circle"></div>
-                <div class="circle"></div>
-            </div>
+            <button
+                aria-label="open theme-selection"
+                id="btn-theme-selection"
+                title="Farbschema auswählen"
+            ></button>
+
             <ul>
                 {% for menu_link in config.extra.anpu_menu_links %} {% set
                 link_url = menu_link.url | replace(from="$BASE_URL",
                 to=config.base_url) %}
                 <li>
-                    <a class="article-tag surface" href="{{ link_url }}" title="{{ menu_link.title }}">
+                    <a
+                        class="article-tag surface"
+                        href="{{ link_url }}"
+                        title="{{ menu_link.title }}"
+                    >
                         {{ menu_link.name }}
                     </a>
                 </li>
