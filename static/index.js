@@ -1,4 +1,5 @@
 import { addPrefetchLink } from 'add-prefetch-link';
+import { ThemeSwitch } from 'theme-switch-component';
 import './js/intersectionObserver.mjs';
 
 /**
@@ -15,7 +16,9 @@ import './js/intersectionObserver.mjs';
  * avoid unnecessary network requests
  */
 document
-    .querySelectorAll('a:not([href^="mailto:"]):not([href^="tel:"]):not([class*="no-fetch"])')
+    .querySelectorAll(
+        'a:not([href^="mailto:"]):not([href^="tel:"]):not([class*="no-fetch"])',
+    )
     .forEach((link) => addPrefetchLink(link));
 
 /**
@@ -34,35 +37,38 @@ document
     .addEventListener('touchstart', () => {}, { passive: true });
 
 /**
- * Switch
+ * DialogEvent is used to reference the targetElement
+ * which has opened the ThemeSwitch component.
+ * This needs to be done to re-select it after closing
+ * the dialog.
  */
-const body = document.querySelector('body');
-const copyright = document.querySelector('#copyright');
+class DialogEvent extends Event {
+    static eventName = 'dialog-event';
+    targetElement = '';
 
-const readPreference = () => {
-    return localStorage.getItem('color-mode');
-};
-
-const savePreference = (theme) => {
-    document.documentElement.setAttribute('color-mode', theme);
-    localStorage.setItem('color-mode', theme);
-};
-
-const deletePreference = () => {
-    document.documentElement.removeAttribute('color-mode');
-    localStorage.removeItem('color-mode');
-};
-
-copyright.addEventListener('dblclick', () => {
-    const mode = readPreference();
-
-    if (mode === 'light') {
-        savePreference('dark');
-    } else {
-        savePreference('light');
+    constructor(targetElement) {
+        super(DialogEvent.eventName, { bubbles: true });
+        this.targetElement = targetElement;
     }
-});
+}
 
-copyright.addEventListener('contextmenu', () => {
-    deletePreference();
+/**
+ * Button to toggle the visibility of <theme-selection>
+ * by dispatching the DialogEvent
+ */
+document
+    .querySelector('#btn-theme-selection')
+    .addEventListener('click', (event) => {
+        const { target } = event;
+        window.dispatchEvent(new DialogEvent(target));
+    });
+
+/**
+ * Listen for the theme-event to happen to change
+ * the 'theme-preference' attribute
+ */
+window.addEventListener('theme-event', (themeEvent) => {
+    const { themeName } = themeEvent;
+
+    document.documentElement.setAttribute('theme-preference', themeName);
 });
