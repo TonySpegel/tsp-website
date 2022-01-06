@@ -41,5 +41,5 @@ anpu_date_format = '%d.%m.%Y'
 
 title = 'Tony Spegel'
 title_separator = "|"  # set as |, -, _, etc
-title_addition = "Frontend, Shopify, Web-Apps"
+title_addition = "Modern Web Playground"
 lang = 'de'
