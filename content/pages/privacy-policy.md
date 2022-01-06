@@ -20,9 +20,15 @@ Deutschland
 Tel.: <a class="text-link" target="_blank" rel="noopener noreferrer" href="tel:+4915125836017" title="Anrufen">+4915125836017</a>  
 E-Mail: <a class="text-link" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a>  
 
-## Auswertung des Besucherverhaltens & Cookies
-- Weder wird das Verhalten unserer Besucher:innen erfasst oder ausgewertet noch Cookies gesetzt
-- Etwaiges speichern von Daten (auf ihrem Endgerät) dient lediglich zum speichern von Einstellungen - wie beispielsweise ihrem gewählten Standard-Theme auf dieser Seite
+## Auswertung des Verhaltens von Besucherinnen und Besuchern & Cookies
+- Weder wird das Verhalten unserer Besucherinnen und Besuchern erfasst oder ausgewertet noch werden Cookies gesetzt
+- Etwaiges speichern von Daten (auf ihrem Endgerät) dient lediglich zum speichern von Einstellungen - wie beispielsweise ihrem gewählten Standard-Theme auf dieser Seite. Sie müssen dieser Speicherung explizit über die Option **Auswahl speichern** in der Theme-Auswahl zustimmen. Gespeichert werden lediglich die Schlüssel _save-selection_ und _theme-preference_. Um diese vollständig zu löschen, können Sie <b id="delete-settings" title="Einstellungen löschen" style="cursor: pointer;">hier</b> klicken oder in der Theme-Auswahl die Option deaktivieren.
+
+| Schlüssel        | Wert                  |
+|------------------|-----------------------|
+| save-selection   | true                  |
+| theme-preference | auto \| light \| dark |
+
 - Cookies werden keine gesetzt. Sollten dennoch Cookies gesetzt werden, geschiet dies ausschließlich durch den Hoster GitHub Inc. und ist nicht umgehbar
 
 ## Hosting
@@ -63,3 +69,14 @@ Die Verarbeitung der unter diesem Abschnitt angegebenen Daten ist weder gesetzli
 
 GitHub hat Compliance-Maßnahmen für internationale Datenübermittlungen umgesetzt. Diese gelten für alle weltweiten Aktivitäten, bei denen GitHub personenbezogene Daten von natürlichen Personen in der EU verarbeitet. Diese Maßnahmen basieren auf den EU-Standardvertragsklauseln (SCCs). Weitere Informationen finden Sie <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors">hier</a>.
 
+<script>
+    const deleteSetting = (setting) => {
+        localStorage.removeItem(setting);
+    };
+    const deleteSettings = document.querySelector('#delete-settings');
+    
+    deleteSettings.addEventListener('click', () => {
+        deleteSetting('save-selection');
+        deleteSetting('theme-preference');
+    });
+</script>
