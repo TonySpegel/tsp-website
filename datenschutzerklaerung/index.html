@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" color-mode>
+<html lang="de" theme-preference>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -57,12 +57,12 @@
 
         <script>
             // Reade theme preference from localStorage
-            const themePreference = localStorage.getItem('color-mode');
+            const themePreference = localStorage.getItem('theme-preference');
             // Set theme if one is present in localStorage
             if (themePreference !== null) {
                 document
                     .querySelector('html')
-                    .setAttribute('color-mode', themePreference);
+                    .setAttribute('theme-preference', themePreference);
             }
         </script>
 
@@ -118,6 +118,19 @@
         <script type="module" src="/index.js"></script>
     </head>
     <body>
+        <theme-switch>
+            <h2 slot="heading">Theme Auswahl</h2>
+            <span slot="sub-heading">Wähle ein Theme für die Website</span>
+            <a
+                href="/datenschutzerklaerung/#auswertung-des-verhaltens-von-besucherinnen-und-besuchern-cookies"
+                id="read-more"
+                slot="read-more"
+                target="_blank"
+                title="Was wird gespeichert?"
+            >
+                ? 
+            </a>
+        </theme-switch>
         <a class="skip-to-main" href="#main">Zum Inhalt</a>
         <div class="glass"></div>
         <div class="bubble"></div>
@@ -128,20 +141,26 @@
 <header id="site-header">
     <nav>
         <a href="/" class="logo-link no-fetch" title="Zur Startseite">
-            <div class="logo surface">
+            <div class="logo">
                 <img src="/tsp_icon.svg" alt="SVG mit img Tag laden" />
             </div>
             <h1>Tony Spegel</h1>
         </a>
         <div class="menu">
-            <div class="circle-wrapper">
-                <div class="outer-circle"></div>
-                <div class="circle"></div>
-            </div>
+            <button
+                aria-label="open theme-selection"
+                id="btn-theme-selection"
+                title="Farbschema auswählen"
+            ></button>
+
             <ul>
                  
                 <li>
-                    <a class="article-tag surface" href="https:&#x2F;&#x2F;tony-spegel.com&#x2F;blog&#x2F;" title="Zum Blog">
+                    <a
+                        class="article-tag surface"
+                        href="https:&#x2F;&#x2F;tony-spegel.com&#x2F;blog&#x2F;"
+                        title="Zum Blog"
+                    >
                         Blog
                     </a>
                 </li>
@@ -182,10 +201,16 @@ Schloßgasse 1<br />
 Deutschland</p>
 <p>Tel.: <a class="text-link" target="_blank" rel="noopener noreferrer" href="tel:+4915125836017" title="Anrufen">+4915125836017</a><br />
 E-Mail: <a class="text-link" target="_blank" rel="noopener noreferrer" href="mailto:tony.spegel@gmail.com" title="E-Mail schreiben">tony.spegel@gmail.com</a></p>
-<h2 id="auswertung-des-besucherverhaltens-cookies">Auswertung des Besucherverhaltens &amp; Cookies</h2>
+<h2 id="auswertung-des-verhaltens-von-besucherinnen-und-besuchern-cookies">Auswertung des Verhaltens von Besucherinnen und Besuchern &amp; Cookies</h2>
 <ul>
-<li>Weder wird das Verhalten unserer Besucher:innen erfasst oder ausgewertet noch Cookies gesetzt</li>
-<li>Etwaiges speichern von Daten (auf ihrem Endgerät) dient lediglich zum speichern von Einstellungen - wie beispielsweise ihrem gewählten Standard-Theme auf dieser Seite</li>
+<li>Weder wird das Verhalten unserer Besucherinnen und Besuchern erfasst oder ausgewertet noch werden Cookies gesetzt</li>
+<li>Etwaiges speichern von Daten (auf ihrem Endgerät) dient lediglich zum speichern von Einstellungen - wie beispielsweise ihrem gewählten Standard-Theme auf dieser Seite. Sie müssen dieser Speicherung explizit über die Option <strong>Auswahl speichern</strong> in der Theme-Auswahl zustimmen. Gespeichert werden lediglich die Schlüssel <em>save-selection</em> und <em>theme-preference</em>. Um diese vollständig zu löschen, können Sie <b id="delete-settings" title="Einstellungen löschen" style="cursor: pointer;">hier</b> klicken oder in der Theme-Auswahl die Option deaktivieren.</li>
+</ul>
+<table><thead><tr><th>Schlüssel</th><th>Wert</th></tr></thead><tbody>
+<tr><td>save-selection</td><td>true</td></tr>
+<tr><td>theme-preference</td><td>auto | light | dark</td></tr>
+</tbody></table>
+<ul>
 <li>Cookies werden keine gesetzt. Sollten dennoch Cookies gesetzt werden, geschiet dies ausschließlich durch den Hoster GitHub Inc. und ist nicht umgehbar</li>
 </ul>
 <h2 id="hosting">Hosting</h2>
@@ -215,7 +240,17 @@ United States</p>
 <p>Die Daten werden gelöscht, sobald der Zweck der Verarbeitung entfällt.</p>
 <p>Die Verarbeitung der unter diesem Abschnitt angegebenen Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Die Funktionsfähigkeit der Website ist ohne die Verarbeitung nicht gewährleistet.</p>
 <p>GitHub hat Compliance-Maßnahmen für internationale Datenübermittlungen umgesetzt. Diese gelten für alle weltweiten Aktivitäten, bei denen GitHub personenbezogene Daten von natürlichen Personen in der EU verarbeitet. Diese Maßnahmen basieren auf den EU-Standardvertragsklauseln (SCCs). Weitere Informationen finden Sie <a class="text-link" target="_blank" rel="noopener noreferrer" href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors">hier</a>.</p>
-
+<script>
+    const deleteSetting = (setting) => {
+        localStorage.removeItem(setting);
+    };
+    const deleteSettings = document.querySelector('#delete-settings');
+    
+    deleteSettings.addEventListener('click', () => {
+        deleteSetting('save-selection');
+        deleteSetting('theme-preference');
+    });
+</script>
     </div>
 </article>
 
@@ -227,7 +262,7 @@ United States</p>
 <footer>
     <ul>
         <li id="copyright">
-            © Tony Spegel 2021
+            © Tony Spegel 2022
         </li>
         <li>
             <a href="/impressum/" class="text-link">Impressum</a>

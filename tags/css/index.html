@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" color-mode>
+<html lang="de" theme-preference>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,12 +38,12 @@ Tag: css | Tony Spegel
 
         <script>
             // Reade theme preference from localStorage
-            const themePreference = localStorage.getItem('color-mode');
+            const themePreference = localStorage.getItem('theme-preference');
             // Set theme if one is present in localStorage
             if (themePreference !== null) {
                 document
                     .querySelector('html')
-                    .setAttribute('color-mode', themePreference);
+                    .setAttribute('theme-preference', themePreference);
             }
         </script>
 
@@ -99,6 +99,19 @@ Tag: css | Tony Spegel
         <script type="module" src="/index.js"></script>
     </head>
     <body>
+        <theme-switch>
+            <h2 slot="heading">Theme Auswahl</h2>
+            <span slot="sub-heading">Wähle ein Theme für die Website</span>
+            <a
+                href="/datenschutzerklaerung/#auswertung-des-verhaltens-von-besucherinnen-und-besuchern-cookies"
+                id="read-more"
+                slot="read-more"
+                target="_blank"
+                title="Was wird gespeichert?"
+            >
+                ? 
+            </a>
+        </theme-switch>
         <a class="skip-to-main" href="#main">Zum Inhalt</a>
         <div class="glass"></div>
         <div class="bubble"></div>
@@ -109,20 +122,26 @@ Tag: css | Tony Spegel
 <header id="site-header">
     <nav>
         <a href="/" class="logo-link no-fetch" title="Zur Startseite">
-            <div class="logo surface">
+            <div class="logo">
                 <img src="/tsp_icon.svg" alt="SVG mit img Tag laden" />
             </div>
             <h1>Tony Spegel</h1>
         </a>
         <div class="menu">
-            <div class="circle-wrapper">
-                <div class="outer-circle"></div>
-                <div class="circle"></div>
-            </div>
+            <button
+                aria-label="open theme-selection"
+                id="btn-theme-selection"
+                title="Farbschema auswählen"
+            ></button>
+
             <ul>
                  
                 <li>
-                    <a class="article-tag surface" href="https:&#x2F;&#x2F;tony-spegel.com&#x2F;blog&#x2F;" title="Zum Blog">
+                    <a
+                        class="article-tag surface"
+                        href="https:&#x2F;&#x2F;tony-spegel.com&#x2F;blog&#x2F;"
+                        title="Zum Blog"
+                    >
                         Blog
                     </a>
                 </li>
@@ -227,7 +246,7 @@ Tag: css | Tony Spegel
 <footer>
     <ul>
         <li id="copyright">
-            © Tony Spegel 2021
+            © Tony Spegel 2022
         </li>
         <li>
             <a href="/impressum/" class="text-link">Impressum</a>
