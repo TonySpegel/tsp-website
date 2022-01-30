@@ -2,14 +2,6 @@
 @import './themes/light';
 
 * {
-    --hue-light: 281;
-    --sat-light: 55%;
-    --lum-light: 55%;
-
-    --hue-dark: 281;
-    --sat-dark: calc(var(--sat-light) / 2);
-    --lum-dark: calc(var(--lum-light) / 1.5);
-
     /**
      * Shades
      */
@@ -51,10 +43,10 @@
     --text-1-dark: hsl(0, 0%, 90%);
     --text-2-dark: hsl(0, 0%, 95%);
 
-    --surface-1-dark: hsl(var(--hue-light), 56%, 10%);
-    --surface-2-dark: hsl(var(--hue-light), 60%, 15%);
-    --surface-3-dark: hsl(var(--hue-light), 60%, 20%);
-    --surface-4-dark: hsl(var(--hue-light), 60%, 25%);
+    --surface-1-dark: hsl(281, 56%, 10%);
+    --surface-2-dark: hsl(281, 60%, 15%);
+    --surface-3-dark: hsl(281, 60%, 20%);
+    --surface-4-dark: hsl(281, 60%, 25%);
     --surface-5-dark: hsl(262, 86%, 8%);
 
     --circle-wave-dark: #fff;
@@ -70,7 +62,8 @@ theme-switch {
     --base-gap: 16px;
 }
 
-:root {
+:root,
+:root[theme-preference='light'] {
     @include light;
 
     /**
@@ -87,10 +80,26 @@ theme-switch {
 }
 
 :root[theme-preference='light'] {
-    @include light;
+    theme-switch {
+        --text-color-1: var(--purple-950);
+        --text-color-2: black;
+        /* Dialog */
+        --dialog-bg-color: var(--purple-50);
+        --dialog-border-color: var(--purple-500);
+        /* Radio Buttons */
+        --circle-bg-color: var(--purple-100);
+        --circle-bg-color-checked: var(--purple-300);
+        --circle-border-color: var(--purple-500);
+        /* Control elements */
+        --control-color: var(--purple-300);
+        --control-interaction-color: var(--purple-400);
+        /* Checkbox */
+        --checkbox-bg-color: var(--purple-50);
+        --checkbox-bg-color-checked: var(--purple-200);
+        --checkmark-color: var(--purple-900);
+        --checkbox-border-color: var(--purple-500);
 
-    .surface {
-        @include light-surface-3();
+        --outline-color: #000;
     }
 }
 
@@ -100,11 +109,33 @@ theme-switch {
     }
 
     .surface {
-        @include dark-surface-2();
+        border: 1px solid var(--border-color);
     }
 
     .surface-tag {
         @include surface-tag();
+    }
+
+    theme-switch {
+        --text-color-1: #fff;
+        --text-color-2: #fff;
+        /* Dialog */
+        --dialog-bg-color: var(--surface-5);
+        --dialog-border-color: var(--surface-2);
+        /* Radio Buttons */
+        --circle-bg-color: #2a1d5445;
+        --circle-bg-color-checked: var(--surface-3-dark);
+        --circle-border-color: #eedcf530;
+        /* Control elements */
+        --control-color: var(--surface-3);
+        --control-interaction-color: var(--surface-2);
+        /* Checkbox */
+        --checkbox-bg-color: #402e7e45;
+        --checkbox-bg-color-checked: var(--surface-3);
+        --checkmark-color: #fff;
+        --checkbox-border-color: var(--surface-3);
+
+        --outline-color: #fff;
     }
 }
 
@@ -116,10 +147,33 @@ theme-switch {
     }
 
     .surface {
-        @include dark-surface-2();
+        background-color: var(--surface-2);
+        border: 1px solid var(--border-color);
     }
 
     .surface-tag {
         @include surface-tag();
+    }
+
+    theme-switch {
+        --text-color-1: #fff;
+        --text-color-2: #fff;
+        /* Dialog */
+        --dialog-bg-color: var(--surface-5);
+        --dialog-border-color: var(--surface-2);
+        /* Radio Buttons */
+        --circle-bg-color: #2a1d5445;
+        --circle-bg-color-checked: var(--surface-3-dark);
+        --circle-border-color: #eedcf530;
+        /* Control elements */
+        --control-color: var(--surface-3);
+        --control-interaction-color: var(--surface-2);
+        /* Checkbox */
+        --checkbox-bg-color: #402e7e45;
+        --checkbox-bg-color-checked: var(--surface-3);
+        --checkmark-color: #fff;
+        --checkbox-border-color: var(--surface-3);
+
+        --outline-color: #fff;
     }
 }
