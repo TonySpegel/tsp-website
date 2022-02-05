@@ -2,14 +2,16 @@
  * Copyright © 2022 Tony Spegel
  */
 
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import html from '@web/rollup-plugin-html';
+import path from 'path';
 import summary from 'rollup-plugin-summary';
 import { generateSW } from 'rollup-plugin-workbox';
-import path from 'path';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
+import { importMetaAssets } from '@web/rollup-plugin-import-meta-assets';
 
 export default {
-    input: 'dist/index.js',
+    input: ['dist/**/*.html'],
     output: {
         dir: 'dist/',
         format: 'es',
@@ -17,9 +19,16 @@ export default {
     },
     preserveEntrySignatures: 'strict',
     plugins: [
+        html({ extractAssets: false,}),
         nodeResolve(),
         /** Minify JS */
-        terser({ ecma: 2020, module: true, warnings: true }),
+        terser({
+            ecma: 2020,
+            module: true,
+            warnings: true,
+        }),
+        /** Bundle assets references via import.meta.url */
+        importMetaAssets(),
         generateSW({
             globIgnores: ['polyfills/*.js', 'nomodule-*.js'],
             navigateFallback: '/index.html',
@@ -28,7 +37,7 @@ export default {
             // directory to match patterns against to be precached
             globDirectory: path.join('dist'),
             // cache any html js and css by default
-            globPatterns: ['**/*.{html,js,css,webmanifest}'],
+            globPatterns: ['**/*.{html,js,css,png,webmanifest}'],
             skipWaiting: true,
             clientsClaim: true,
             runtimeCaching: [
