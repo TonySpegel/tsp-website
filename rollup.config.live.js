@@ -2,16 +2,42 @@
  * Copyright © 2022 Tony Spegel
  */
 
-import html from '@web/rollup-plugin-html';
-import path from 'path';
-import summary from 'rollup-plugin-summary';
 import { generateSW } from 'rollup-plugin-workbox';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
-import { importMetaAssets } from '@web/rollup-plugin-import-meta-assets';
+import path from 'path';
+import replaceHtmlVars from 'rollup-plugin-replace-html-vars';
+import summary from 'rollup-plugin-summary';
+
+const serviceWorkerRegistration = `
+    <script type="module">
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker
+                    .register('/sw.js')
+                    .then((registration) => {
+                        // Registration was successful
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    })
+                    .catch((errorMessage) => {
+                        // registration failed :(
+                        console.log(
+                            'ServiceWorker registration failed: ',
+                            errorMessage
+                        );
+                    });
+            });
+        } else {
+            console.log('Service workers are not supported.');
+        }
+    </script>
+`;
 
 export default {
-    input: ['dist/**/*.html'],
+    input: 'dist/index.js',
     output: {
         dir: 'dist/',
         format: 'es',
@@ -19,16 +45,23 @@ export default {
     },
     preserveEntrySignatures: 'strict',
     plugins: [
-        html({ extractAssets: false,}),
+        // Replace token to register ServiceWorker
+        replaceHtmlVars({
+            files: 'dist/**/*.html',
+            from: '<!-- SW Registration -->',
+            to: serviceWorkerRegistration,
+        }),
         nodeResolve(),
-        /** Minify JS */
+        // Minify JS
         terser({
             ecma: 2020,
             module: true,
             warnings: true,
+            format: {
+                quote_style: 1,
+            },
         }),
-        /** Bundle assets references via import.meta.url */
-        importMetaAssets(),
+        // Generate a ServiceWorker
         generateSW({
             globIgnores: ['polyfills/*.js', 'nomodule-*.js'],
             navigateFallback: '/index.html',
