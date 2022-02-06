@@ -1,3 +1,8 @@
+/**
+ * @license
+ * Copyright 2022 Tony Spegel
+ */
+
 const directLinks = [...document.querySelectorAll('.direct-link')];
 
 if (directLinks.length > 0) {

@@ -1,3 +1,8 @@
+/**
+ * @license
+ * Copyright 2022 Tony Spegel
+ */
+
 import { addPrefetchLink } from 'add-prefetch-link';
 import { ThemeSwitch } from 'theme-switch-component';
 import './js/intersectionObserver.mjs';
