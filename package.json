@@ -1,6 +1,6 @@
 {
     "name": "tsp-website",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "scripts": {
         "build-zola-local": "zola --config config.local.toml build",
         "serve-zola-local": "zola --config config.local.toml serve",
@@ -14,18 +14,16 @@
         "build-rollup-zola-live": "rollup --config rollup.config.zola-live.js"
     },
     "dependencies": {
-        "add-prefetch-link": "^1.0.4",
+        "add-prefetch-link": "^1.0.5",
         "theme-switch-component": "^0.0.5"
     },
     "devDependencies": {
-        "@open-wc/rollup-plugin-html": "1.2.5",
         "@rollup/plugin-node-resolve": "13.1.3",
         "@rollup/plugin-replace": "^3.0.1",
-        "@web/dev-server": "0.1.24",
-        "@web/rollup-plugin-html": "^1.10.1",
-        "@web/rollup-plugin-import-meta-assets": "^1.0.7",
-        "rollup": "2.66.1",
+        "@web/dev-server": "0.1.29",
+        "rollup": "2.67.0",
         "rollup-plugin-copy": "3.4.0",
+        "rollup-plugin-replace-html-vars": "^1.0.3",
         "rollup-plugin-summary": "^1.3.0",
         "rollup-plugin-terser": "^7.0.2",
         "rollup-plugin-workbox": "^6.2.0"
