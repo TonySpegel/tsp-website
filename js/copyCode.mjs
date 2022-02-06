@@ -1,3 +1,8 @@
+/**
+ * @license
+ * Copyright 2022 Tony Spegel
+ */
+
 const preTags = [...document.querySelectorAll('pre')];
 const codeTags = [...document.querySelectorAll('pre > code')];
 

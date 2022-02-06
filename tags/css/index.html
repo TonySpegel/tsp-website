@@ -124,7 +124,7 @@ Tag: css | Tony Spegel
     <nav>
         <a href="/" class="logo-link no-fetch" title="Zur Startseite">
             <div class="logo">
-                <img src="/tsp_icon.svg" alt="SVG mit img Tag laden" />
+                <img src="/tsp_icon.svg" alt="Tony Spegel Logo" />
             </div>
             <h1>Tony Spegel</h1>
         </a>
@@ -267,5 +267,31 @@ Tag: css | Tony Spegel
 
             
         </div>
+        
+    <script type="module">
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker
+                    .register('/sw.js')
+                    .then((registration) => {
+                        // Registration was successful
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    })
+                    .catch((errorMessage) => {
+                        // registration failed :(
+                        console.log(
+                            'ServiceWorker registration failed: ',
+                            errorMessage
+                        );
+                    });
+            });
+        } else {
+            console.log('Service workers are not supported.');
+        }
+    </script>
+
     </body>
 </html>

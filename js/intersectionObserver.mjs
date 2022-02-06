@@ -1,4 +1,9 @@
 /**
+ * @license
+ * Copyright 2022 Tony Spegel
+ */
+
+/**
  * Add a CSS class dynamically w/ IntersectionObserver
  */
 const scrollRoot = document.querySelector('[data-scroller]');
