@@ -70,7 +70,7 @@ export default {
             // directory to match patterns against to be precached
             globDirectory: path.join('dist'),
             // cache any html js and css by default
-            globPatterns: ['**/*.{html,js,css,png,webmanifest}'],
+            globPatterns: ['**/*.{html,js,mjs,css,png,svg,webmanifest}'],
             skipWaiting: true,
             clientsClaim: true,
             runtimeCaching: [
