@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "add-prefetch-link": "^1.0.5",
-        "theme-switch-component": "^0.0.5"
+        "theme-switch-component": "^0.0.6"
     },
     "devDependencies": {
         "@rollup/plugin-node-resolve": "13.1.3",
